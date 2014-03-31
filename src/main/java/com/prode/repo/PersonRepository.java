@@ -1,11 +1,11 @@
-package com.sample.repo;
+package com.prode.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.sample.model.entities.Person;
+import com.prode.model.entities.Person;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long>{

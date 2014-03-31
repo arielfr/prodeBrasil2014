@@ -1,4 +1,4 @@
-package com.sample.common;
+package com.prode.common;
 
 import java.util.Map;
 
@@ -10,8 +10,8 @@ import org.scribe.up.profile.google2.Google2Profile;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationToken;
-import com.sample.model.entities.Person;
-import com.sample.repo.PersonRepository;
+import com.prode.model.entities.Person;
+import com.prode.repo.PersonRepository;
 
 public class CommonModel {
 	

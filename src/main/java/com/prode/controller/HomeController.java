@@ -1,4 +1,4 @@
-package com.sample.controller;
+package com.prode.controller;
 
 import java.util.Map;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationToken;
-import com.sample.common.CommonModel;
-import com.sample.util.redirectUtil;
+import com.prode.common.CommonModel;
+import com.prode.util.redirectUtil;
 
 @Controller
 public class HomeController extends CommonModel{
