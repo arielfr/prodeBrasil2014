@@ -11,7 +11,7 @@
 		
 		<c:if test="${register}">
 		    <div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav central">
 					<li>
 						<a href="#">Resultados</a>
 					</li>
