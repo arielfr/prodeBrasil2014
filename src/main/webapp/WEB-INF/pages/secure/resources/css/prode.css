@@ -1,0 +1,18 @@
+#prode-container{
+	
+}
+
+#prode-container .navbar-brand{
+	padding: 0px 15px;
+}
+
+#prode-container .navbar img.wc-logo{
+	margin-top: 2px;
+	width: 25px;
+}
+
+#prode-container .navbar li img.profile-image{
+	margin-top: 5px;
+	width: 40px;
+	border-radius: 20px;
+}

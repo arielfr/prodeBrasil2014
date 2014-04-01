@@ -1,8 +1,9 @@
 <html>
-	<body>
-		<h2>Hello World!</h2>
-		<h2>${name}</h2>
-		<h2>${email}</h2>
-		<img src="${profilePicture}">
+	<head>
+		<jsp:include page="includes/header.jsp" />
+	</head>
+	<body id="prode-container">
+		<jsp:include page="includes/menu-bar.jsp" />
+		
 	</body>
 </html>

@@ -44,14 +44,6 @@ ALTER TABLE ONLY person ALTER COLUMN id SET DEFAULT nextval('person_id_seq'::reg
 
 
 --
--- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY person (id, firstname, lastname, email) FROM stdin;
-\.
-
-
---
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
