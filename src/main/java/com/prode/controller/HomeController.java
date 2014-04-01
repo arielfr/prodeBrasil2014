@@ -33,13 +33,6 @@ public class HomeController extends CommonModel{
 		return redirectUtil.redirect("secure/registration", model);
 	}
 	
-	@RequestMapping(value = "/secure/profile", method = RequestMethod.GET)
-	public String secureProfile(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
-		putCommon(request, response, model);
-		
-		return redirectUtil.redirect("secure/profile", model);
-	}
-	
 	@RequestMapping("/index")
     public ModelAndView homeHtml(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		return new ModelAndView("redirect:/secure/index");

@@ -1,7 +1,9 @@
 <html>
-	<body>
-		<h2>REGISTRATION!!! - Please Register</h2>
-		<h2>${name}</h2>
-		<h2>${email}</h2>
+	<head>
+		<jsp:include page="includes/header.jsp" />
+	</head>
+	<body id="prode-container">
+		<jsp:include page="includes/menu-bar.jsp" />
+		Registrate
 	</body>
 </html>

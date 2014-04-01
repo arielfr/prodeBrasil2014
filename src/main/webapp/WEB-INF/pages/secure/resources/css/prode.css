@@ -2,13 +2,27 @@
 	
 }
 
+#prode-container .navbar{
+	border-radius: 0px;
+}
+
 #prode-container .navbar-brand{
 	padding: 0px 15px;
 }
 
+#prode-container .navbar-nav.navbar-right:last-child{
+	margin-right: 0px;
+}
+
 #prode-container .navbar img.wc-logo{
+	margin-top: -2px;
+	width: 20px;
+	margin-left: 10px;
+}
+
+#prode-container .navbar img.oe-logo{
 	margin-top: 2px;
-	width: 25px;
+	width: 125px;
 }
 
 #prode-container .navbar li img.profile-image{
