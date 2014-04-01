@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/secure/index">
-				<img class="oe-logo" src="/assets/oe_logo.png">
+				<img class="oe-logo" src="/assets/oe_logo_alternative.png">
 				<img class="wc-logo" src="/assets/wc_logo.png">
 			</a>
 		</div>
@@ -24,7 +24,7 @@
 						<p class="navbar-text">${name}</p>
 					</li>
 					<li>
-						<img class="profile-image" src="${profilePicture}">
+						<img class="profile-image img-circle" src="${profilePicture}">
 					</li>
 				</ul>
 			</div>
