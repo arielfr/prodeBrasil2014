@@ -13,3 +13,10 @@ This Application use:
 - OAuth Library (Already download)
 - Hibernate
 - PostgreSQL
+
+<h3>Eclipse Configuration</h3>
+- Project Facets - Dynamic Web - 2.4
+- Java - Version 1.7
+
+<h3>Configuration File</h3>
+You need to configure the configuration.properties for the configuration of the application. This file is on the Resource folder
