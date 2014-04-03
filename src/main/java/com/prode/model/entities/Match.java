@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,16 +23,26 @@ public class Match implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "date_match")
 	private Date dateMatch;
 	
+	@Column(name = "time_match")
 	private Timestamp timeMatch;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_city", referencedColumnName = "id")
 	private City city;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_group", referencedColumnName = "id")
 	private Group group;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_team_a", referencedColumnName = "id")
 	private Team teamA;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_team_b", referencedColumnName = "id")
 	private Team teamB;
 
 	public Long getId() {
