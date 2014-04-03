@@ -45,7 +45,7 @@ public class HomeController extends CommonModel{
 			return redirectUtil.redirectBlock(model);
 		}
 		
-		HashMap<Group, List<Match>> matchesByGroup = matchService.getFixture();
+		HashMap<Long, HashMap<Group, List<Match>>> matchesByGroup = matchService.getFixture();
 		
 		model.put("fixture", matchesByGroup);
 		

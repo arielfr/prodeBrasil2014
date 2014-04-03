@@ -13,8 +13,9 @@
 			
 			<c:forEach items="${fixture}" var="entry">
 				<div class="panel panel-default">
-					<div class="panel-heading">${entry.key.name}</div>
-					<div class="panel-body">
+					<c:forEach items="${entry.value}" var="fixture">
+						<div class="panel-heading">${fixture.key.name}</div>
+						<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12 fixb first">
 								<div class="prode-block">
@@ -29,7 +30,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${entry.value}" var="match">
+											<c:forEach items="${fixture.value}" var="match">
 												<tr>
 													<td>${match.dateMatch} ${match.timeMatch}</td>
 													<td>${match.teamA.name}</td>
@@ -48,6 +49,7 @@
 							</div>
 						</div>
 					</div>
+					</c:forEach>
 				</div>
 			</c:forEach>
 		</div>

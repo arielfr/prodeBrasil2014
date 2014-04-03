@@ -7,5 +7,5 @@ import com.prode.model.entities.Group;
 import com.prode.model.entities.Match;
 
 public interface MatchService {
-	public HashMap<Group, List<Match>> getFixture();
+	public HashMap<Long, HashMap<Group, List<Match>>> getFixture();
 }
