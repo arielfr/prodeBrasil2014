@@ -15,7 +15,7 @@ public class redirectUtil {
 		if( blocked ){
 			return "domain-error";
 		}else{
-			if( register ){
+			if( register || ( !register && redirect == "secure/registration") ){
 				return redirect;
 			}else{
 				return "secure/registration";

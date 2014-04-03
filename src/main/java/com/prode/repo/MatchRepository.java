@@ -19,5 +19,7 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
 	
     @Query("select m from Match m where dateMatch = :dateMatch")
     List<Match> findByMatchDate(@Param("dateMatch") Date date);
-   
+    
+    @Query("select m from Match m where id_group = :group")
+    List<Match> findByGroup(@Param("group") Long groupId);
 }
