@@ -3,7 +3,7 @@
 --
 
 --
--- TOC entry 180 (class 1259 OID 16561)
+-- TOC entry 170 (class 1259 OID 172137)
 -- Name: city_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -22,7 +22,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 173 (class 1259 OID 16474)
+-- TOC entry 171 (class 1259 OID 172139)
 -- Name: cities; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -35,7 +35,7 @@ CREATE TABLE cities (
 ALTER TABLE public.cities OWNER TO postgres;
 
 --
--- TOC entry 174 (class 1259 OID 16497)
+-- TOC entry 172 (class 1259 OID 172143)
 -- Name: groups; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -48,7 +48,7 @@ CREATE TABLE groups (
 ALTER TABLE public.groups OWNER TO postgres;
 
 --
--- TOC entry 175 (class 1259 OID 16500)
+-- TOC entry 173 (class 1259 OID 172146)
 -- Name: groups_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -63,8 +63,8 @@ CREATE SEQUENCE groups_id_seq
 ALTER TABLE public.groups_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2267 (class 0 OID 0)
--- Dependencies: 175
+-- TOC entry 2001 (class 0 OID 0)
+-- Dependencies: 173
 -- Name: groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -72,7 +72,7 @@ ALTER SEQUENCE groups_id_seq OWNED BY groups.id;
 
 
 --
--- TOC entry 178 (class 1259 OID 16539)
+-- TOC entry 174 (class 1259 OID 172148)
 -- Name: groups_teams; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -86,7 +86,7 @@ CREATE TABLE groups_teams (
 ALTER TABLE public.groups_teams OWNER TO postgres;
 
 --
--- TOC entry 179 (class 1259 OID 16542)
+-- TOC entry 175 (class 1259 OID 172151)
 -- Name: groups_teams_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -101,8 +101,8 @@ CREATE SEQUENCE groups_teams_id_seq
 ALTER TABLE public.groups_teams_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2268 (class 0 OID 0)
--- Dependencies: 179
+-- TOC entry 2002 (class 0 OID 0)
+-- Dependencies: 175
 -- Name: groups_teams_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -110,14 +110,13 @@ ALTER SEQUENCE groups_teams_id_seq OWNED BY groups_teams.id;
 
 
 --
--- TOC entry 176 (class 1259 OID 16509)
+-- TOC entry 176 (class 1259 OID 172153)
 -- Name: matches; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE matches (
     id bigint NOT NULL,
-    date_match date NOT NULL,
-    time_match time without time zone NOT NULL,
+    date_match timestamp without time zone NOT NULL,
     id_city bigint NOT NULL,
     id_group bigint NOT NULL,
     id_team_a bigint NOT NULL,
@@ -128,7 +127,7 @@ CREATE TABLE matches (
 ALTER TABLE public.matches OWNER TO postgres;
 
 --
--- TOC entry 177 (class 1259 OID 16512)
+-- TOC entry 177 (class 1259 OID 172156)
 -- Name: matches_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -143,7 +142,7 @@ CREATE SEQUENCE matches_id_seq
 ALTER TABLE public.matches_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2269 (class 0 OID 0)
+-- TOC entry 2003 (class 0 OID 0)
 -- Dependencies: 177
 -- Name: matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -152,7 +151,7 @@ ALTER SEQUENCE matches_id_seq OWNED BY matches.id;
 
 
 --
--- TOC entry 170 (class 1259 OID 16398)
+-- TOC entry 178 (class 1259 OID 172158)
 -- Name: person; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -167,7 +166,7 @@ CREATE TABLE person (
 ALTER TABLE public.person OWNER TO postgres;
 
 --
--- TOC entry 171 (class 1259 OID 16404)
+-- TOC entry 179 (class 1259 OID 172164)
 -- Name: person_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -182,8 +181,8 @@ CREATE SEQUENCE person_id_seq
 ALTER TABLE public.person_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2270 (class 0 OID 0)
--- Dependencies: 171
+-- TOC entry 2004 (class 0 OID 0)
+-- Dependencies: 179
 -- Name: person_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -191,7 +190,7 @@ ALTER SEQUENCE person_id_seq OWNED BY person.id;
 
 
 --
--- TOC entry 181 (class 1259 OID 16564)
+-- TOC entry 180 (class 1259 OID 172166)
 -- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -206,7 +205,7 @@ CREATE SEQUENCE team_id_seq
 ALTER TABLE public.team_id_seq OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 16466)
+-- TOC entry 181 (class 1259 OID 172168)
 -- Name: teams; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -220,7 +219,7 @@ CREATE TABLE teams (
 ALTER TABLE public.teams OWNER TO postgres;
 
 --
--- TOC entry 2125 (class 2604 OID 16544)
+-- TOC entry 1856 (class 2604 OID 172175)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -228,7 +227,7 @@ ALTER TABLE ONLY groups_teams ALTER COLUMN id SET DEFAULT nextval('groups_teams_
 
 
 --
--- TOC entry 2124 (class 2604 OID 16514)
+-- TOC entry 1857 (class 2604 OID 172176)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -236,7 +235,7 @@ ALTER TABLE ONLY matches ALTER COLUMN id SET DEFAULT nextval('matches_id_seq'::r
 
 
 --
--- TOC entry 2121 (class 2604 OID 16406)
+-- TOC entry 1858 (class 2604 OID 172177)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -244,7 +243,7 @@ ALTER TABLE ONLY person ALTER COLUMN id SET DEFAULT nextval('person_id_seq'::reg
 
 
 --
--- TOC entry 2127 (class 2606 OID 16408)
+-- TOC entry 1875 (class 2606 OID 172179)
 -- Name: id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -253,7 +252,7 @@ ALTER TABLE ONLY person
 
 
 --
--- TOC entry 2135 (class 2606 OID 16503)
+-- TOC entry 1863 (class 2606 OID 172181)
 -- Name: id_pk_groups; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -262,7 +261,7 @@ ALTER TABLE ONLY groups
 
 
 --
--- TOC entry 2143 (class 2606 OID 16546)
+-- TOC entry 1867 (class 2606 OID 172183)
 -- Name: id_pk_groups_teams; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -271,7 +270,7 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 2139 (class 2606 OID 16516)
+-- TOC entry 1871 (class 2606 OID 172185)
 -- Name: id_pk_matches; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -280,7 +279,7 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 2129 (class 2606 OID 16410)
+-- TOC entry 1877 (class 2606 OID 172187)
 -- Name: id_unique; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -289,7 +288,7 @@ ALTER TABLE ONLY person
 
 
 --
--- TOC entry 2137 (class 2606 OID 16505)
+-- TOC entry 1865 (class 2606 OID 172189)
 -- Name: id_unique_groups; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -298,7 +297,7 @@ ALTER TABLE ONLY groups
 
 
 --
--- TOC entry 2145 (class 2606 OID 16548)
+-- TOC entry 1869 (class 2606 OID 172191)
 -- Name: id_unique_groups_teams; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -307,7 +306,7 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 2141 (class 2606 OID 16518)
+-- TOC entry 1873 (class 2606 OID 172193)
 -- Name: id_unique_matches; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -316,7 +315,7 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 2131 (class 2606 OID 16473)
+-- TOC entry 1879 (class 2606 OID 172195)
 -- Name: pk_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -325,16 +324,15 @@ ALTER TABLE ONLY teams
 
 
 --
--- TOC entry 2133 (class 2606 OID 16478)
+-- TOC entry 1861 (class 2606 OID 172197)
 -- Name: pk_id_cities; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY cities
     ADD CONSTRAINT pk_id_cities PRIMARY KEY (id);
 
-
 --
--- TOC entry 2265 (class 0 OID 0)
+-- TOC entry 1999 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -345,7 +343,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2014-04-03 00:54:27 ART
+-- Completed on 2014-04-03 19:44:24
 
 --
 -- PostgreSQL database dump complete

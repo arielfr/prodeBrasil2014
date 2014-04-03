@@ -26,9 +26,6 @@ public class Match implements Serializable {
 	@Column(name = "date_match")
 	private Date dateMatch;
 	
-	@Column(name = "time_match")
-	private Timestamp timeMatch;
-	
 	@ManyToOne
 	@JoinColumn(name = "id_city", referencedColumnName = "id")
 	private City city;
@@ -59,14 +56,6 @@ public class Match implements Serializable {
 
 	public void setDateMatch(Date dateMatch) {
 		this.dateMatch = dateMatch;
-	}
-
-	public Timestamp getTimeMatch() {
-		return timeMatch;
-	}
-
-	public void setTimeMatch(Timestamp timeMatch) {
-		this.timeMatch = timeMatch;
 	}
 
 	public City getCity() {

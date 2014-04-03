@@ -32,15 +32,29 @@
 										<tbody>
 											<c:forEach items="${fixture.value}" var="match">
 												<tr>
-													<td>${match.dateMatch} ${match.timeMatch}</td>
-													<td>${match.teamA.name}</td>
+													<td class="matchDate">${match.dateMatch}</td>
+													<td>
+														<div class="teams">
+															<div class="flag fteam_a">
+																<img class="${match.teamA.flag}" src="/assets/Flags.gif">
+															</div>
+															${match.teamA.name}
+														</div>
+													</td>
 													<td class="results">
 														<input style="width: 30px; height: 30px;" value="" maxlength="1">
 														<div class="dash">-</div>
 														<input style="width: 30px; height: 30px;" value="" maxlength="1">
 													</td>
-													<td>${match.teamB.name}</td>
-													<td>${match.city.name}</td>
+													<td>
+														<div class="teams">
+															${match.teamB.name}
+															<div class="flag fteam_b">
+																<img class="${match.teamB.flag}" src="/assets/Flags.gif">
+															</div>
+														</div>
+													</td>
+													<td class="matchCity">${match.city.name}</td>
 												</tr>
 											</c:forEach>
 										</tbody>

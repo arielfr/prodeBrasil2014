@@ -79,7 +79,16 @@
 }
 
 #prode-container .panel .row .prode-block table tbody td.results{
+	width: 220px;
 	padding-top: 8px;
+}
+
+#prode-container .panel .row .prode-block table tbody td.matchDate{
+	width: 140px;
+}
+
+#prode-container .panel .row .prode-block table tbody td.matchCity{
+	width: 150px;
 }
 
 #prode-container .panel .row .prode-block table tbody td{
@@ -92,4 +101,159 @@
 
 #prode-container .panel .row .prode-block table tbody td .dash{
 	display: inline-block;
+}
+
+#prode-container .panel .row .prode-block table td div.teams{
+	display: inline-block;
+	width: 150px;
+}
+
+#prode-container .panel .row .prode-block table div.flag{
+	width: 20px;
+	height: 15px;
+	overflow: hidden;
+	background-position: 0 -6px;
+	position: relative;
+}
+
+#prode-container .panel .row .prode-block table div.flag.fteam_a{
+	float: left;
+}
+
+#prode-container .panel .row .prode-block table div.flag.fteam_b{
+	float: right;
+}
+
+#prode-container .panel .row .prode-block table div.flag img{
+	position: absolute;
+	left: 0px;
+	top: -6px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.arg{
+	top: -34px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.bra{
+	top: -136px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cro{
+	top: -898px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.mex{
+	top: -550px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cam{
+	top: -620px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.esp{
+	top: -206px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.hol{
+	top: -966px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.chi{
+	top: -655px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.aus{
+	top: -309px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.col{
+	top: -172px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.gre{
+	top: -931px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.mar{
+	top: -690px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.jap{
+	top: -516px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.uru{
+	top: -240px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cos{
+	top: -377px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ing{
+	top: -1000px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ita{
+	top: -1034px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.sui{
+	top: -275px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ecu{
+	top: -725px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.fra{
+	top: -759px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.hon{
+	top: -448px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.bos{
+	top: -862px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ira{
+	top: -483px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.nig{
+	top: -828px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ale{
+	top: -69px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.por{
+	top: -1069px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.gha{
+	top: -794px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.usa{
+	top: -412px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.bel{
+	top: -102px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.arl{
+	top: -585px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.rus{
+	top: -1103px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cor{
+	top: -343px;
 }

@@ -14,10 +14,6 @@ ALTER TABLE public.results OWNER TO postgres;
 -- Data for Name: results; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY results (id, id_match, gol_team_a, gol_team_b) FROM stdin;
-\.
-
-
 --
 -- TOC entry 1857 (class 2606 OID 53114)
 -- Name: fk_match; Type: FK CONSTRAINT; Schema: public; Owner: postgres

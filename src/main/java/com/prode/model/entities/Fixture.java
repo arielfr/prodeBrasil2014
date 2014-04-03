@@ -19,8 +19,6 @@ public class Fixture implements Serializable{
 	
 	private Date dateMatch;
 	
-	private Timestamp timeMatch;
-	
 	private String cityName;
 	
 	private String groupName;

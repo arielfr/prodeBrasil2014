@@ -35,7 +35,7 @@ public class DBMatchService implements MatchService {
 		for(Group group : allGroups){
 			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
 			
-			if( groupMatches != null ){
+			if( !groupMatches.isEmpty() ){
 				HashMap<Group, List<Match>> matchs = new HashMap<Group, List<Match>>();
 				matchs.put(group, groupMatches);
 				fixture.put(group.getId(), matchs);

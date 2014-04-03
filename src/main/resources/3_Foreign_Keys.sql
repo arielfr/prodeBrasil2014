@@ -1,5 +1,6 @@
+
 --
--- TOC entry 2146 (class 2606 OID 16578)
+-- TOC entry 1882 (class 2606 OID 172198)
 -- Name: fk_city; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -8,7 +9,7 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 2150 (class 2606 OID 16568)
+-- TOC entry 1880 (class 2606 OID 172203)
 -- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17,7 +18,7 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 2147 (class 2606 OID 16583)
+-- TOC entry 1883 (class 2606 OID 172208)
 -- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -26,7 +27,7 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 2151 (class 2606 OID 16573)
+-- TOC entry 1881 (class 2606 OID 172213)
 -- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -35,7 +36,7 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 2148 (class 2606 OID 16588)
+-- TOC entry 1884 (class 2606 OID 172218)
 -- Name: fk_team_a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -44,7 +45,7 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 2149 (class 2606 OID 16593)
+-- TOC entry 1885 (class 2606 OID 172223)
 -- Name: fk_team_b; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 

@@ -38,11 +38,6 @@ ALTER SEQUENCE prode_id_seq OWNED BY prode.id;
 -- Data for Name: prode; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY prode (id, id_person, id_match, gol) FROM stdin;
-\.
-
-
---
 -- TOC entry 1979 (class 0 OID 0)
 -- Dependencies: 186
 -- Name: prode_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
