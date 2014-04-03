@@ -40,9 +40,16 @@ public class HomeController extends CommonModel{
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)
 	public String secureRegistration(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
-
+		
 		if( permissionsUtil.blockPageRegistration(model) ){
 			return redirectUtil.redirectBlock(model);
+		}
+		
+		boolean register = (Boolean) model.get("register");
+
+		if(register){
+			model.clear();
+			return redirectUtil.redirect("redirect:/secure/index", model);
 		}
 		
 		HashMap<Long, HashMap<Group, List<Match>>> matchesByGroup = matchService.getFixture();

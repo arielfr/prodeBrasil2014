@@ -156,10 +156,13 @@ ALTER SEQUENCE matches_id_seq OWNED BY matches.id;
 --
 
 CREATE TABLE person (
-    id bigint NOT NULL,
-    firstname character varying(255) NOT NULL,
-    lastname character varying(255) NOT NULL,
-    email character varying(255) NOT NULL
+	id bigserial NOT NULL,
+	name character varying(255) NOT NULL,
+	email character varying(255) NOT NULL,
+	register boolean NOT NULL DEFAULT false,
+	saved boolean NOT NULL DEFAULT false,
+	CONSTRAINT id_pk PRIMARY KEY (id),
+	CONSTRAINT id_unique UNIQUE (id)
 );
 
 

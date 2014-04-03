@@ -32,7 +32,7 @@ public class CommonModel {
 			person = personRepo.findByEmail(google.getEmail());
 			
 			//Block by register or not
-			if(person != null){
+			if( person != null && person.isRegister() ){
 				register = true;
 			}
 			

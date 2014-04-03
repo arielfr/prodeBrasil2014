@@ -229,7 +229,7 @@ SELECT pg_catalog.setval('matches_id_seq', 6, true);
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('person_id_seq', 3, true);
+SELECT pg_catalog.setval('person_id_seq', 1, true);
 
 
 --
