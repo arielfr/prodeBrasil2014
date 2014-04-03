@@ -9,17 +9,28 @@ public class redirectUtil {
 		//Force to check Google authentication all the time
 		SecurityContextHolder.getContext().setAuthentication(null);
 		
+		return redirect;
+	}
+	
+	public static String redirectBlock(Map<String, Object> model){
+		//Force to check Google authentication all the time
+		SecurityContextHolder.getContext().setAuthentication(null);
+		
 		Boolean blocked = (Boolean) model.get("blocked");
 		Boolean register = (Boolean) model.get("register");
 		
 		if( blocked ){
-			return "domain-error";
+			model.clear();
+			
+			return "redirect:/domain-error";
 		}else{
-			if( register || ( !register && redirect == "secure/registration") ){
-				return redirect;
-			}else{
-				return "secure/registration";
+			if(!register){
+				model.clear();
+				
+				return "redirect:/secure/registration";
 			}
 		}
+		
+		return "";
 	}
 }
