@@ -257,3 +257,27 @@
 #prode-container .panel .row .prode-block table div.flag img.cor{
 	top: -343px;
 }
+
+#prode-container.register .panel div.reg-personal{
+	width: 100%;
+}
+
+#prode-container.register .panel div.reg-personal .profilePicBig{
+	display: inline-block;
+	float: left;
+}
+
+#prode-container.register .panel div.reg-personal .profilePicBig img{
+	width: 350px;
+	height: 350px;
+}
+
+#prode-container.register .panel div.reg-personal .personalData{
+	display: inline-block;
+	float: right;
+	width: 550px;
+}
+
+#prode-container.register .panel div.reg-personal .subTitle{
+	padding-bottom: 5px;
+}

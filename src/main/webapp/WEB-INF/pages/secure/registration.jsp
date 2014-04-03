@@ -4,11 +4,48 @@
 	<head>
 		<jsp:include page="includes/header.jsp" />
 	</head>
-	<body id="prode-container">
+	<body id="prode-container" class="register">
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div class="page-header">
-				<h1>Fixture - Mundial Brasil 2014</h1>
+				<h1>FIFA World Cup Brazil 2014 <small>Registration</small></h1>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Personal Information</div>
+				<div class="panel-body">
+					<div class="reg-personal" style="width: 100%;">
+						<div class="profilePicBig" style="float: left; display: inline-block;">
+							<img src="${profilePicture}" style="width: 350px; height: 350px;">
+						</div>
+						<div class="personalData" style="float: right; display: inline-block; width: 550px;">
+							<div class="input-group">
+								<span class="input-group-addon">Name:</span>
+								<input type="text" class="form-control" disabled value="${name}">
+							</div>
+							</br>
+							<div class="input-group">
+								<span class="input-group-addon">Email:</span>
+								<input type="text" class="form-control" disabled value="${email}">
+							</div>
+							</br>
+							<div class="subTitle">Country:</div>
+							<select class="form-control">
+							    <option value="arg">Argentina</option>
+							    <option value="ven">Venezuela</option>
+							    <option value="mia">Miami</option>
+							</select>
+							</br>
+							<div class="subTitle">Sector:</div>
+							<select class="form-control">
+							    <option value="learn">Learning Platform</option>
+							    <option value="bi">Business Intelligence</option>
+							    <option value="aut">Automation</option>
+							    <option value="man">Management</option>
+							</select>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 			<c:forEach items="${fixture}" var="entry">

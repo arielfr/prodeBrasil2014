@@ -6,8 +6,9 @@
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div class="page-header">
-				<h1>Fixture - Mundial Brasil 2014</h1>
+				<h1>FIFA World Cup Brazil 2014 <small>Results</small></h1>
 			</div>
+
 			<div class="panel panel-default">
 				<div class="panel-heading">Grupo A</div>
 				<div class="panel-body">
