@@ -49,9 +49,9 @@
 			</div>
 			
 			<c:forEach items="${fixture}" var="entry">
-				<div class="panel panel-default">
+				<div class="panel panel-default pr-registration">
 					<c:forEach items="${entry.value}" var="fixture">
-						<div class="panel-heading">${fixture.key.name}</div>
+						<div class="panel-heading" group="${fixture.key.id}">${fixture.key.name}</div>
 						<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12 fixb first">
@@ -68,25 +68,25 @@
 										</thead>
 										<tbody>
 											<c:forEach items="${fixture.value}" var="match">
-												<tr>
+												<tr class="match_row" match="${match.id}">
 													<td class="matchDate">${match.dateMatch}</td>
 													<td>
 														<div class="teams">
-															<div class="flag fteam_a">
+															<div class="flag fteam_a" team_a="${match.teamA.id}">
 																<img class="${match.teamA.flag}" src="/assets/Flags.gif">
 															</div>
 															${match.teamA.name}
 														</div>
 													</td>
 													<td class="results">
-														<input style="width: 30px; height: 30px;" value="" maxlength="1">
+														<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_a_result">
 														<div class="dash">-</div>
-														<input style="width: 30px; height: 30px;" value="" maxlength="1">
+														<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_b_result">
 													</td>
 													<td>
 														<div class="teams">
 															${match.teamB.name}
-															<div class="flag fteam_b">
+															<div class="flag fteam_b"  team_b="${match.teamB.id}">
 																<img class="${match.teamB.flag}" src="/assets/Flags.gif">
 															</div>
 														</div>
