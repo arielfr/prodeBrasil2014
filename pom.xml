@@ -22,6 +22,7 @@
 		<postgres.version>9.1-901.jdbc4</postgres.version>
 		<dbcp.version>1.4</dbcp.version>
 		<oauth.version>1.1.0</oauth.version>
+		<jackson.version>1.9.7</jackson.version>
 	</properties>
   
 	<dependencies>
@@ -138,6 +139,11 @@
 			<artifactId>spring-security-oauth-client</artifactId>
 			<version>${oauth.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 	</dependencies>
   
 	<build>
