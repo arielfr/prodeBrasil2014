@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,11 +20,16 @@ public class Result implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_match", referencedColumnName = "id")
 	private Match match;
 	
-	private int gol_team_a;
+	@ManyToOne
+	@JoinColumn(name = "id_team", referencedColumnName = "id")
+	private Team team;
 	
-	private int gol_team_b;
+	private int gol;
+	
 
 	public Long getId() {
 		return id;
@@ -40,20 +47,20 @@ public class Result implements Serializable {
 		this.match = match;
 	}
 
-	public int getGol_team_a() {
-		return gol_team_a;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setGol_team_a(int gol_team_a) {
-		this.gol_team_a = gol_team_a;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
-	public int getGol_team_b() {
-		return gol_team_b;
+	public int getGol() {
+		return gol;
 	}
 
-	public void setGol_team_b(int gol_team_b) {
-		this.gol_team_b = gol_team_b;
+	public void setGol(int gol) {
+		this.gol = gol;
 	}
 	
 }
