@@ -281,3 +281,8 @@
 #prode-container.register .panel div.reg-personal .subTitle{
 	padding-bottom: 5px;
 }
+
+#prode-container.register .btn-container{
+	float: right;
+	padding-bottom: 20px;
+}

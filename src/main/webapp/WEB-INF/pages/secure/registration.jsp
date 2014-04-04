@@ -3,10 +3,14 @@
 <html>
 	<head>
 		<jsp:include page="includes/header.jsp" />
+		<script type="text/javascript" src="/js/registration.js"></script>
 	</head>
 	<body id="prode-container" class="register">
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
+			<div id="messages">
+			</div>
+			
 			<div class="page-header">
 				<h1>FIFA World Cup Brazil 2014 <small>Registration</small></h1>
 			</div>
@@ -103,6 +107,10 @@
 					</c:forEach>
 				</div>
 			</c:forEach>
+			<div class="btn-container">
+				<a href="#" class="btn btn-default save">Save</a>
+				<a href="#" class="btn btn-primary submit">Submit</a>
+			</div>
 		</div>
 	</body>
 </html>

@@ -29,6 +29,8 @@ public class ProdeController extends AbstractController {
     @RequestMapping(value = "/save", method = RequestMethod.POST, produces="application/json")
     @ResponseBody
     public void saveProde(@RequestBody List<UISaveFixtureDTO> fixtureDTO) {
+    	System.out.println("Calling");
+    	
     	for(UISaveFixtureDTO groups : fixtureDTO){
     		
     	}
