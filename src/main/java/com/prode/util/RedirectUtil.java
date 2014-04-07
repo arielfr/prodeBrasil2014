@@ -4,14 +4,7 @@ import java.util.Map;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
-public class redirectUtil {
-	public static String redirect(String redirect, Map<String, Object> model){
-		//Force to check Google authentication all the time
-		SecurityContextHolder.getContext().setAuthentication(null);
-		
-		return redirect;
-	}
-	
+public class RedirectUtil {
 	public static String redirectBlock(Map<String, Object> model){
 		//Force to check Google authentication all the time
 		SecurityContextHolder.getContext().setAuthentication(null);

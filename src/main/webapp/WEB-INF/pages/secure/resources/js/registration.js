@@ -15,7 +15,7 @@ saveFunctionality = function(){
 		    },
 			type: 'POST',
 			dataType: 'json',
-			url: '/prode/save',
+			url: '/prode/save/' + $('#prode-container .country').val() + '/' + $('#prode-container .sector').val(),
 			data: json,
 			complete: function(){
 				$('#prode-container #central-container #messages').children().remove();

@@ -8,9 +8,8 @@
 				<img class="wc-logo" src="/assets/wc_logo.png">
 			</a>
 		</div>
-		
-		<c:if test="${register}">
-		    <div class="collapse navbar-collapse">
+	    <div class="collapse navbar-collapse">
+	    	<c:if test="${register}">
 				<ul class="nav navbar-nav central">
 					<li>
 						<a href="#">Resultados</a>
@@ -19,15 +18,20 @@
 						<a href="#">Puntajes</a>
 					</li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
+			</c:if>
+			<ul class="nav navbar-nav navbar-right">
+				<c:if test="${login}">
 					<li>
 						<p class="navbar-text">${name}</p>
 					</li>
 					<li>
 						<img class="profile-image img-circle" src="${profilePicture}">
 					</li>
-				</ul>
-			</div>
-		</c:if>
+					<li>
+						<a href="/j_spring_security_logout">Logout</a>
+					</li>
+				</c:if>
+			</ul>
+		</div>
 	</div>
 </nav>

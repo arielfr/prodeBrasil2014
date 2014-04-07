@@ -13,6 +13,8 @@
 	<security:http entry-point-ref="google2EntryPoint">
 	    <security:custom-filter after="CAS_FILTER" ref="oAuthFilter" />
 		<security:intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_FULLY" />
+		<security:intercept-url pattern="/prode/**" access="IS_AUTHENTICATED_FULLY" />
+		<security:logout logout-success-url="/logout" />
 	</security:http>
     
 	<!-- OAuth Authentication Providers definition -->

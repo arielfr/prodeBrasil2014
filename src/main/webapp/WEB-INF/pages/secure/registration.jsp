@@ -34,14 +34,14 @@
 							</div>
 							</br>
 							<div class="subTitle">Country:</div>
-							<select class="form-control">
+							<select class="country form-control">
 							    <option value="arg">Argentina</option>
 							    <option value="ven">Venezuela</option>
 							    <option value="mia">Miami</option>
 							</select>
 							</br>
 							<div class="subTitle">Sector:</div>
-							<select class="form-control">
+							<select class="sector form-control">
 							    <option value="learn">Learning Platform</option>
 							    <option value="bi">Business Intelligence</option>
 							    <option value="aut">Automation</option>
