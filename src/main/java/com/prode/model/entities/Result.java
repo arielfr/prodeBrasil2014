@@ -17,7 +17,7 @@ public class Result implements Serializable {
 	private static final long serialVersionUID = -7033094790173072645L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne

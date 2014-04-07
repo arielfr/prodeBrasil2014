@@ -20,7 +20,7 @@ public class Match implements Serializable {
 	private static final long serialVersionUID = 8218388554618938566L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "date_match")

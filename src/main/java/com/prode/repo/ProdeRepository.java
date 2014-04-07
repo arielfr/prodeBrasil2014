@@ -12,9 +12,12 @@ public interface ProdeRepository extends JpaRepository<Prode, Long> {
 	
 	Prode findOne(Long id);
 	
-    @Query("select c from Prode c where lower(match) = lower(:match)")
-	Prode findByMatch(@Param("match") Match match);
+    @Query("select c from Prode c where id_match = :id_match")
+	Prode findByMatch(@Param("id_match") Long match_id);
     
-    @Query("select c from Prode c where lower(user) = lower(:user)")
-	Prode findByUser(@Param("user") Person person);
+    @Query("select c from Prode c where id_match = :id_match and id_team = :id_team")
+	Prode findByMatchAndTeam(@Param("id_match") Long match_id, @Param("id_team") Long team_id);
+    
+    @Query("select c from Prode c where id_person = :id_person")
+	Prode findByUser(@Param("id_person") Long id_person);
 }

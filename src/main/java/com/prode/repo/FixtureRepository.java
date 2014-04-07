@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.prode.model.entities.Fixture;
 
 @Repository
-public interface fixtureRepository extends JpaRepository<Fixture, Long>{
+public interface FixtureRepository extends JpaRepository<Fixture, Long>{
 	
 }

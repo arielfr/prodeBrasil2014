@@ -16,9 +16,9 @@ public class UISaveFixtureDTO implements Serializable{
 	
 	Long teamBId;
 	
-	Long teamA_Result;
+	int teamA_Result;
 	
-	Long teamB_Result;
+	int teamB_Result;
 
 	public Long getGroupId() {
 		return groupId;
@@ -52,19 +52,19 @@ public class UISaveFixtureDTO implements Serializable{
 		this.teamBId = teamBId;
 	}
 
-	public Long getTeamA_Result() {
+	public int getTeamA_Result() {
 		return teamA_Result;
 	}
 
-	public void setTeamA_Result(Long teamA_Result) {
+	public void setTeamA_Result(int teamA_Result) {
 		this.teamA_Result = teamA_Result;
 	}
 
-	public Long getTeamB_Result() {
+	public int getTeamB_Result() {
 		return teamB_Result;
 	}
 
-	public void setTeamB_Result(Long teamB_Result) {
+	public void setTeamB_Result(int teamB_Result) {
 		this.teamB_Result = teamB_Result;
 	}
 }

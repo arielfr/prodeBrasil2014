@@ -15,7 +15,7 @@ public class Prode implements Serializable {
 	private static final long serialVersionUID = -3755202187524433878L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne

@@ -1,9 +1,4 @@
---
--- PostgreSQL database dump
---
-
---
--- TOC entry 1994 (class 0 OID 172139)
+-- TOC entry 2015 (class 0 OID 172139)
 -- Dependencies: 171
 -- Data for Name: cities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -23,7 +18,7 @@ INSERT INTO cities VALUES (12, 'Salvador');
 
 
 --
--- TOC entry 2009 (class 0 OID 0)
+-- TOC entry 2034 (class 0 OID 0)
 -- Dependencies: 170
 -- Name: city_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -32,7 +27,7 @@ SELECT pg_catalog.setval('city_id_seq', 12, true);
 
 
 --
--- TOC entry 1995 (class 0 OID 172143)
+-- TOC entry 2016 (class 0 OID 172143)
 -- Dependencies: 172
 -- Data for Name: groups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -53,7 +48,7 @@ INSERT INTO groups VALUES (8, 'Group H');
 
 
 --
--- TOC entry 2010 (class 0 OID 0)
+-- TOC entry 2035 (class 0 OID 0)
 -- Dependencies: 173
 -- Name: groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -62,7 +57,7 @@ SELECT pg_catalog.setval('groups_id_seq', 13, true);
 
 
 --
--- TOC entry 2004 (class 0 OID 172168)
+-- TOC entry 2025 (class 0 OID 172168)
 -- Dependencies: 181
 -- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -102,7 +97,7 @@ INSERT INTO teams VALUES (28, 'USA', 'usa');
 
 
 --
--- TOC entry 1997 (class 0 OID 172148)
+-- TOC entry 2018 (class 0 OID 172148)
 -- Dependencies: 174
 -- Data for Name: groups_teams; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -142,16 +137,16 @@ INSERT INTO groups_teams VALUES (34, 8, 31);
 
 
 --
--- TOC entry 2011 (class 0 OID 0)
+-- TOC entry 2036 (class 0 OID 0)
 -- Dependencies: 175
 -- Name: groups_teams_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('groups_teams_id_seq', 34, true);
+SELECT pg_catalog.setval('groups_teams_id_seq', 35, true);
 
 
 --
--- TOC entry 1999 (class 0 OID 172153)
+-- TOC entry 2020 (class 0 OID 172153)
 -- Dependencies: 176
 -- Data for Name: matches; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -207,16 +202,16 @@ INSERT INTO matches VALUES (53, '2014-06-26 17:00:00', 6, 8, 30, 31);
 
 
 --
--- TOC entry 2012 (class 0 OID 0)
+-- TOC entry 2037 (class 0 OID 0)
 -- Dependencies: 177
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('matches_id_seq', 6, true);
+SELECT pg_catalog.setval('matches_id_seq', 54, true);
 
 
 --
--- TOC entry 2001 (class 0 OID 172158)
+-- TOC entry 2022 (class 0 OID 172158)
 -- Dependencies: 178
 -- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -224,7 +219,7 @@ SELECT pg_catalog.setval('matches_id_seq', 6, true);
 
 
 --
--- TOC entry 2013 (class 0 OID 0)
+-- TOC entry 2038 (class 0 OID 0)
 -- Dependencies: 179
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -233,7 +228,41 @@ SELECT pg_catalog.setval('person_id_seq', 1, true);
 
 
 --
--- TOC entry 2014 (class 0 OID 0)
+-- TOC entry 2026 (class 0 OID 172297)
+-- Dependencies: 182
+-- Data for Name: prode; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2039 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: prode_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('prode_id_seq', 1, true);
+
+
+--
+-- TOC entry 2040 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: result_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('result_id_seq', 1, false);
+
+
+--
+-- TOC entry 2028 (class 0 OID 172317)
+-- Dependencies: 184
+-- Data for Name: results; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2041 (class 0 OID 0)
 -- Dependencies: 180
 -- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -241,8 +270,9 @@ SELECT pg_catalog.setval('person_id_seq', 1, true);
 SELECT pg_catalog.setval('team_id_seq', 32, true);
 
 
--- Completed on 2014-04-03 19:44:47
+-- Completed on 2014-04-07 16:14:22
 
 --
 -- PostgreSQL database dump complete
 --
+
