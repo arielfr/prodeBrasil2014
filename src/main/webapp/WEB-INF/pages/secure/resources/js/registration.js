@@ -6,29 +6,23 @@ saveFunctionality = function(){
 	$('#prode-container .btn-container .save').click(function(event){
 		event.preventDefault();
 		
-		var json = getJson();
-		
-		$.ajax({
-		    headers: { 
-		        'Accept': 'application/json',
-		        'Content-Type': 'application/json' 
-		    },
-			type: 'POST',
-			dataType: 'json',
-			url: '/prode/save/' + $('#prode-container .country').val() + '/' + $('#prode-container .sector').val(),
-			data: json,
-			complete: function(){
-				$('#prode-container #central-container #messages').children().remove();
-				
-				//Go To Top
-				$("html, body").animate({ scrollTop: "0px" });
-				
-				//Print Success Message
-				$('#prode-container #central-container #messages').append('<div class="alert alert-success" style="display: none;">Your results are being saved</div>');
-				
-				$('#messages').children().show('slow');
-			}
-		});
+		if( !lookForErrors() ){
+			var json = getJson();
+			
+			$.ajax({
+			    headers: { 
+			        'Accept': 'application/json',
+			        'Content-Type': 'application/json' 
+			    },
+				type: 'POST',
+				dataType: 'json',
+				url: '/prode/save/' + $('#prode-container .country').val() + '/' + $('#prode-container .sector').val(),
+				data: json,
+				complete: function(){
+					showMessage('Your results are being saved', 'alert-success');
+				}
+			});
+		}
 	});
 }
 
@@ -71,4 +65,52 @@ getJson = function(){
 	json = json.concat(']');
 	
 	return json;
+}
+
+
+showMessage = function(message, type){
+	$('#prode-container #central-container #messages').children().remove();
+	
+	//Go To Top
+	$("html, body").animate({ scrollTop: "0px" });
+	
+	//Print Success Message
+	$('#prode-container #central-container #messages').append('<div class="alert ' + type + '" style="display: none;">' + message + '</div>');
+	
+	$('#messages').children().show('slow');
+}
+
+lookForErrors = function(){
+	var pattern = new RegExp('[0-9]'),
+		errorFound = false,
+		matchs = $('#prode-container .pr-registration input').length,
+		matchsCompleted = 0;
+
+	$('#prode-container .pr-registration input').each(function(key, value){
+		var result = $(value).val();
+		
+		if( result != '' ){
+			var valid = pattern.test(result);
+			
+			if( valid == false ){
+				console.log("...");
+				console.log(result);
+				showMessage('Only numbers are accepted', 'alert-danger');
+				
+				errorFound = true;
+				
+				return;
+			}
+		}else{
+			matchsCompleted = matchsCompleted + 1;
+		}
+		
+		if( matchs == matchsCompleted ){
+			showMessage('You must complete at least one result', 'alert-warning');
+			
+			errorFound = true;
+		}
+	});
+	
+	return errorFound;
 }
