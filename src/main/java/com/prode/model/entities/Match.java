@@ -2,7 +2,7 @@ package com.prode.model.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="matches")
@@ -41,6 +42,12 @@ public class Match implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_team_b", referencedColumnName = "id")
 	private Team teamB;
+	
+	@Transient
+	List<Prode> prode;
+	
+	@Transient
+	List<Result> result;
 
 	public Long getId() {
 		return id;
@@ -88,5 +95,13 @@ public class Match implements Serializable {
 
 	public void setTeamB(Team teamB) {
 		this.teamB = teamB;
+	}
+
+	public List<Prode> getProde() {
+		return prode;
+	}
+
+	public void setProde(List<Prode> prode) {
+		this.prode = prode;
 	}
 }

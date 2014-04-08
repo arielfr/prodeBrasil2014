@@ -23,4 +23,7 @@ public interface ProdeRepository extends JpaRepository<Prode, Long> {
     
     @Query("select p from Prode p inner join p.match m where m.group.id = :group")
     List<Prode> findByGroup(@Param("group") Long group);
+    
+    @Query("select c from Prode c where id_person = :id_person and id_match = :id_match")
+    List<Prode> findByMatchAndUser(@Param("id_person") Long id_person, @Param("id_match") Long id_match);
 }

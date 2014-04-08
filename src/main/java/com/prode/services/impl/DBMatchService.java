@@ -5,16 +5,20 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.scribe.up.profile.google2.Google2Profile;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.prode.model.entities.Group;
 import com.prode.model.entities.Match;
+import com.prode.model.entities.Person;
 import com.prode.model.entities.Prode;
 import com.prode.repo.GroupRepository;
 import com.prode.repo.MatchRepository;
+import com.prode.repo.PersonRepository;
 import com.prode.repo.ProdeRepository;
 import com.prode.services.MatchService;
+import com.prode.util.ActiveUserUtil;
 
 @Service
 public class DBMatchService implements MatchService {
@@ -28,14 +32,25 @@ public class DBMatchService implements MatchService {
 	@Resource
 	ProdeRepository prodeRepo;
 	
+	@Resource
+	PersonRepository personRepo;
+	
 	public HashMap<Long, List<Match>> getFixture(){
+    	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
+    	Person person = personRepo.findByEmail(google.getEmail());
+    	
 		HashMap<Long, List<Match>> fixture = new HashMap<Long, List<Match>>();
 		
 		List<Group> allGroups = groupRepo.findAll(sortById());
 		
 		for(Group group : allGroups){
 			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
-			//List<Prode> prode = prodeRepo.findByGroup(group.getId());
+			
+			for(Match match : groupMatches){
+				List<Prode> prode = prodeRepo.findByMatchAndUser(person.getId(), match.getId());
+				
+				match.setProde(prode);
+			}
 			
 			if( !groupMatches.isEmpty() ){
 				fixture.put(group.getId(), groupMatches);
