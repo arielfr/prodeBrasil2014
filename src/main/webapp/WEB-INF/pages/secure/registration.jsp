@@ -52,11 +52,11 @@
 				</div>
 			</div>
 			
-			<c:forEach items="${fixture}" var="entry">
+			
+			<c:forEach items="${fixture}" var="fixture">
 				<div class="panel panel-default pr-registration">
-					<c:forEach items="${entry.value}" var="fixture">
-						<div class="panel-heading" group="${fixture.key.id}">${fixture.key.name}</div>
-						<div class="panel-body">
+					<div class="panel-heading" group="${fixture.key}">${fixture.value[0].group.name}</div>
+					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12 fixb first">
 								<div class="prode-block">
@@ -104,7 +104,6 @@
 							</div>
 						</div>
 					</div>
-					</c:forEach>
 				</div>
 			</c:forEach>
 			<div class="btn-container">

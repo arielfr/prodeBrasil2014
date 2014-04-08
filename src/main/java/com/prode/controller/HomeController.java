@@ -54,7 +54,7 @@ public class HomeController extends CommonModel{
 			return "redirect:/secure/index";
 		}
 		
-		HashMap<Long, HashMap<Group, List<Match>>> matchesByGroup = matchService.getFixture();
+		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture();
 		
 		model.put("fixture", matchesByGroup);
 		

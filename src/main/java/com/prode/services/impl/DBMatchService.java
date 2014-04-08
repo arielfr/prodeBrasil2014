@@ -1,11 +1,7 @@
 package com.prode.services.impl;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
@@ -27,8 +23,8 @@ public class DBMatchService implements MatchService {
 	@Resource
 	GroupRepository groupRepo;
 	
-	public HashMap<Long, HashMap<Group, List<Match>>> getFixture(){
-		HashMap<Long, HashMap<Group, List<Match>>> fixture = new HashMap<Long, HashMap<Group, List<Match>>>();
+	public HashMap<Long, List<Match>> getFixture(){
+		HashMap<Long, List<Match>> fixture = new HashMap<Long, List<Match>>();
 		
 		List<Group> allGroups = groupRepo.findAll(sortById());
 		
@@ -36,9 +32,7 @@ public class DBMatchService implements MatchService {
 			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
 			
 			if( !groupMatches.isEmpty() ){
-				HashMap<Group, List<Match>> matchs = new HashMap<Group, List<Match>>();
-				matchs.put(group, groupMatches);
-				fixture.put(group.getId(), matchs);
+				fixture.put(group.getId(), groupMatches);
 			}
 		}
 		
