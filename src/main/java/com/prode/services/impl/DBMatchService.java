@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.prode.model.entities.Group;
 import com.prode.model.entities.Match;
+import com.prode.model.entities.Prode;
 import com.prode.repo.GroupRepository;
 import com.prode.repo.MatchRepository;
+import com.prode.repo.ProdeRepository;
 import com.prode.services.MatchService;
 
 @Service
@@ -23,6 +25,9 @@ public class DBMatchService implements MatchService {
 	@Resource
 	GroupRepository groupRepo;
 	
+	@Resource
+	ProdeRepository prodeRepo;
+	
 	public HashMap<Long, List<Match>> getFixture(){
 		HashMap<Long, List<Match>> fixture = new HashMap<Long, List<Match>>();
 		
@@ -30,6 +35,7 @@ public class DBMatchService implements MatchService {
 		
 		for(Group group : allGroups){
 			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
+			//List<Prode> prode = prodeRepo.findByGroup(group.getId());
 			
 			if( !groupMatches.isEmpty() ){
 				fixture.put(group.getId(), groupMatches);
