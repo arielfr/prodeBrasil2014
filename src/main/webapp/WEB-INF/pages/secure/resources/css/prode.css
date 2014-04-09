@@ -1,5 +1,13 @@
 #prode-container{
-	background: #F5F5F5;
+	/* background: #F5F5F5; */
+	background: #c4e0e7; /* Old browsers */
+	background: -moz-linear-gradient(top, #c4e0e7 0%, #cff3ff 73%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c4e0e7), color-stop(73%,#cff3ff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* IE10+ */
+	background: linear-gradient(to bottom, #c4e0e7 0%,#cff3ff 73%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4e0e7', endColorstr='#cff3ff',GradientType=0 ); /* IE6-9 */
 }
 
 #prode-container .navbar{
@@ -10,6 +18,10 @@
 #prode-container .navbar .navbar-header,
 #prode-container .navbar ul.navbar-nav.central li{
 	border-right: 1px solid rgb(233, 233, 233);
+}
+
+#prode-container .navbar.oe-bar{
+	background-image: linear-gradient(to bottom, #E2E4FC 0, #FFFFFF 100%) !important;
 }
 
 #prode-container .navbar-brand{
@@ -34,6 +46,14 @@
 #prode-container .navbar li img.profile-image{
 	margin-top: 5px;
 	width: 40px;
+}
+
+#prode-container .page-header{
+	border-bottom: 1px solid #696969 !important;
+}
+
+#prode-container .page-header small{
+	color: #696969 !important;
 }
 
 #prode-container #central-container{
