@@ -5,9 +5,11 @@
 	<body id="prode-container">
 		<jsp:include page="secure/includes/menu-bar.jsp" />
 		<div id="central-container">
-			<div class="page-header">
-				<h1>FIFA World Cup Brazil 2014 <small>Domain Error</small></h1>
+		
+			<div class="oe-header">
+				<span class="blue">FIFA World Cup</span><span class="green"> Brazil</span> <span class="red">2014</span> <span class="subtitle">Error</span>
 			</div>
+			
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="alert alert-danger"><span class="glyphicon glyphicon-asterisk"></span> You have been automatically log out</div>

@@ -9,9 +9,9 @@
 		<div id="central-container">
 			<div id="messages">
 			</div>
-			
-			<div class="page-header">
-				<h1>FIFA World Cup Brazil 2014 <small>Results</small></h1>
+
+			<div class="oe-header">
+				<span class="blue">FIFA World Cup</span><span class="green"> Brazil</span> <span class="red">2014</span> <span class="subtitle">Results</span>
 			</div>
 			
 			<c:forEach items="${fixture}" var="fixture">
