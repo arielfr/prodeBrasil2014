@@ -10,7 +10,7 @@ checkInputs = function(){
 	var pattern = new RegExp('[0-9]');
 	
 	//Check group of the input change
-	$('#prode-container .pr-registration input').change(function(event){
+	$('#prode-container .pr-registration input').keyup(function(event){
 		var panel = $(this).parents('.panel'),
 			quantity = $(panel).find('input').length,
 			groupsQuant = 0,
