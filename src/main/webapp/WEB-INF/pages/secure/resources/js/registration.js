@@ -1,6 +1,7 @@
 //Run functionality when the page is load
 window.onload = function(){
     saveFunctionality();
+    submitFunctionality();
     checkGroups();
     checkInputs();
 }
@@ -33,20 +34,26 @@ checkInputs = function(){
 		
 		//Add the color on the panel
 		if( quantity == groupsQuant ){
-			removePanelType(panel, 'panel-success');
+			removePanelType(panel, 'panel-success', true);
 		}else{
 			if( error ){
-				removePanelType(panel, 'panel-danger');
+				removePanelType(panel, 'panel-danger', false);
 			}else{
-				removePanelType(panel, 'panel-default');
+				removePanelType(panel, 'panel-default', false);
 			}
 		}
 	});
 }
 
 //Util Function to remove and add the classes on the panel
-removePanelType = function(panel, addType){
+removePanelType = function(panel, addType, success){
 	$(panel).removeClass('panel-success').removeClass('panel-default').removeClass('panel-danger').addClass(addType);
+	
+	if( success ){
+		$(panel).addClass('group-complete');
+	}else{
+		$(panel).removeClass('group-complete');
+	}
 }
 
 //Check if the groups are complete when the page is load
@@ -62,7 +69,7 @@ checkGroups = function(){
 		});
 		
 		if( quantity == groupsQuant ){
-			removePanelType(value, 'panel-success');
+			removePanelType(value, 'panel-success', true);
 		}
 	});
 }
@@ -90,6 +97,51 @@ saveFunctionality = function(){
 			});
 		}
 	});
+}
+
+submitFunctionality = function(){
+	$('#prode-container .btn-container .submit').click(function(event){
+		event.preventDefault();
+		
+		if( !lookForErrors() && isComplete() ){
+			var json = getJson();
+			
+			$.ajax({
+			    headers: { 
+			        'Accept': 'application/json',
+			        'Content-Type': 'application/json' 
+			    },
+				type: 'POST',
+				dataType: 'json',
+				url: '/prode/submit/' + $('#prode-container .country').val() + '/' + $('#prode-container .sector').val(),
+				data: json,
+				complete: function(){
+					$("html, body").animate({ scrollTop: "0px" });
+					
+					location.reload();
+				}
+			});
+		}
+	});
+}
+
+isComplete = function(){
+	var groups = $('#prode-container .pr-registration').length,
+		complete = 0;
+	
+	$('#prode-container .pr-registration').each(function(key, value){
+		if( $(value).hasClass('group-complete') ){
+			complete = complete + 1;
+		}
+	});
+	
+	if( groups != complete ){
+		showMessage('You need to complete all the results before you can submit', 'alert-danger');
+		
+		return false;
+	}
+	
+	return true;
 }
 
 //Generate JSON from the register page
@@ -152,31 +204,41 @@ lookForErrors = function(){
 	var pattern = new RegExp('[0-9]'),
 		errorFound = false,
 		matchs = $('#prode-container .pr-registration input').length,
-		matchsCompleted = 0;
+		matchsCompleted = 0,
+		previousHaveValue = false;
 
 	$('#prode-container .pr-registration input').each(function(key, value){
 		var result = $(value).val();
 		
-		if( result != '' ){
-			var valid = pattern.test(result);
-			
-			if( valid == false ){
-				console.log("...");
-				console.log(result);
-				showMessage('Only numbers are accepted. Look for the groups marks on red', 'alert-danger');
-				
-				errorFound = true;
-				
-				return;
-			}
-		}else{
-			matchsCompleted = matchsCompleted + 1;
-		}
-		
-		if( matchs == matchsCompleted ){
-			showMessage('You must complete at least one result', 'alert-warning');
+		if( previousHaveValue && $(value).hasClass('team_b_result') && result == '' ){
+			showMessage('You have a math with only one result, please add the other result', 'alert-danger');
 			
 			errorFound = true;
+		}else{
+			if( result != '' ){
+				var valid = pattern.test(result);
+				
+				if( valid == false ){
+					console.log("...");
+					console.log(result);
+					showMessage('Only numbers are accepted. Look for the groups marks on red', 'alert-danger');
+					
+					errorFound = true;
+					
+					return;
+				}else{
+					previousHaveValue = true;
+				}
+			}else{
+				matchsCompleted = matchsCompleted + 1;
+				previousHaveValue = false;
+			}
+			
+			if( matchs == matchsCompleted ){
+				showMessage('You must complete at least one result', 'alert-warning');
+				
+				errorFound = true;
+			}
 		}
 	});
 	

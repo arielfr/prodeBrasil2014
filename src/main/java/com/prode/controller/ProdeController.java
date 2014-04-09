@@ -52,6 +52,23 @@ public class ProdeController extends AbstractController {
     @ResponseBody
     public void saveProde(@PathVariable("country") String country, @PathVariable("sector") String sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
     	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
+    	
+    	Person person = savePerson(google, false);
+    	
+    	persistMatches(fixtureDTO, person);
+    }
+    
+    @RequestMapping(value = "/submit/{country}/{sector}", method = RequestMethod.POST, produces="application/json")
+    @ResponseBody
+    public void submitProde(@PathVariable("country") String country, @PathVariable("sector") String sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
+    	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
+    	
+    	Person person = savePerson(google, true);
+    	
+    	persistMatches(fixtureDTO, person);
+    }
+    
+    public Person savePerson(Google2Profile google, boolean submit){
     	Person person = personRepo.findByEmail(google.getEmail());
     	
     	if( person == null ){
@@ -59,19 +76,16 @@ public class ProdeController extends AbstractController {
     		
     		person.setName(google.getDisplayName());
     		person.setEmail(google.getEmail());
-    		person.setRegister(false);
-    		person.setSaved(true);
     	}
     	
-    	personRepo.save(person);
-		
-    	//Need to change Person and create country and sector tables
-    	System.out.println(country);
-    	System.out.println(sector);
+    	person.setRegister(submit);
+		person.setSaved(true);
     	
-    	
+    	return personRepo.save(person);
+    }
+    
+    public void persistMatches(List<UISaveFixtureDTO> fixtureDTO, Person person){
     	for(UISaveFixtureDTO groups : fixtureDTO){
-    		System.out.println(groups.getMatchId());
     		Prode prodeA = prodeRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamAId());
     		Prode prodeB = prodeRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamBId());
     		
