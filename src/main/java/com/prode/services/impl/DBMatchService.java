@@ -13,10 +13,12 @@ import com.prode.model.entities.Group;
 import com.prode.model.entities.Match;
 import com.prode.model.entities.Person;
 import com.prode.model.entities.Prode;
+import com.prode.model.entities.Result;
 import com.prode.repo.GroupRepository;
 import com.prode.repo.MatchRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.repo.ProdeRepository;
+import com.prode.repo.ResultRepository;
 import com.prode.services.MatchService;
 import com.prode.util.ActiveUserUtil;
 
@@ -33,9 +35,12 @@ public class DBMatchService implements MatchService {
 	ProdeRepository prodeRepo;
 	
 	@Resource
+	ResultRepository resultRepo;
+	
+	@Resource
 	PersonRepository personRepo;
 	
-	public HashMap<Long, List<Match>> getFixture(){
+	public HashMap<Long, List<Match>> getFixture(boolean withResults){
     	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
     	Person person = personRepo.findByEmail(google.getEmail());
     	
@@ -51,9 +56,20 @@ public class DBMatchService implements MatchService {
 					if( person != null ){
 						if(person.isSaved()){
 							List<Prode> prode = prodeRepo.findByMatchAndUser(person.getId(), match.getId());
+							List<Result> result = null;
+							
+							if( withResults ){
+								result = resultRepo.findByMatch(match.getId());
+							}
 							
 							if( !prode.isEmpty() ){
 								match.setProde(prode);
+							}
+							
+							if(  result != null ){
+								if( !result.isEmpty() ){
+									match.setResult(result);
+								}
 							}
 						}
 					}

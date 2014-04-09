@@ -33,6 +33,10 @@ public class HomeController extends CommonModel{
 			return RedirectUtil.redirectBlock(model);
 		}
 		
+		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture(true);
+		
+		model.put("fixture", matchesByGroup);
+		
 		return "secure/index";
 	}
 	
@@ -52,7 +56,7 @@ public class HomeController extends CommonModel{
 			return "redirect:/secure/index";
 		}
 		
-		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture();
+		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture(false);
 		
 		model.put("fixture", matchesByGroup);
 		
