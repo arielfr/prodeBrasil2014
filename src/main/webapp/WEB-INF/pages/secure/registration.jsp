@@ -12,7 +12,7 @@
 			</div>
 			
 			<div class="oe-header">
-				<span class="blue">FIFA World Cup</span><span class="green"> Brazil</span> <span class="red">2014</span> <span class="subtitle">Registration</span>
+				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Registration</span>
 			</div>
 
 			<div class="panel panel-default">

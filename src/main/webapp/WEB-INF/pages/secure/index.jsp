@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">FIFA World Cup</span><span class="green"> Brazil</span> <span class="red">2014</span> <span class="subtitle">Results</span>
+				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Scores</span>
 			</div>
 			
 			<c:forEach items="${fixture}" var="fixture">

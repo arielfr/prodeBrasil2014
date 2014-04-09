@@ -1,7 +1,6 @@
 package com.prode.model.entities;
 
 import java.io.Serializable;
-import java.security.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
