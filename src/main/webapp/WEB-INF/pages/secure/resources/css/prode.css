@@ -1,3 +1,8 @@
+@font-face {
+	font-family: fifa;
+	src: url("/assets/brazil_font.otf") format("opentype");
+}
+
 #prode-container{
 	/* background: #F5F5F5; */
 	background: #c4e0e7; /* Old browsers */
@@ -50,6 +55,31 @@
 
 #prode-container .page-header{
 	border-bottom: 1px solid #696969 !important;
+}
+
+#prode-container .oe-header{
+	font-family: fifa;
+	color: rgb(11, 141, 0);
+	font-size: 60px;
+	text-shadow: 2px 1px black;
+}
+
+#prode-container .oe-header span.blue{
+	color: rgb(105, 105, 255);
+}
+
+#prode-container .oe-header span.green{
+	color: rgb(83, 213, 83);
+}
+
+#prode-container .oe-header span.red{
+	color: rgb(255, 77, 77);
+}
+
+#prode-container .oe-header span.subtitle{
+	font-size: 35px;
+	color: rgb(141, 141, 141);
+	text-shadow: none;
 }
 
 #prode-container .page-header small{

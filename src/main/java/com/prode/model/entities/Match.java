@@ -104,4 +104,12 @@ public class Match implements Serializable {
 	public void setProde(List<Prode> prode) {
 		this.prode = prode;
 	}
+
+	public List<Result> getResult() {
+		return result;
+	}
+
+	public void setResult(List<Result> result) {
+		this.result = result;
+	}
 }

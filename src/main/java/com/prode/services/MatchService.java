@@ -8,5 +8,5 @@ import com.prode.model.entities.Match;
 import com.prode.model.entities.Prode;
 
 public interface MatchService {
-	public HashMap<Long, List<Match>> getFixture();
+	public HashMap<Long, List<Match>> getFixture(boolean withResults);
 }

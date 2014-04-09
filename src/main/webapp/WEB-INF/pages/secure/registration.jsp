@@ -11,8 +11,8 @@
 			<div id="messages">
 			</div>
 			
-			<div class="page-header">
-				<h1>FIFA World Cup Brazil 2014 <small>Registration</small></h1>
+			<div class="oe-header">
+				<span class="blue">FIFA World Cup</span><span class="green"> Brazil</span> <span class="red">2014</span> <span class="subtitle">Registration</span>
 			</div>
 
 			<div class="panel panel-default">
