@@ -46,13 +46,19 @@ public class DBMatchService implements MatchService {
 		for(Group group : allGroups){
 			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
 			
-			for(Match match : groupMatches){
-				List<Prode> prode = prodeRepo.findByMatchAndUser(person.getId(), match.getId());
-				
-				match.setProde(prode);
-			}
-			
 			if( !groupMatches.isEmpty() ){
+				for(Match match : groupMatches){
+					if( person != null ){
+						if(person.isSaved()){
+							List<Prode> prode = prodeRepo.findByMatchAndUser(person.getId(), match.getId());
+							
+							if( !prode.isEmpty() ){
+								match.setProde(prode);
+							}
+						}
+					}
+				}
+				
 				fixture.put(group.getId(), groupMatches);
 			}
 		}

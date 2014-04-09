@@ -1,5 +1,44 @@
 window.onload = function(){
     saveFunctionality();
+    checkGroups();
+    checkInputs();
+}
+
+checkInputs = function(){
+	$('#prode-container .pr-registration input').change(function(event){
+		var panel = $(this).parents('.panel'),
+			quantity = $(panel).find('input').length,
+			groupsQuant = 0;
+		
+		$(panel).find('input').each(function(key, value){
+			if( $(value).val() != '' ){
+				groupsQuant = groupsQuant + 1;
+			}
+		});
+		
+		if( quantity == groupsQuant ){
+			$(panel).removeClass('panel-default').addClass('panel-success');
+		}else{
+			$(panel).removeClass('panel-success').addClass('panel-default');
+		}
+	});
+}
+
+checkGroups = function(){
+	$('#prode-container .pr-registration').each(function(key, value){
+		var quantity = $(value).find('input').length,
+			groupsQuant = 0;
+		
+		$(value).find('input').each(function(key, value){
+			if( $(value).val() != '' ){
+				groupsQuant = groupsQuant + 1;
+			}
+		});
+		
+		if( quantity == groupsQuant ){
+			$(value).removeClass('panel-default').addClass('panel-success');
+		}
+	});
 }
 
 saveFunctionality = function(){

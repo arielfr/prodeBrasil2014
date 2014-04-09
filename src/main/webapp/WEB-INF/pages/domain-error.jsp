@@ -17,5 +17,6 @@
 				</div>
 			</div>
 		</div>
+		<jsp:include page="secure/includes/footer.jsp" />
 	</body>
 </html>

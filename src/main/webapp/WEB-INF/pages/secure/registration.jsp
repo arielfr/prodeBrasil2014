@@ -118,9 +118,10 @@
 				</div>
 			</c:forEach>
 			<div class="btn-container">
-				<a href="#" class="btn btn-default save">Save</a>
 				<a href="#" class="btn btn-primary submit">Submit</a>
+				<a href="#" class="btn btn-default save">Save</a>
 			</div>
 		</div>
+		<jsp:include page="includes/footer.jsp" />
 	</body>
 </html>
