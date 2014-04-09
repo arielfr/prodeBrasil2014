@@ -12,10 +12,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.prode.common.CommonModel;
-import com.prode.model.entities.Group;
 import com.prode.model.entities.Match;
 import com.prode.services.impl.DBMatchService;
 import com.prode.util.PermissionsUtil;
@@ -78,4 +76,19 @@ public class HomeController extends CommonModel{
     public String homeHtml(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		return "redirect:/secure/index";
     }
+	
+	@RequestMapping(value="/secure/faq", method = RequestMethod.GET)
+	public String faq(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+
+		if( PermissionsUtil.blockPage(model) ){
+			return RedirectUtil.redirectBlock(model);
+		}
+
+
+		return "faq";
+	}
+	
+	
+	
 }
