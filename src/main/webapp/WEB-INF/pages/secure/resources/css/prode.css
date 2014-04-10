@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 @font-face {
 	font-family: fifa;
 	src: url("/assets/brazil_font.otf") format("opentype");
