@@ -15,6 +15,8 @@
 				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Scores</span>
 			</div>
 			
+			<jsp:include page="includes/podium.jsp" />
+			
 			<c:forEach items="${fixture}" var="fixture">
 				<div class="panel panel-default pr-index">
 					<div class="panel-heading" group="${fixture.key}">${fixture.value[0].group.name}</div>

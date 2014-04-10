@@ -384,3 +384,24 @@
 	position: fixed;
 	bottom: 0px;
 }
+
+#prode-container .row.fpositions div span.thumbnail{
+	text-align: center;
+	font-size: 12px;
+}
+
+#prode-container .row.fpositions div span.thumbnail.first{
+	font-weight: bold;
+	background: yellow; /* Old browsers */
+	background: -moz-linear-gradient(top, yellow 0%, #EEFF73 90%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,yellow), color-stop(90%,#EEFF73)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, yellow 0%,#EEFF73 90%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, yellow 0%,#EEFF73 90%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, yellow 0%,#EEFF73 90%); /* IE10+ */
+	background: linear-gradient(to bottom, yellow 0%,#EEFF73 90%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='yellow', endColorstr='#EEFF73',GradientType=0 ); /* IE6-9 */
+}
+
+#prode-container .row.fpositions div span.thumbnail img{
+	margin-bottom: 5px;
+}

@@ -12,7 +12,10 @@
 	    	<c:if test="${register}">
 				<ul class="nav navbar-nav central">
 					<li>
-						<a href="#">Scores</a>
+						<a href="/secure/index">Scores</a>
+					</li>
+					<li>
+						<a href="#">Positions</a>
 					</li>
 					<li>
 						<a href="/secure/faq">FAQ</a>
