@@ -101,6 +101,12 @@
 	padding: 10px 25px 10px 25px;
 }
 
+#prode-container .panel .panel-heading div.points{
+	display: inline-block;
+	float: right;
+	font-weight: bold;
+}
+
 #prode-container .panel .row .col-md-6.fixb.first{
 	padding: 0px 10px 0px 0px;
 }
