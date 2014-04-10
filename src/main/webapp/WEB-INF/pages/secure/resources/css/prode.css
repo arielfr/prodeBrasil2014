@@ -5,14 +5,14 @@
 
 #prode-container{
 	/* background: #F5F5F5; */
-	background: #c4e0e7; /* Old browsers */
-	background: -moz-linear-gradient(top, #c4e0e7 0%, #cff3ff 73%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c4e0e7), color-stop(73%,#cff3ff)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #c4e0e7 0%,#cff3ff 73%); /* IE10+ */
-	background: linear-gradient(to bottom, #c4e0e7 0%,#cff3ff 73%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4e0e7', endColorstr='#cff3ff',GradientType=0 ); /* IE6-9 */
+	background: #cdeafa; /* Old browsers */
+	background: -moz-linear-gradient(top, #cdeafa 0%, #edf7fa 73%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeafa), color-stop(73%,#edf7fa)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* IE10+ */
+	background: linear-gradient(to bottom, #cdeafa 0%,#edf7fa 73%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeafa', endColorstr='#edf7fa',GradientType=0 ); /* IE6-9 */
 }
 
 #prode-container .navbar{
@@ -26,7 +26,7 @@
 }
 
 #prode-container .navbar.oe-bar{
-	background-image: linear-gradient(to bottom, #E2E4FC 0, #FFFFFF 100%) !important;
+	/* background-image: linear-gradient(to bottom, #E2E4FC 0, #FFFFFF 100%) !important; */
 }
 
 #prode-container .navbar-brand{
@@ -59,27 +59,23 @@
 
 #prode-container .oe-header{
 	font-family: fifa;
-	color: rgb(11, 141, 0);
-	font-size: 60px;
-	text-shadow: 2px 1px black;
+	font-size: 52px;
+	text-shadow: 1px 1px 2px white, -1px -1px 2px white;
 }
 
 #prode-container .oe-header span.blue{
-	color: rgb(105, 105, 255);
+	color: #304869;
 }
 
 #prode-container .oe-header span.green{
-	color: rgb(83, 213, 83);
-}
-
-#prode-container .oe-header span.red{
-	color: rgb(255, 77, 77);
+	background: -webkit-linear-gradient(#17871d, #82bf32);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
 }
 
 #prode-container .oe-header span.subtitle{
-	font-size: 35px;
-	color: rgb(141, 141, 141);
-	text-shadow: none;
+	font-size: 30px;
 }
 
 #prode-container .page-header small{
@@ -89,14 +85,27 @@
 #prode-container #central-container{
 	width: 980px;
 	margin: 0 auto;
+	margin-top: 60px;
 	margin-bottom: 95px;
 /* 	padding: 20px; */
 /* 	border: 1px solid #ddd; */
 /* 	border-radius: 4px 4px 0 0; */
 }
 
+#prode-container .panel.pr-registration,
+#prode-container .panel.pr-information,
+#prode-container .panel.pr-index{
+	box-shadow: 0px 0px 10px rgb(126, 126, 126);
+}
+
 #prode-container .panel .panel-body{
 	padding: 10px 25px 10px 25px;
+}
+
+#prode-container .panel .panel-heading div.points{
+	display: inline-block;
+	float: right;
+	font-weight: bold;
 }
 
 #prode-container .panel .row .col-md-6.fixb.first{
@@ -147,6 +156,27 @@
 
 #prode-container .panel .row .prode-block table tbody td.results input{
 	text-align: center;
+}
+
+#prode-container .panel .row .prode-block table tbody td.results input.equal{
+	background-color: rgb(140, 255, 140);
+}
+
+#prode-container .panel .row .prode-block table tbody td.results input.notequal{
+	background-color: rgb(255, 140, 140);
+}
+
+#prode-container .panel.pr-index .row .prode-block table tbody td.results input.team_a_result{
+	margin-right: 10px;
+}
+
+#prode-container .panel.pr-index .row .prode-block table tbody td.results input.team_b_result{
+	margin-left: 10px;
+}
+
+#prode-container .panel.pr-index .row .prode-block table tbody td.results input.team_a_result,
+#prode-container .panel.pr-index .row .prode-block table tbody td.results input.team_b_result{
+	border-radius: 20px;
 }
 
 #prode-container .panel .row .prode-block table tbody td .dash{

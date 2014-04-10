@@ -2,8 +2,6 @@ package com.prode.util;
 
 import java.util.Map;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-
 public class PermissionsUtil {
 	public static boolean blockPage(Map<String, Object> model){
 		Boolean blocked = (Boolean) model.get("blocked");
