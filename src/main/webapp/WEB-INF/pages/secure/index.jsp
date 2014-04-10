@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<jsp:include page="includes/header.jsp" />
+		<script type="text/javascript" src="/js/index.js"></script>
 	</head>
 	<body id="prode-container" class="register">
 		<jsp:include page="includes/menu-bar.jsp" />
@@ -15,20 +16,20 @@
 			</div>
 			
 			<c:forEach items="${fixture}" var="fixture">
-				<div class="panel panel-default pr-registration">
+				<div class="panel panel-default pr-index">
 					<div class="panel-heading" group="${fixture.key}">${fixture.value[0].group.name}</div>
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12 fixb first">
 								<div class="prode-block">
-									<table class="table table-striped">
+									<table class="table">
 										<thead>
-											<tr>
+											<tr class="active">
 												<th>Date</th>
 												<th>Team A</th>
 												<th>Result</th>
 												<th>Team B</th>
-												<th>Place</th>
+												<th>City</th>
 											</tr>
 										</thead>
 										<tbody>

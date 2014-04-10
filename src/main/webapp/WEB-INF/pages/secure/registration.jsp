@@ -15,7 +15,7 @@
 				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Registration</span>
 			</div>
 
-			<div class="panel panel-default">
+			<div class="panel panel-default pr-information">
 				<div class="panel-heading">Personal Information</div>
 				<div class="panel-body">
 					<div class="reg-personal" style="width: 100%;">
@@ -67,7 +67,7 @@
 												<th>Team A</th>
 												<th>Result</th>
 												<th>Team B</th>
-												<th>Place</th>
+												<th>City</th>
 											</tr>
 										</thead>
 										<tbody>
