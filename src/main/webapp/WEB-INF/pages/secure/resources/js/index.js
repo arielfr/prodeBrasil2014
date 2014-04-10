@@ -13,7 +13,8 @@ checkResults = function(){
 			var result_a = $(value).find('input.team_a_result'),
 				result_b = $(value).find('input.team_b_result'),
 				result_a_fifa = $(value).find('input.team_a_result_fifa'),
-				result_b_fifa = $(value).find('input.team_b_result_fifa');
+				result_b_fifa = $(value).find('input.team_b_result_fifa'),
+				partido = false;
 			
 			if( $(result_a_fifa).val() != '' ){
 				//Check only the goals
@@ -32,18 +33,22 @@ checkResults = function(){
 				//Check Rows with match results
 				if( ($(result_a).val() == $(result_a_fifa).val()) && ($(result_b).val() == $(result_b_fifa).val()) ){
 					$(value).parents('tr').addClass('success');
+					
+					partido = true;
 				}
 				
-				if( ($(result_a_fifa).val() > $(result_b_fifa).val()) && ($(result_a).val() > $(result_b).val()) ){
-					$(value).parents('tr').addClass('info');
-				}
-				
-				if( ($(result_a_fifa).val() < $(result_b_fifa).val()) && ($(result_a).val() < $(result_b).val()) ){
-					$(value).parents('tr').addClass('info');
-				}
-				
-				if( ($(result_a_fifa).val() == $(result_b_fifa).val()) && ($(result_a).val() == $(result_b).val()) ){
-					$(value).parents('tr').addClass('info');
+				if( !partido ){
+					if( ($(result_a_fifa).val() > $(result_b_fifa).val()) && ($(result_a).val() > $(result_b).val()) ){
+						$(value).parents('tr').addClass('info');
+					}
+					
+					if( ($(result_a_fifa).val() < $(result_b_fifa).val()) && ($(result_a).val() < $(result_b).val()) ){
+						$(value).parents('tr').addClass('info');
+					}
+					
+					if( ($(result_a_fifa).val() == $(result_b_fifa).val()) && ($(result_a).val() == $(result_b).val()) ){
+						$(value).parents('tr').addClass('info');
+					}
 				}
 			}
 		})
