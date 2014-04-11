@@ -11,19 +11,19 @@
 	    <div class="collapse navbar-collapse">
 	    	<c:if test="${register}">
 				<ul class="nav navbar-nav central">
-					<li>
+					<li class="<c:if test="${page == 'index'}">active</c:if>">
 						<a href="/secure/index">Scores</a>
 					</li>
-					<li>
+					<li class="<c:if test="${page == 'positions'}">active</c:if>">
 						<a href="/secure/positions">Global Positions</a>
 					</li>
-					<li>
+					<li class="<c:if test="${page == 'positions_country'}">active</c:if>">
 						<a href="/secure/positions_country">Country Positions</a>
 					</li>
-					<li>
+					<li class="<c:if test="${page == 'positions_sector'}">active</c:if>">
 						<a href="/secure/positions_sector">Sector Positions</a>
 					</li>
-					<li>
+					<li class="<c:if test="${page == 'faq'}">active</c:if>">
 						<a href="/secure/faq">FAQ</a>
 					</li>
 				</ul>

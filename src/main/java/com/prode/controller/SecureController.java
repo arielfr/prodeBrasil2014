@@ -43,6 +43,7 @@ public class SecureController extends CommonModel{
 		
 		putOnModel(model, "fixture", matchService.getFixture(true));
 		putOnModel(model, "podium", positionService.getPodium());
+		putOnModel(model, "page", "index");
 		
 		return "secure/index";
 	}
@@ -66,6 +67,7 @@ public class SecureController extends CommonModel{
 		putOnModel(model, "fixture", matchService.getFixture(false));
 		putOnModel(model, "countries", countryService.getCountries());
 		putOnModel(model, "sectors", sectorService.getSectors());
+		putOnModel(model, "page", "registration");
 		
 		return "secure/registration";
 	}
@@ -82,6 +84,7 @@ public class SecureController extends CommonModel{
 		putOnModel(model, "positions", positionService.getGlobalPositions());
 		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
 		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
+		putOnModel(model, "page", "positions");
 		
 		return "secure/positions";
 	}
@@ -96,6 +99,7 @@ public class SecureController extends CommonModel{
 		
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
+		putOnModel(model, "page", "positions_country");
 		
 		return "secure/positions_country";
 	}
@@ -110,6 +114,7 @@ public class SecureController extends CommonModel{
 		
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
+		putOnModel(model, "page", "positions_sector");
 		
 		return "secure/positions_sector";
 	}
@@ -122,6 +127,7 @@ public class SecureController extends CommonModel{
 			return RedirectUtil.redirectBlock(model);
 		}
 
+		putOnModel(model, "page", "faq");
 
 		return "faq";
 	}
