@@ -201,7 +201,8 @@ CREATE TABLE person (
     saved boolean DEFAULT false NOT NULL,
     id_sector bigint,
     id_country bigint,
-    photo character varying(255)
+    photo character varying(255),
+    score bigint DEFAULT 0
 );
 
 
