@@ -1,38 +1,21 @@
-<div class="row fpositions">
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail first">
-			<img src="${profilePicture}">
-			<span>1. ${name} (88)</span>
-		</span>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:if test="${not empty podium}">
+	<c:set var="i" value="0"/>
+	<div class="row fpositions">
+	<c:forEach items="${podium}" var="person">
+		<div class="col-xs-6 col-md-2">
+			<span href="#" class="thumbnail <c:if test="${i == 0}">first</c:if>">
+				<c:if test="${not empty person.photo}">
+					<img src="${person.photo}">
+				</c:if>
+				<c:if test="${empty person.photo}">
+					<img src="/assets/unknown.jpg">
+				</c:if>
+				<span>1. ${person.name} (${person.score})</span>
+			</span>
+		</div>
+		<c:set var="i" value="${person.id}"/>
+	</c:forEach>
 	</div>
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail">
-			<img src="${profilePicture}">
-			<span>2. ${name} (80)</span>
-		</span>
-	</div>
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail">
-			<img src="${profilePicture}">
-			<span>3. ${name} (78)</span>
-		</span>
-	</div>
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail">
-			<img src="${profilePicture}">
-			<span>4. ${name} (60)</span>
-		</span>
-	</div>
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail">
-			<img src="${profilePicture}">
-			<span>5. ${name} (50)</span>
-		</span>
-	</div>
-	<div class="col-xs-6 col-md-2">
-		<span href="#" class="thumbnail">
-			<img src="${profilePicture}">
-			<span>6. ${name} (33)</span>
-		</span>
-	</div>
-</div>
+</c:if>

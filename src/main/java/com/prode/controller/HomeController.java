@@ -8,7 +8,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.prode.common.CommonModel;
 import com.prode.model.entities.Country;
 import com.prode.model.entities.Match;
+import com.prode.model.entities.Person;
 import com.prode.model.entities.Sector;
 import com.prode.repo.CountryRepository;
+import com.prode.repo.PersonRepository;
 import com.prode.repo.SectorRepository;
 import com.prode.services.impl.DBMatchService;
 import com.prode.util.PermissionsUtil;
@@ -36,6 +41,9 @@ public class HomeController extends CommonModel{
 	@Resource
 	SectorRepository sectorRepository;
 	
+	@Resource
+	PersonRepository personRepository;
+	
 	@RequestMapping(value = "/secure/index", method = RequestMethod.GET)
 	public String secureHome(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
@@ -46,7 +54,11 @@ public class HomeController extends CommonModel{
 		
 		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture(true);
 		
+		Page<Person> personPage = personRepository.findAll(firstSixByScore);
+		List<Person> podium = personPage.getContent();
+		
 		model.put("fixture", matchesByGroup);
+		model.put("podium", podium);
 		
 		return "secure/index";
 	}
@@ -111,4 +123,8 @@ public class HomeController extends CommonModel{
 	private Sort sortByName() {
         return new Sort(Sort.Direction.ASC, "name");
     }
+
+	final PageRequest firstSixByScore = new PageRequest(
+			0, 6, Direction.DESC, "score"
+	);
 }

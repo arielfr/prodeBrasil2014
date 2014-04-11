@@ -84,11 +84,11 @@ public class ProdeController extends AbstractController {
     		
     		person.setName(google.getDisplayName());
     		person.setEmail(google.getEmail());
-    		person.setPhoto(google.getPictureUrl());
     	}
     	
     	person.setCountry(countryRepo.findOne(country));
     	person.setSector(sectorRepo.findOne(sector));
+    	person.setPhoto(google.getPictureUrl());
     	person.setRegister(submit);
 		person.setSaved(true);
     	
