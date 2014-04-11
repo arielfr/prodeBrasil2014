@@ -1,5 +1,6 @@
 package com.prode.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.prode.common.CommonModel;
+import com.prode.dto.PersonPositionDTO;
 import com.prode.model.entities.Country;
 import com.prode.model.entities.Match;
 import com.prode.model.entities.Person;
@@ -55,12 +57,32 @@ public class HomeController extends CommonModel{
 		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture(true);
 		
 		Page<Person> personPage = personRepository.findAll(firstSixByScore);
-		List<Person> podium = personPage.getContent();
+		List<PersonPositionDTO> podium = generatePositions(personPage.getContent());
 		
 		model.put("fixture", matchesByGroup);
 		model.put("podium", podium);
 		
 		return "secure/index";
+	}
+	
+	@RequestMapping(value = "/secure/positions", method = RequestMethod.GET)
+	public String securePositions(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+		
+		if( PermissionsUtil.blockPage(model) ){
+			return RedirectUtil.redirectBlock(model);
+		}
+		
+		Page<Person> personPage = personRepository.findAll(firstSixByScore);
+		List<PersonPositionDTO> podium = generatePositions(personPage.getContent());
+		
+		List<Person> positions = personRepository.findAll(sortByScore());
+		List<PersonPositionDTO> globalPositions = generatePositions(positions);
+		
+		model.put("podium", podium);
+		model.put("positions", globalPositions);
+		
+		return "secure/positions";
 	}
 	
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)
@@ -120,8 +142,37 @@ public class HomeController extends CommonModel{
 		return "faq";
 	}
 	
+	public List<PersonPositionDTO> generatePositions(List<Person> positions){
+		List<PersonPositionDTO> globalPositions = new ArrayList<PersonPositionDTO>();
+		int position = 1;
+		int lastScore = 0;
+		
+		for(Person person : positions){
+			PersonPositionDTO personPos = new PersonPositionDTO();
+			
+			personPos.setPerson(person);
+			
+			globalPositions.add(personPos);
+			
+			if( person.getScore() == lastScore ){
+				position = position - 1;
+			}
+			
+			personPos.setPosition(position);
+			
+			lastScore = person.getScore().intValue();
+			position = position + 1;
+		}
+		
+		return globalPositions;
+	}
+	
 	private Sort sortByName() {
         return new Sort(Sort.Direction.ASC, "name");
+    }
+	
+	private Sort sortByScore() {
+        return new Sort(Sort.Direction.DESC, "score");
     }
 
 	final PageRequest firstSixByScore = new PageRequest(

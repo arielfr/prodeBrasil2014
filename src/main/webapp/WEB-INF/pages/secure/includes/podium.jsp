@@ -1,21 +1,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:if test="${not empty podium}">
-	<c:set var="i" value="0"/>
 	<div class="row fpositions">
-	<c:forEach items="${podium}" var="person">
+	<c:forEach items="${podium}" var="podium">
 		<div class="col-xs-6 col-md-2">
-			<span href="#" class="thumbnail <c:if test="${i == 0}">first</c:if>">
-				<c:if test="${not empty person.photo}">
-					<img src="${person.photo}">
+			<span href="#" class="thumbnail <c:if test="${podium.position == 1}">first</c:if>">
+				<c:if test="${not empty podium.person.photo}">
+					<img src="${podium.person.photo}">
 				</c:if>
-				<c:if test="${empty person.photo}">
+				<c:if test="${empty podium.person.photo}">
 					<img src="/assets/unknown.jpg">
 				</c:if>
-				<span>1. ${person.name} (${person.score})</span>
+				<span>(${podium.position}) ${podium.person.name} (${podium.person.score})</span>
 			</span>
 		</div>
-		<c:set var="i" value="${person.id}"/>
 	</c:forEach>
 	</div>
 </c:if>

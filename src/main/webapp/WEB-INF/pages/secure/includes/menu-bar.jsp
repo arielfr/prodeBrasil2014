@@ -15,7 +15,7 @@
 						<a href="/secure/index">Scores</a>
 					</li>
 					<li>
-						<a href="#">Positions</a>
+						<a href="/secure/positions">Positions</a>
 					</li>
 					<li>
 						<a href="/secure/faq">FAQ</a>
