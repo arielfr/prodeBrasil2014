@@ -76,6 +76,7 @@ public class ProdeController extends AbstractController {
     		
     		person.setName(google.getDisplayName());
     		person.setEmail(google.getEmail());
+    		person.setPhoto(google.getPictureUrl());
     	}
     	
     	person.setRegister(submit);
