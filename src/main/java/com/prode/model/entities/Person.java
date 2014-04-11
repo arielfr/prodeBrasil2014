@@ -75,27 +75,27 @@ public class Person implements Serializable{
 		this.saved = saved;
 	}
 
-	protected String getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	protected void setPhoto(String photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
-	protected Sector getSector() {
+	public Sector getSector() {
 		return sector;
 	}
 
-	protected void setSector(Sector sector) {
+	public void setSector(Sector sector) {
 		this.sector = sector;
 	}
 
-	protected Country getCountry() {
+	public Country getCountry() {
 		return country;
 	}
 
-	protected void setCountry(Country country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 }
