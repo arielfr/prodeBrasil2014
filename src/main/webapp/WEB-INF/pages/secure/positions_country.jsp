@@ -17,11 +17,12 @@
 
 			<c:forEach items="${positionsByCountry}" var="country">
 				<c:set var="forPodium" value="${country}" scope="request"></c:set>
-				<jsp:include page="includes/custom_podium.jsp" />
 				
 				<div class="panel panel-default panel-oe">
 					<div class="panel-heading">${country.value[0].person.country.name}</div>
 					<div class="panel-body">
+						<jsp:include page="includes/custom_podium.jsp" />
+						
 						<c:if test="${not empty positionsByCountry}">
 							<table class="table table-striped">
 								<thead>

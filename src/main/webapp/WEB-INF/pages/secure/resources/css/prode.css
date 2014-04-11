@@ -103,6 +103,10 @@ html {
 	box-shadow: 0px 0px 10px rgb(126, 126, 126);
 }
 
+#prode-container .panel.panel-oe table{
+	border: 1px solid #ddd;
+}
+
 #prode-container .panel.panel-oe table thead{
 	font-size: 14px;
 }

@@ -99,7 +99,7 @@ public class DBPositionService implements PositionService {
 	public List<PersonPositionDTO> generatePositions(List<Person> positions){
 		List<PersonPositionDTO> globalPositions = new ArrayList<PersonPositionDTO>();
 		int position = 1;
-		int lastScore = 0;
+		int lastScore = -1;
 		
 		for(Person person : positions){
 			PersonPositionDTO personPos = new PersonPositionDTO();

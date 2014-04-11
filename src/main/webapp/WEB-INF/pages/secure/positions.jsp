@@ -15,11 +15,11 @@
 				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Global Positions</span>
 			</div>
 			
-			<jsp:include page="includes/podium.jsp" />
-			
 			<div class="panel panel-default panel-oe">
 				<div class="panel-heading">Global Positions</div>
 				<div class="panel-body">
+					<jsp:include page="includes/podium.jsp" />
+					
 					<c:if test="${not empty positions}">
 						<table class="table table-striped">
 							<thead>
