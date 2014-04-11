@@ -1,0 +1,2 @@
+select 'insert into prode(id_person, id_match, id_team, gol) values(3,' || p.id_match || ', ' || p.id_team || ', '|| trunc(random() * 9 + 1) ||');'
+from prode p

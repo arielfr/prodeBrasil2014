@@ -267,7 +267,7 @@ INSERT INTO sectors VALUES (4, 1, 'Management');
 -- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO person VALUES (2, 'Ariel Rey', 'ariel.rey@openenglish.com', false, true, 1, 1, NULL, 0);
+INSERT INTO person VALUES (2, 'Ariel Rey', 'ariel.rey@openenglish.com', true, true, 1, 1, NULL, 0);
 
 
 --
