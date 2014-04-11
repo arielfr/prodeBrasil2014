@@ -1,5 +1,6 @@
 package com.prode.services;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.prode.dto.PersonPositionDTO;
@@ -12,4 +13,6 @@ public interface PositionService {
 	public List<PersonPositionDTO> getPodium();
 	
 	public List<PersonPositionDTO> getGlobalPositions();
+	
+	public HashMap<Long, List<PersonPositionDTO>> getCountryPositions();
 }

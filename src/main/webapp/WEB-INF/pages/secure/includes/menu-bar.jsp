@@ -15,7 +15,13 @@
 						<a href="/secure/index">Scores</a>
 					</li>
 					<li>
-						<a href="/secure/positions">Positions</a>
+						<a href="/secure/positions">Global Positions</a>
+					</li>
+					<li>
+						<a href="/secure/positions_country">Country Positions</a>
+					</li>
+					<li>
+						<a href="/secure/positions_sector">Sector Positions</a>
 					</li>
 					<li>
 						<a href="/secure/faq">FAQ</a>

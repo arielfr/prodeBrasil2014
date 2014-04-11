@@ -80,8 +80,38 @@ public class SecureController extends CommonModel{
 		
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positions", positionService.getGlobalPositions());
+		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
+		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
 		
 		return "secure/positions";
+	}
+	
+	@RequestMapping(value = "/secure/positions_country", method = RequestMethod.GET)
+	public String securePositionsCountry(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+		
+		if( PermissionsUtil.blockPage(model) ){
+			return RedirectUtil.redirectBlock(model);
+		}
+		
+		putOnModel(model, "podium", positionService.getPodium());
+		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
+		
+		return "secure/positions_country";
+	}
+	
+	@RequestMapping(value = "/secure/positions_sector", method = RequestMethod.GET)
+	public String securePositionsSector(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+		
+		if( PermissionsUtil.blockPage(model) ){
+			return RedirectUtil.redirectBlock(model);
+		}
+		
+		putOnModel(model, "podium", positionService.getPodium());
+		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
+		
+		return "secure/positions_sector";
 	}
 	
 	@RequestMapping(value="/secure/faq", method = RequestMethod.GET)

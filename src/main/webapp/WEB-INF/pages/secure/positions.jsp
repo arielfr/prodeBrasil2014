@@ -12,12 +12,12 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Scores</span>
+				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Global Positions</span>
 			</div>
 			
 			<jsp:include page="includes/podium.jsp" />
 			
-			<div class="panel panel-default">
+			<div class="panel panel-default panel-oe">
 				<div class="panel-heading">Global Positions</div>
 				<div class="panel-body">
 					<c:if test="${not empty positions}">
@@ -47,6 +47,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<jsp:include page="includes/footer.jsp" />
 	</body>
 </html>
