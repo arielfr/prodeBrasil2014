@@ -1,6 +1,6 @@
 --
--- TOC entry 1898 (class 2606 OID 172198)
--- Name: fk_city; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1916 (class 2606 OID 172198)
+-- Name: fk_city; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY matches
@@ -8,8 +8,26 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 1896 (class 2606 OID 172203)
--- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1927 (class 2606 OID 172361)
+-- Name: fk_country; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sectors
+    ADD CONSTRAINT fk_country FOREIGN KEY (id_country) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 1920 (class 2606 OID 172372)
+-- Name: fk_country; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY person
+    ADD CONSTRAINT fk_country FOREIGN KEY (id_country) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 1914 (class 2606 OID 172203)
+-- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY groups_teams
@@ -17,8 +35,8 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 1899 (class 2606 OID 172208)
--- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1917 (class 2606 OID 172208)
+-- Name: fk_group; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY matches
@@ -26,8 +44,8 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 1902 (class 2606 OID 172302)
--- Name: fk_match; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1922 (class 2606 OID 172302)
+-- Name: fk_match; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY prode
@@ -35,8 +53,8 @@ ALTER TABLE ONLY prode
 
 
 --
--- TOC entry 1905 (class 2606 OID 172320)
--- Name: fk_match; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1925 (class 2606 OID 172320)
+-- Name: fk_match; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY results
@@ -44,8 +62,8 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 1903 (class 2606 OID 172307)
--- Name: fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1923 (class 2606 OID 172307)
+-- Name: fk_person; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY prode
@@ -53,8 +71,17 @@ ALTER TABLE ONLY prode
 
 
 --
--- TOC entry 1897 (class 2606 OID 172213)
--- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1921 (class 2606 OID 172379)
+-- Name: fk_sector; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY person
+    ADD CONSTRAINT fk_sector FOREIGN KEY (id_sector) REFERENCES sectors(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 1915 (class 2606 OID 172213)
+-- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY groups_teams
@@ -62,8 +89,8 @@ ALTER TABLE ONLY groups_teams
 
 
 --
--- TOC entry 1904 (class 2606 OID 172312)
--- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1924 (class 2606 OID 172312)
+-- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY prode
@@ -71,8 +98,8 @@ ALTER TABLE ONLY prode
 
 
 --
--- TOC entry 1906 (class 2606 OID 172325)
--- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1926 (class 2606 OID 172325)
+-- Name: fk_team; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY results
@@ -80,8 +107,8 @@ ALTER TABLE ONLY results
 
 
 --
--- TOC entry 1900 (class 2606 OID 172218)
--- Name: fk_team_a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1918 (class 2606 OID 172218)
+-- Name: fk_team_a; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY matches
@@ -89,8 +116,8 @@ ALTER TABLE ONLY matches
 
 
 --
--- TOC entry 1901 (class 2606 OID 172223)
--- Name: fk_team_b; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1919 (class 2606 OID 172223)
+-- Name: fk_team_b; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY matches

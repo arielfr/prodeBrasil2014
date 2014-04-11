@@ -6,6 +6,49 @@
 		<script type="text/javascript" src="/js/registration.js"></script>
 	</head>
 	<body id="prode-container" class="register">
+	
+		
+		<script type="text/javascript">
+			var countries = '[';
+			
+			<c:if test="${not empty countries}">
+				<c:set var="i" scope="session" value="${0}"/>
+				
+				<c:forEach items="${countries}" var="country">
+					<c:if test="${i != 0}">
+						countries = countries.concat(', ');
+					</c:if>
+					
+					countries = countries.concat('{"id" : "${country.id}", "name" :  "${country.name}"}');
+					
+					<c:set var="i" value="${country.id}"/>
+				</c:forEach>
+			</c:if>
+			
+			countries = countries.concat(']');
+			
+			var sectors = '[';
+			
+			<c:if test="${not empty sectors}">
+				<c:set var="j" scope="session" value="${0}"/>
+				
+				<c:forEach items="${sectors}" var="sector">
+					<c:if test="${j != 0}">
+						sectors = sectors.concat(', ');
+					</c:if>
+					
+					sectors = sectors.concat('{"id" : "${sector.id}", "name" :  "${sector.name}", "country" : "${sector.country.id}"}');
+					
+					<c:set var="j" value="${sector.id}"/>
+				</c:forEach>
+			</c:if>
+			
+			sectors = sectors.concat(']');
+			
+			countries = jQuery.parseJSON( countries );
+			sectors = jQuery.parseJSON( sectors );
+		</script>
+		
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div id="messages">
@@ -35,17 +78,11 @@
 							</br>
 							<div class="subTitle">Country:</div>
 							<select class="country form-control">
-							    <option value="arg">Argentina</option>
-							    <option value="ven">Venezuela</option>
-							    <option value="mia">Miami</option>
+								
 							</select>
 							</br>
 							<div class="subTitle">Sector:</div>
 							<select class="sector form-control">
-							    <option value="learn">Learning Platform</option>
-							    <option value="bi">Business Intelligence</option>
-							    <option value="aut">Automation</option>
-							    <option value="man">Management</option>
 							</select>
 						</div>
 					</div>

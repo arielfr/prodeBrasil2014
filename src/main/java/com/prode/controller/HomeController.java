@@ -8,13 +8,18 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.prode.common.CommonModel;
+import com.prode.model.entities.Country;
 import com.prode.model.entities.Match;
+import com.prode.model.entities.Sector;
+import com.prode.repo.CountryRepository;
+import com.prode.repo.SectorRepository;
 import com.prode.services.impl.DBMatchService;
 import com.prode.util.PermissionsUtil;
 import com.prode.util.RedirectUtil;
@@ -24,6 +29,12 @@ public class HomeController extends CommonModel{
 	
 	@Resource
 	DBMatchService matchService;
+
+	@Resource
+	CountryRepository countryRepository;
+	
+	@Resource
+	SectorRepository sectorRepository;
 	
 	@RequestMapping(value = "/secure/index", method = RequestMethod.GET)
 	public String secureHome(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
@@ -57,8 +68,12 @@ public class HomeController extends CommonModel{
 		}
 		
 		HashMap<Long, List<Match>> matchesByGroup = matchService.getFixture(false);
+		List<Country> countries = countryRepository.findAll(sortByName());
+		List<Sector> sectors = sectorRepository.findAll(sortByName());
 		
 		model.put("fixture", matchesByGroup);
+		model.put("countries", countries);
+		model.put("sectors", sectors);
 		
 		return "secure/registration";
 	}
@@ -93,6 +108,7 @@ public class HomeController extends CommonModel{
 		return "faq";
 	}
 	
-	
-	
+	private Sort sortByName() {
+        return new Sort(Sort.Direction.ASC, "name");
+    }
 }

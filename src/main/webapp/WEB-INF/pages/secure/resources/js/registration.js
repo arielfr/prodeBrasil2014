@@ -1,9 +1,52 @@
 //Run functionality when the page is load
 window.onload = function(){
+	populateCountry();
+	populateSectors();
+	listenCountry();
     saveFunctionality();
     submitFunctionality();
     checkGroups();
     checkInputs();
+}
+
+listenCountry = function(){
+	$('#prode-container .reg-personal select.country').change(function(){
+		var countrySelected = $('#prode-container .reg-personal select.country').val();
+		
+		//Remove all options
+		$('#prode-container .reg-personal select.sector option').remove();
+		
+		for(var i = 0; i < sectors.length; i++){
+			if(sectors[i].country == countrySelected){
+				$('#prode-container .reg-personal select.sector').append($('<option>', {
+				    value: sectors[i].id,
+				    text: sectors[i].name
+				}));
+			}
+		}
+	});
+}
+
+populateCountry = function(){
+	for(var i = 0; i < countries.length; i++){
+		$('#prode-container .reg-personal select.country').append($('<option>', {
+		    value: countries[i].id,
+		    text: countries[i].name
+		}));
+	}
+}
+
+populateSectors = function(){
+	var countrySelected = $('#prode-container .reg-personal select.country').val();
+	
+	for(var i = 0; i < sectors.length; i++){
+		if(sectors[i].country == countrySelected){
+			$('#prode-container .reg-personal select.sector').append($('<option>', {
+			    value: sectors[i].id,
+			    text: sectors[i].name
+			}));
+		}
+	}
 }
 
 //Check input change for check if the group change is completed. Also verify Error in input
@@ -208,24 +251,34 @@ lookForErrors = function(){
 		previousHaveValue = false;
 
 	$('#prode-container .pr-registration input').each(function(key, value){
-		var result = $(value).val();
+		var result = $(value).val(),
+			country = $('#prode-container .reg-personal select.country').val(),
+			sector = $('#prode-container .reg-personal select.sector').val();
 		
-		if( previousHaveValue && $(value).hasClass('team_b_result') && result == '' ){
+		if( !country || !sector ){
+			errorFound = true;
+			
+			showMessage('You need to select a Country or a Sector', 'alert-danger');
+			
+			return false;
+		}
+		
+		if( previousHaveValue && $(value).hasClass('team_b_result') && result == '' && !errorFound){
 			showMessage('You have a math with only one result, please add the other result', 'alert-danger');
 			
 			errorFound = true;
+			
+			return false;
 		}else{
 			if( result != '' ){
 				var valid = pattern.test(result);
 				
 				if( valid == false ){
-					console.log("...");
-					console.log(result);
 					showMessage('Only numbers are accepted. Look for the groups marks on red', 'alert-danger');
 					
 					errorFound = true;
 					
-					return;
+					return false;
 				}else{
 					previousHaveValue = true;
 				}
@@ -238,6 +291,8 @@ lookForErrors = function(){
 				showMessage('You must complete at least one result', 'alert-warning');
 				
 				errorFound = true;
+				
+				return false;
 			}
 		}
 	});

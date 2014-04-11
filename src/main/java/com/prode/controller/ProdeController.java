@@ -21,9 +21,11 @@ import com.prode.model.entities.Match;
 import com.prode.model.entities.Person;
 import com.prode.model.entities.Prode;
 import com.prode.model.entities.Team;
+import com.prode.repo.CountryRepository;
 import com.prode.repo.MatchRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.repo.ProdeRepository;
+import com.prode.repo.SectorRepository;
 import com.prode.repo.TeamRepository;
 import com.prode.util.ActiveUserUtil;
 
@@ -42,6 +44,12 @@ public class ProdeController extends AbstractController {
 	
 	@Resource
 	MatchRepository matchRepo;
+	
+	@Resource
+	CountryRepository countryRepo;
+	
+	@Resource
+	SectorRepository sectorRepo;
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
@@ -50,25 +58,25 @@ public class ProdeController extends AbstractController {
 
     @RequestMapping(value = "/save/{country}/{sector}", method = RequestMethod.POST, produces="application/json")
     @ResponseBody
-    public void saveProde(@PathVariable("country") String country, @PathVariable("sector") String sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
+    public void saveProde(@PathVariable("country") Long country, @PathVariable("sector") Long sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
     	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
     	
-    	Person person = savePerson(google, false);
+    	Person person = savePerson(google, false, country, sector);
     	
     	persistMatches(fixtureDTO, person);
     }
     
     @RequestMapping(value = "/submit/{country}/{sector}", method = RequestMethod.POST, produces="application/json")
     @ResponseBody
-    public void submitProde(@PathVariable("country") String country, @PathVariable("sector") String sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
+    public void submitProde(@PathVariable("country") Long country, @PathVariable("sector") Long sector, @RequestBody List<UISaveFixtureDTO> fixtureDTO) {
     	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
     	
-    	Person person = savePerson(google, true);
+    	Person person = savePerson(google, true, country, sector);
     	
     	persistMatches(fixtureDTO, person);
     }
     
-    public Person savePerson(Google2Profile google, boolean submit){
+    public Person savePerson(Google2Profile google, boolean submit, Long country, Long sector){
     	Person person = personRepo.findByEmail(google.getEmail());
     	
     	if( person == null ){
@@ -79,6 +87,8 @@ public class ProdeController extends AbstractController {
     		person.setPhoto(google.getPictureUrl());
     	}
     	
+    	person.setCountry(countryRepo.findOne(country));
+    	person.setSector(sectorRepo.findOne(sector));
     	person.setRegister(submit);
 		person.setSaved(true);
     	
