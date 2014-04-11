@@ -28,7 +28,7 @@ public class Person implements Serializable{
 	private Sector sector;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_sector", referencedColumnName = "id")
+	@JoinColumn(name = "id_country", referencedColumnName = "id")
 	private Country country;
 	
 	boolean register;
