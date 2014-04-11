@@ -34,6 +34,8 @@ public class Person implements Serializable{
 	boolean register;
 	
 	boolean saved;
+	
+	private Long score;
 
 	public Long getId() {
 		return id;
@@ -97,5 +99,13 @@ public class Person implements Serializable{
 
 	public void setCountry(Country country) {
 		this.country = country;
+	}
+
+	public Long getScore() {
+		return score;
+	}
+
+	public void setScore(Long score) {
+		this.score = score;
 	}
 }
