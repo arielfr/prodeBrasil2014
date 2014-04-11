@@ -32,16 +32,14 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:set var="i" value="0"/>
 								<c:forEach items="${positions}" var="person">
-									<tr class="<c:if test="${i == 0}">success</c:if>">
+									<tr class="<c:if test="${person.position == 1}">success</c:if>">
 										<td>${person.position}</td>
 										<td>${person.person.name}</td>
 										<td>${person.person.country.name}</td>
 										<td>${person.person.sector.name}</td>
 										<td>${person.person.score}</td>
 									</tr>
-									<c:set var="i" value="${person.person.id}"/>
 								</c:forEach>
 							</tbody>
 						</table>

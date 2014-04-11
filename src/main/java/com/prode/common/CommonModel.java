@@ -37,13 +37,17 @@ public class CommonModel {
 			
 			login = true;
 			
-			model.put("name", google.getDisplayName());
-			model.put("email", google.getEmail());
-			model.put("profilePicture", google.getPictureUrl());
+			putOnModel(model, "name", google.getDisplayName());
+			putOnModel(model, "email", google.getEmail());
+			putOnModel(model, "profilePicture", google.getPictureUrl());
 		}
 		
-		model.put("login", login);
-		model.put("blocked", blocked);
-		model.put("register", register);
+		putOnModel(model, "login", login);
+		putOnModel(model, "blocked", blocked);
+		putOnModel(model, "register", register);
+	}
+	
+	public void putOnModel(Map<String, Object> model, String key, Object element){
+		model.put(key, element);
 	}
 }

@@ -11,7 +11,7 @@
 				<c:if test="${empty podium.person.photo}">
 					<img src="/assets/unknown.jpg">
 				</c:if>
-				<span>(${podium.position}) ${podium.person.name} (${podium.person.score})</span>
+				<span>${podium.position}. ${podium.person.name} (${podium.person.score})</span>
 			</span>
 		</div>
 	</c:forEach>
