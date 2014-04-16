@@ -14,6 +14,7 @@ import com.prode.common.CommonModel;
 import com.prode.services.impl.DBCountryService;
 import com.prode.services.impl.DBMatchService;
 import com.prode.services.impl.DBPositionService;
+import com.prode.services.impl.DBScoreService;
 import com.prode.services.impl.DBSectorService;
 import com.prode.util.PermissionsUtil;
 import com.prode.util.RedirectUtil;
@@ -33,6 +34,9 @@ public class SecureController extends CommonModel{
 	@Resource
 	DBSectorService sectorService;
 	
+	@Resource
+	DBScoreService scoreService;
+	
 	@RequestMapping(value = "/secure/index", method = RequestMethod.GET)
 	public String secureHome(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
@@ -41,6 +45,8 @@ public class SecureController extends CommonModel{
 			return RedirectUtil.redirectBlock(model);
 		}
 		
+		// here we call scoreService.getScoresProde();
+		scoreService.getScoresProde();
 		putOnModel(model, "fixture", matchService.getFixture(true));
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "page", "index");
