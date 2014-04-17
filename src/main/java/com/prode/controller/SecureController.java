@@ -44,12 +44,11 @@ public class SecureController extends CommonModel{
 		if( PermissionsUtil.blockPage(model) ){
 			return RedirectUtil.redirectBlock(model);
 		}
-		
-		// here we call scoreService.getScoresProde();
-		scoreService.getScoresProde();
 		putOnModel(model, "fixture", matchService.getFixture(true));
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "page", "index");
+		// here we call scoreService.getScoresProde();
+		scoreService.getScoresProde();
 		
 		return "secure/index";
 	}
