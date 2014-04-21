@@ -28,7 +28,8 @@
         <param-value>
         	/WEB-INF/dbConfig.xml,
         	/WEB-INF/mvc-dispatcher-servlet.xml,
-        	/WEB-INF/spring-security.xml
+        	/WEB-INF/spring-security.xml,
+        	/WEB-INF/spring-quartz.xml
         </param-value>  
     </context-param>
     
