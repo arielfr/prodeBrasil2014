@@ -9,6 +9,14 @@
 	
 		
 		<script type="text/javascript">
+			<c:if test="${not empty personSector}">
+				var selectedSector = ${personSector.id};
+			</c:if>
+			
+			<c:if test="${not empty personCountry}">
+				var selectedCountry = ${personCountry.id};
+			</c:if>
+			
 			var countries = '[';
 			
 			<c:if test="${not empty countries}">

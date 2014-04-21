@@ -29,6 +29,16 @@ listenCountry = function(){
 
 populateCountry = function(){
 	for(var i = 0; i < countries.length; i++){
+		if( selectedCountry ){
+			if( selectedCountry == countries[i].id ){
+				$('#prode-container .reg-personal select.country').append($('<option>', {
+				    value: countries[i].id,
+				    text: countries[i].name,
+				    selected: true
+				}));
+			}
+		}
+		
 		$('#prode-container .reg-personal select.country').append($('<option>', {
 		    value: countries[i].id,
 		    text: countries[i].name
@@ -40,12 +50,20 @@ populateSectors = function(){
 	var countrySelected = $('#prode-container .reg-personal select.country').val();
 	
 	for(var i = 0; i < sectors.length; i++){
-		if(sectors[i].country == countrySelected){
-			$('#prode-container .reg-personal select.sector').append($('<option>', {
-			    value: sectors[i].id,
-			    text: sectors[i].name
-			}));
+		if( selectedSector ){
+			if( selectedSector == sectors[i].id ){
+				$('#prode-container .reg-personal select.sector').append($('<option>', {
+				    value: sectors[i].id,
+				    text: sectors[i].name,
+				    selected: true
+				}));
+			}
 		}
+	
+		$('#prode-container .reg-personal select.sector').append($('<option>', {
+		    value: sectors[i].id,
+		    text: sectors[i].name
+		}));
 	}
 }
 
