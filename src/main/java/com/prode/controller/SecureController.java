@@ -48,7 +48,7 @@ public class SecureController extends CommonModel{
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "page", "index");
 		// here we call scoreService.getScoresProde();
-		scoreService.getScoresProde();
+		//scoreService.getScoresProde();
 		
 		return "secure/index";
 	}
