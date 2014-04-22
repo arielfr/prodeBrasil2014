@@ -18,6 +18,9 @@ public interface ProdeRepository extends JpaRepository<Prode, Long> {
     @Query("select c from Prode c where id_match = :id_match and id_team = :id_team")
 	Prode findByMatchAndTeam(@Param("id_match") Long match_id, @Param("id_team") Long team_id);
     
+    @Query("select c from Prode c where id_match = :id_match and id_team = :id_team and id_person = :id_person")
+	Prode findByMatchAndTeamAndPerson(@Param("id_match") Long match_id, @Param("id_team") Long team_id, @Param("id_person") Long person_id);
+    
     @Query("select c from Prode c where id_person = :id_person")
 	Prode findByUser(@Param("id_person") Long id_person);
     

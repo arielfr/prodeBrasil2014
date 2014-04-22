@@ -35,13 +35,16 @@ public class CommonModel {
 				register = true;
 			}
 			
+			if( person !=null ){
+				putOnModel(model, "personSector", person.getSector());
+				putOnModel(model, "personCountry", person.getCountry());
+			}
+			
 			login = true;
 			
 			putOnModel(model, "name", google.getDisplayName());
 			putOnModel(model, "email", google.getEmail());
 			putOnModel(model, "profilePicture", google.getPictureUrl());
-			putOnModel(model, "personSector", person.getSector());
-			putOnModel(model, "personCountry", person.getCountry());
 		}
 		
 		putOnModel(model, "login", login);

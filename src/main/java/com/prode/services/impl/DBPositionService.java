@@ -93,7 +93,14 @@ public class DBPositionService implements PositionService {
 	
 	public List<PersonPositionDTO> getPodium(){
 		Page<Person> personPage = personRepository.findAll(firstSixByScore);
-		return generatePositions(personPage.getContent());
+		List<PersonPositionDTO> podium = generatePositions(personPage.getContent());
+		
+		//If the WC not started yet
+		if( podium.get(0).getPerson().getScore() == 0 ){
+			return null;
+		}else{
+			return podium;
+		}
 	}
 	
 	public List<PersonPositionDTO> generatePositions(List<Person> positions){

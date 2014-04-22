@@ -84,6 +84,7 @@ public class ProdeController extends AbstractController {
     		
     		person.setName(google.getDisplayName());
     		person.setEmail(google.getEmail());
+    		person.setScore(new Long(0));
     	}
     	
     	person.setCountry(countryRepo.findOne(country));
@@ -97,8 +98,8 @@ public class ProdeController extends AbstractController {
     
     public void persistMatches(List<UISaveFixtureDTO> fixtureDTO, Person person){
     	for(UISaveFixtureDTO groups : fixtureDTO){
-    		Prode prodeA = prodeRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamAId());
-    		Prode prodeB = prodeRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamBId());
+    		Prode prodeA = (Prode) prodeRepo.findByMatchAndTeamAndPerson(groups.getMatchId(), groups.getTeamAId(), person.getId());
+    		Prode prodeB = (Prode) prodeRepo.findByMatchAndTeamAndPerson(groups.getMatchId(), groups.getTeamBId(), person.getId());
     		
     		//Save only if you complete the value in the UI
     		if( !(groups.getTeamA_Result() == -1 || groups.getTeamB_Result() == -1) ){

@@ -29,7 +29,7 @@ listenCountry = function(){
 
 populateCountry = function(){
 	for(var i = 0; i < countries.length; i++){
-		if( selectedCountry ){
+		if( !(typeof selectedCountry === 'undefined') ){
 			if( selectedCountry == countries[i].id ){
 				$('#prode-container .reg-personal select.country').append($('<option>', {
 				    value: countries[i].id,
@@ -50,7 +50,7 @@ populateSectors = function(){
 	var countrySelected = $('#prode-container .reg-personal select.country').val();
 	
 	for(var i = 0; i < sectors.length; i++){
-		if( selectedSector ){
+		if( !(typeof selectedSector === 'undefined') ){
 			if( selectedSector == sectors[i].id ){
 				$('#prode-container .reg-personal select.sector').append($('<option>', {
 				    value: sectors[i].id,

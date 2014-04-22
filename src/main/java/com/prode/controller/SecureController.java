@@ -87,8 +87,6 @@ public class SecureController extends CommonModel{
 		
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positions", positionService.getGlobalPositions());
-		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
-		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
 		putOnModel(model, "page", "positions");
 		
 		return "secure/positions";
@@ -102,7 +100,6 @@ public class SecureController extends CommonModel{
 			return RedirectUtil.redirectBlock(model);
 		}
 		
-		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positionsByCountry", positionService.getCountryPositions());
 		putOnModel(model, "page", "positions_country");
 		
@@ -117,7 +114,6 @@ public class SecureController extends CommonModel{
 			return RedirectUtil.redirectBlock(model);
 		}
 		
-		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "positionsBySector", positionService.getSectorPositions());
 		putOnModel(model, "page", "positions_sector");
 		
