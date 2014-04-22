@@ -34,32 +34,33 @@ public class DBScoreService implements ScoreService {
 	ProdeRepository prodeRepo;
 	
 	public void getScoresProde() {
-	
-		Integer golResultA, golResultB = 0;
-		Integer golProdeA, golProdeB = 0;
-		
-		// obtain all users.
+		//Get all users
 		List<Person> users = personRepo.findAll();
+		//Get all matches
 		List<Match> matches = matchRepo.findAll();
 		
 		for (Person user : users) {
-			int score=0;
+			int score = 0;
+			
+			//Iterate all matches
 			for (Match match : matches) {
-				List<Result> userMatchResult = resultRepo.findByMatch(match.getId());
-				List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
-				golResultA = userMatchResult.get(0).getGol();
-				golResultB = userMatchResult.get(1).getGol();
-				golProdeA = userProde.get(0).getGol();
-				golProdeB = userProde.get(1).getGol();
-				score += this.calculateScoreByMatch(golResultA, golResultB, golProdeA, golProdeB);
+				List<Result> matchResult = resultRepo.findByMatch(match.getId());
+				
+				//Apply calculation in the only matches that where play
+				if( !matchResult.isEmpty() ){
+					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
+					
+					score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+				}else{
+					score += 0;
+				}
 			}
+			
 			// save the score for the user.
 			user.setScore(new Long(score));
+			
 			personRepo.save(user);
 		}
-		
-		
-	
 	}
 
 	/*
