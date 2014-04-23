@@ -24,6 +24,8 @@
 		<oauth.version>1.1.0</oauth.version>
 		<jackson.version>1.9.7</jackson.version>
 		<quartz.version>2.2.1</quartz.version>
+		<jodatime.version>2.3</jodatime.version>
+		<jodatime.jsp.version>1.1.1</jodatime.jsp.version>
 	</properties>
   
 	<dependencies>
@@ -160,7 +162,21 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${jodatime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time-jsptags</artifactId>
+			<version>${jodatime.jsp.version}</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.jadira.usertype</groupId>
+		   <artifactId>usertype.core</artifactId>
+		   <version>3.1.0.CR1</version>
+		</dependency>
 	</dependencies>
   
 	<build>

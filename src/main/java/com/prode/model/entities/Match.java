@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDateTime;
+
 @Entity
 @Table(name="matches")
 public class Match implements Serializable {
@@ -25,7 +28,8 @@ public class Match implements Serializable {
 	private Long id;
 	
 	@Column(name = "date_match")
-	private Date dateMatch;
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+	private LocalDateTime dateMatch;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_city", referencedColumnName = "id")
@@ -57,11 +61,11 @@ public class Match implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDateMatch() {
+	public LocalDateTime getDateMatch() {
 		return dateMatch;
 	}
 
-	public void setDateMatch(Date dateMatch) {
+	public void setDateMatch(LocalDateTime dateMatch) {
 		this.dateMatch = dateMatch;
 	}
 

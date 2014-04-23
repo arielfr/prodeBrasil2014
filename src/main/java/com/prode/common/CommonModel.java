@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.scribe.up.profile.google2.Google2Profile;
 
+import com.prode.model.entities.Country;
 import com.prode.model.entities.Person;
+import com.prode.repo.CountryRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.util.ActiveUserUtil;
 
@@ -16,6 +18,9 @@ public class CommonModel {
 	
 	@Resource
 	PersonRepository personRepo;
+	
+	@Resource
+	CountryRepository countryRepo;
 	
 	public void putCommon(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model){
 		Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
@@ -38,6 +43,11 @@ public class CommonModel {
 			if( person !=null ){
 				putOnModel(model, "personSector", person.getSector());
 				putOnModel(model, "personCountry", person.getCountry());
+				
+				//Set the user timezone
+				Country country = countryRepo.findOne(person.getCountry().getId());
+				
+				putOnModel(model, "personTimezone", country.getTimezone());
 			}
 			
 			login = true;

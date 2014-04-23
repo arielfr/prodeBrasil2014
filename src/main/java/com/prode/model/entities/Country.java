@@ -19,6 +19,8 @@ public class Country implements Serializable {
 	private Long id;
 	
 	private String name;
+	
+	private String timezone;
 
 	public Long getId() {
 		return id;
@@ -34,6 +36,14 @@ public class Country implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getTimezone() {
+		return timezone;
+	}
+
+	public void setTimezone(String timezone) {
+		this.timezone = timezone;
 	}
 	
 

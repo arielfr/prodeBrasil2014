@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 
 <html>
 	<head>
@@ -37,7 +38,9 @@
 										<tbody>
 											<c:forEach items="${fixture.value}" var="match">
 												<tr class="match_row" match="${match.id}">
-													<td class="matchDate">${match.dateMatch}</td>
+													<td class="matchDate">
+														<joda:format value="${match.dateMatch}" style="SS" dateTimeZone="${personTimezone}"/>
+													</td>
 													<td>
 														<div class="teams">
 															<div class="flag fteam_a" team_a="${match.teamA.id}">
