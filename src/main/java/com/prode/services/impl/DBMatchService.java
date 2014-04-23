@@ -82,6 +82,36 @@ public class DBMatchService implements MatchService {
 		return fixture;
 	}
 	
+	public HashMap<Long, List<Match>> getResults(){
+    	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
+    	Person person = personRepo.findByEmail(google.getEmail());
+    	
+		HashMap<Long, List<Match>> fixture = new HashMap<Long, List<Match>>();
+		
+		List<Group> allGroups = groupRepo.findAll(sortById());
+		
+		for(Group group : allGroups){
+			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
+			
+			if( !groupMatches.isEmpty() ){
+				for(Match match : groupMatches){
+					if( person != null ){
+						if(person.isSaved()){
+							List<Result> result = resultRepo.findByMatch(match.getId());
+
+							if( !result.isEmpty() ){
+								match.setResult(result);
+							}
+						}
+					}
+				}
+				
+				fixture.put(group.getId(), groupMatches);
+			}
+		}
+		
+		return fixture;
+	}
 	
 	private Sort sortById() {
         return new Sort(Sort.Direction.ASC, "id");

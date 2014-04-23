@@ -14,4 +14,7 @@ public interface ResultRepository extends JpaRepository<Result, Long> {
 	
     @Query("select c from Result c where id_match = :id_match")
 	List<Result> findByMatch(@Param("id_match") Long match);
+
+    @Query("select c from Result c where id_match = :id_match and id_team = :id_team")
+	Result findByMatchAndTeam(@Param("id_match") Long match, @Param("id_team") Long team);
 }
