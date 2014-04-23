@@ -53,6 +53,18 @@ public class SecureController extends CommonModel{
 		return "secure/index";
 	}
 	
+	@RequestMapping(value = "/secure/scoring", method = RequestMethod.GET)
+	public String scoring(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+		
+		if( PermissionsUtil.blockPage(model) ){
+			return RedirectUtil.redirectBlock(model);
+		}
+		scoreService.getScoresProde();
+		
+		return "secure/index";
+	}
+	
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)
 	public String secureRegistration(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
