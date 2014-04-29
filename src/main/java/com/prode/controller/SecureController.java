@@ -89,6 +89,24 @@ public class SecureController extends CommonModel{
 		return "secure/registration";
 	}
 	
+	@RequestMapping(value = "/secure/matches", method = RequestMethod.GET)
+	public String secureMatches(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		putCommon(request, response, model);
+		
+		String email = (String) model.get("email");
+		
+		if( !(email.equals("ariel.rey@openenglish.com") || email.equals("maximiliano.micciullo@openenglish.com")) ){
+			model.clear();
+			
+			return "redirect:/secure/index";
+		}
+		
+		putOnModel(model, "fixture", matchService.getResults());
+		putOnModel(model, "page", "registration");
+		
+		return "secure/matches";
+	}
+	
 	@RequestMapping(value = "/secure/positions", method = RequestMethod.GET)
 	public String securePositions(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);

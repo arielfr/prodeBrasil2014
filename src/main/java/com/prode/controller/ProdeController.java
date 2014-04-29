@@ -25,6 +25,7 @@ import com.prode.repo.CountryRepository;
 import com.prode.repo.MatchRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.repo.ProdeRepository;
+import com.prode.repo.ResultRepository;
 import com.prode.repo.SectorRepository;
 import com.prode.repo.TeamRepository;
 import com.prode.util.ActiveUserUtil;
@@ -38,6 +39,9 @@ public class ProdeController extends AbstractController {
 	
 	@Resource
 	ProdeRepository prodeRepo;
+	
+	@Resource
+	ResultRepository resultRepo;
 	
 	@Resource
 	TeamRepository teamRepo;

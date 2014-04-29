@@ -80,7 +80,8 @@ CREATE SEQUENCE country_id_seq
 
 CREATE TABLE countries (
     id integer DEFAULT nextval('country_id_seq'::regclass) NOT NULL,
-    name character varying(255)
+    name character varying(255),
+    timezone character varying(255)
 );
 
 
@@ -158,7 +159,7 @@ ALTER SEQUENCE groups_teams_id_seq OWNED BY groups_teams.id;
 
 CREATE TABLE matches (
     id bigint NOT NULL,
-    date_match timestamp without time zone NOT NULL,
+    date_match timestamp with time zone NOT NULL,
     id_city bigint NOT NULL,
     id_group bigint NOT NULL,
     id_team_a bigint NOT NULL,
