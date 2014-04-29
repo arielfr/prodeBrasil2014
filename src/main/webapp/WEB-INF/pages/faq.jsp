@@ -37,23 +37,31 @@
 									<tbody>
 										<tr>
 											<td> 1 </td>
-											<td> acertás ELV y los goles convertidos </td>
-											<td> 5 puntos </td>
-											<td> Ejemplo: Pronostico del partido 2-1 Resultado Real: 2-1 2 </td>
+											<td> Hit HDV and total of goals </td>
+											<td> Prognostic of the match: 2-1 and Real Result: 2-1 </td>
+											<td> 5 points </td>
+										</tr>
+										<tr>
+											<td> 2 </td>
+											<td> Hit HDV and total goals of only one team </td>
+											<td> Prognostic of the match: 5-1 and Real Result: 5-4 </td>
+											<td> 3 points </td>
+										</tr>
+										<tr>
+											<td> 3 </td>
+											<td> Hit HDV and any goals of the match </td>
+											<td> Prognostic of the match: 4-3 and Real Result: 1-0 </td>
+											<td> 2 points </td>
+										</tr>
+										<tr>
+											<td> 4 </td>
+											<td> Hit only total of goals one team </td>
+											<td> Prognostic of the match: 1-0 and Real Result: 0-0 </td>
+											<td> 1 point </td>
 										</tr>
 									</tbody>
 								</table>
-									Los puntos serán calculados en base al siguiente
-										criterio: 1. Si acertás ELV y los goles convertidos: 5 puntos
-										Ejemplo: Pronostico del partido 2-1 Resultado Real: 2-1 2. Si
-										acertás ELV y la cantidad de goles de sólo 1 selección: 3
-										puntos Ejemplo: Pronostico del partido 5-1 Resultado Real 5-4
-										3. Si acertás ELV y ninguno de los goles de cada selección: 2
-										puntos Ejemplo: Pronostico del partido 4-3 Resultado Real: 1-0
-										4. Si acertás cantidad de goles de 1 equipo nada más: 1 punto
-										Ejemplo: Pronostico del partido 1-0 Resultado Real: 0-0 5. Si
-										no acertás nada: 0 puntos Ejemplo: Pronostico del partido 0-1
-										Resultado Real: 2-2
+								<p> * HDV: H -> Home Team, D -> Deuce, V -> Visitor Team.  </p>
 							</div>
 						</div>
 					</div>
