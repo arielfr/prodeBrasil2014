@@ -47,8 +47,6 @@ public class SecureController extends CommonModel{
 		putOnModel(model, "fixture", matchService.getFixture(true));
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "page", "index");
-		// here we call scoreService.getScoresProde();
-		//scoreService.getScoresProde();
 		
 		return "secure/index";
 	}
@@ -57,12 +55,16 @@ public class SecureController extends CommonModel{
 	public String scoring(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
 		
-		if( PermissionsUtil.blockPage(model) ){
-			return RedirectUtil.redirectBlock(model);
+		String email = (String) model.get("email");
+		
+		if( !(email.equals("aricel.rey@openenglish.com") || email.equals("maximiliano.micciullo@openenglish.com")) ){
+			model.clear();
+			
+			return "redirect:/secure/index";
 		}
 		scoreService.getScoresProde();
 		
-		return "secure/index";
+		return "redirect:/secure/index";
 	}
 	
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)
