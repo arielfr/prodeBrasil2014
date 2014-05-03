@@ -64,7 +64,7 @@ public class SecureController extends CommonModel{
 		}
 		scoreService.getScoresProde();
 		
-		return "redirect:/secure/index";
+		return "/secure/scoring";
 	}
 	
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)
