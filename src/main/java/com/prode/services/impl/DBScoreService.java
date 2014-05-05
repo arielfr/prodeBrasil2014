@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
+import com.prode.model.entities.LogScoring;
 import com.prode.model.entities.Match;
 import com.prode.model.entities.Person;
 import com.prode.model.entities.Prode;
 import com.prode.model.entities.Result;
+import com.prode.repo.LogScoringRepository;
 import com.prode.repo.MatchRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.repo.ProdeRepository;
@@ -32,6 +35,9 @@ public class DBScoreService implements ScoreService {
 	
 	@Resource
 	ProdeRepository prodeRepo;
+	
+	@Resource
+	LogScoringRepository logScoringRepo;
 	
 	public void getScoresProde() {
 		//Get all users
@@ -61,6 +67,11 @@ public class DBScoreService implements ScoreService {
 			
 			personRepo.save(user);
 		}
+		
+		// Log last socring calculated
+		LogScoring logScoring = new LogScoring();
+		logScoring.setDateLog(LocalDateTime.now());
+		logScoringRepo.save(logScoring);
 	}
 
 	/*
