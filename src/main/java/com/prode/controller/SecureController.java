@@ -57,11 +57,12 @@ public class SecureController extends CommonModel{
 		
 		String email = (String) model.get("email");
 		
-		if( !(email.equals("aricel.rey@openenglish.com") || email.equals("maximiliano.micciullo@openenglish.com")) ){
+		if( !(email.equals("ariel.rey@openenglish.com") || email.equals("maximiliano.micciullo@openenglish.com")) ){
 			model.clear();
 			
 			return "redirect:/secure/index";
 		}
+		
 		scoreService.getScoresProde();
 		
 		return "/secure/scoring";
