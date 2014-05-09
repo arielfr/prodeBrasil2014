@@ -78,9 +78,22 @@ html {
 	text-shadow: none;
 }
 
+#prode-container .oe-header span.red{
+	background: -webkit-linear-gradient(red, green);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
+}
+
+
 #prode-container .oe-header span.subtitle{
 	font-size: 30px;
 }
+
+#prode-container .oe-header span.littleSubtitle{
+	font-size: 15px;
+}
+
 
 #prode-container .page-header small{
 	color: #696969 !important;

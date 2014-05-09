@@ -1,5 +1,6 @@
 package com.prode.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -7,11 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.joda.time.LocalDateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimePrinter;
+import org.springframework.format.datetime.joda.DateTimeFormatterFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.prode.common.CommonModel;
+import com.prode.model.entities.LogScoring;
+import com.prode.repo.LogScoringRepository;
 import com.prode.services.impl.DBCountryService;
 import com.prode.services.impl.DBMatchService;
 import com.prode.services.impl.DBPositionService;
@@ -38,15 +45,28 @@ public class SecureController extends CommonModel{
 	@Resource
 	DBScoreService scoreService;
 	
+	@Resource
+	LogScoringRepository logScoringRepo;
+	
+	final static DateTimeFormatter fourDigitYear = DateTimeFormat.forPattern("MM/dd/yyyy");
+	
 	@RequestMapping(value = "/secure/index", method = RequestMethod.GET)
 	public String secureHome(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
+		
+		LocalDateTime logDate = null;
+		List<LogScoring> listLogScoring = logScoringRepo.findLastLogScoring();
+		
+		if (!listLogScoring.isEmpty()) {
+			logDate = listLogScoring.get(0).getDateLog(); 
+		}
 		
 		if( PermissionsUtil.blockPage(model) ){
 			return RedirectUtil.redirectBlock(model);
 		}
 		putOnModel(model, "fixture", matchService.getFixture(true, null));
 		putOnModel(model, "podium", positionService.getPodium());
+		putOnModel(model, "logdate", logDate);
 		putOnModel(model, "page", "index");
 		
 		return "secure/index";
