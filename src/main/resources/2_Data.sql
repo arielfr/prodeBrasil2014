@@ -258,7 +258,12 @@ SELECT pg_catalog.setval('matches_id_seq', 54, true);
 INSERT INTO sectors VALUES (1, 1, 'Learning Platform');
 INSERT INTO sectors VALUES (2, 1, 'Business Intelligence');
 INSERT INTO sectors VALUES (3, 1, 'Automation');
-INSERT INTO sectors VALUES (4, 1, 'Management');
+INSERT INTO sectors VALUES (4, 1, 'Website');
+INSERT INTO sectors VALUES (5, 1, 'Finance');
+INSERT INTO sectors VALUES (6, 1, 'Salesforce');
+INSERT INTO sectors VALUES (7, 1, 'DBA');
+INSERT INTO sectors VALUES (8, 1, 'ITS');
+INSERT INTO sectors VALUES (9, 1, 'Infrastructure');
 
 
 --
