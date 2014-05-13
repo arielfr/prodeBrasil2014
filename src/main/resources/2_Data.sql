@@ -51,9 +51,9 @@ SELECT pg_catalog.setval('city_id_seq', 12, true);
 --
 
 INSERT INTO countries VALUES (1, 'Argentina', 'America/Argentina/Buenos_Aires');
-INSERT INTO countries VALUES (2, 'Brasil', 'America/Sao_Paulo');
-INSERT INTO countries VALUES (3, 'Venezuela', 'America/Caracas');
-INSERT INTO countries VALUES (4, 'Usa', 'America/St_Vincent');
+INSERT INTO countries VALUES (2, 'Venezuela', 'America/Caracas');
+--INSERT INTO countries VALUES (3, 'Brasil', 'America/Sao_Paulo');
+--INSERT INTO countries VALUES (4, 'Usa', 'America/St_Vincent');
 
 
 --
