@@ -73,34 +73,10 @@
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse">
-							<div class="panel-body">RESULTS</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion"
-									href="#collapseThree"> Winners </a>
-							</h4>
-						</div>
-						<div id="collapseThree" class="panel-collapse collapse">
-							<div class="panel-body">WINNERS</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion"
-									href="#collapseFour"> Awards </a>
-							</h4>
-						</div>
-						<div id="collapseFour" class="panel-collapse collapse">
-							<div class="panel-body">AWARDS</div>
+							<div class="panel-body">The results will be updated daily. A task will run automatically on midnights. This can be done manually by OE Argentina Team too.</div>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 			</div>
 		</div>
