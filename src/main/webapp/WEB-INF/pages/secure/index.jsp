@@ -15,8 +15,10 @@
 			<div class="oe-header">
 				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Scores</span>
 				<span class="red littleSubtitle">
-					Last update: <joda:format value="${logdate}" style="SS" dateTimeZone="${personTimezone}"/>  
-				</span> 
+				<c:if test="${not empty logdate}">
+					<span style="font-family: fantasy;">Last update: <joda:format value="${logdate}" style="SS" dateTimeZone="${personTimezone}"/></span>
+				</c:if>
+				</span>
 			</div>
 			
 			<jsp:include page="includes/podium.jsp" />
