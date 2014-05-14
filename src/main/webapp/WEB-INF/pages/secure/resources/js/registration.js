@@ -28,41 +28,42 @@ listenCountry = function(){
 }
 
 populateCountry = function(){
+	var selected = false;
+	
 	for(var i = 0; i < countries.length; i++){
+		selected = false;
+		
 		if( !(typeof selectedCountry === 'undefined') ){
 			if( selectedCountry == countries[i].id ){
-				$('#prode-container .reg-personal select.country').append($('<option>', {
-				    value: countries[i].id,
-				    text: countries[i].name,
-				    selected: true
-				}));
+				selected = true;
 			}
 		}
 		
 		$('#prode-container .reg-personal select.country').append($('<option>', {
 		    value: countries[i].id,
-		    text: countries[i].name
+		    text: countries[i].name,
+		    selected: selected
 		}));
 	}
 }
 
 populateSectors = function(){
 	var countrySelected = $('#prode-container .reg-personal select.country').val();
+	var selected = false;
 	
 	for(var i = 0; i < sectors.length; i++){
+		selected = false;
+		
 		if( !(typeof selectedSector === 'undefined') ){
 			if( selectedSector == sectors[i].id ){
-				$('#prode-container .reg-personal select.sector').append($('<option>', {
-				    value: sectors[i].id,
-				    text: sectors[i].name,
-				    selected: true
-				}));
+				selected = true;
 			}
 		}
-	
+		
 		$('#prode-container .reg-personal select.sector').append($('<option>', {
 		    value: sectors[i].id,
-		    text: sectors[i].name
+		    text: sectors[i].name,
+		    selected: selected
 		}));
 	}
 }
