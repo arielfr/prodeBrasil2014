@@ -45,6 +45,10 @@ populateCountry = function(){
 		    selected: selected
 		}));
 	}
+	
+	if( !(typeof selectedCountry === 'undefined') ){
+		$('#prode-container .reg-personal select.country').attr('disabled', 'disabled');
+	}
 }
 
 populateSectors = function(){
@@ -65,6 +69,10 @@ populateSectors = function(){
 		    text: sectors[i].name,
 		    selected: selected
 		}));
+	}
+	
+	if( !(typeof selectedSector === 'undefined') ){
+		$('#prode-container .reg-personal select.sector').attr('disabled', 'disabled');
 	}
 }
 
