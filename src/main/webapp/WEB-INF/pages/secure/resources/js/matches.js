@@ -92,7 +92,7 @@ submitFunctionality = function(){
 				complete: function(){
 					$("html, body").animate({ scrollTop: "0px" });
 					
-					//location.reload();
+					showMessage('The Match have been save', 'alert-success');
 				}
 			});
 		}

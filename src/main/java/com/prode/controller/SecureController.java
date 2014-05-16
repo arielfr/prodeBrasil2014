@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.prode.common.CommonModel;
+import com.prode.model.entities.Country;
 import com.prode.model.entities.LogScoring;
 import com.prode.repo.LogScoringRepository;
 import com.prode.services.impl.DBCountryService;
@@ -165,6 +166,14 @@ public class SecureController extends CommonModel{
 	@RequestMapping(value = "/secure/positions_sector", method = RequestMethod.GET)
 	public String securePositionsSector(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		putCommon(request, response, model);
+		
+		Country country = (Country) model.get("personCountry");
+		
+		if( country.getName().equals("Venezuela") ){
+			model.clear();
+			
+			return "redirect:/secure/index";
+		}
 		
 		if( PermissionsUtil.blockPage(model) ){
 			return RedirectUtil.redirectBlock(model);

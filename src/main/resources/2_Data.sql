@@ -264,6 +264,7 @@ INSERT INTO sectors VALUES (6, 1, 'Salesforce');
 INSERT INTO sectors VALUES (7, 1, 'DBA');
 INSERT INTO sectors VALUES (8, 1, 'ITS');
 INSERT INTO sectors VALUES (9, 1, 'Infrastructure');
+INSERT INTO sectors VALUES (10, 2, 'Any');
 
 
 --

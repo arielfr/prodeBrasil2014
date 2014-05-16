@@ -16,10 +16,11 @@
 				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Calculate Scoring</span>
 			</div>
 			
-			<div class="panel-body">
-				<p> Scoring successfully calculated !!!</p>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					The scores have been updated
+				</div>
 			</div>
-			
 		</div>
 		<jsp:include page="includes/footer.jsp" />
 	</body>

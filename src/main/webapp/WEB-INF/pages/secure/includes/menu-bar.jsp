@@ -20,9 +20,11 @@
 					<li class="<c:if test="${page == 'positions_country'}">active</c:if>">
 						<a href="/secure/positions_country">Country Positions</a>
 					</li>
-					<li class="<c:if test="${page == 'positions_sector'}">active</c:if>">
-						<a href="/secure/positions_sector">Sector Positions</a>
-					</li>
+					<c:if test="${!(personCountry.name == 'Venezuela')}">
+						<li class="<c:if test="${page == 'positions_sector'}">active</c:if>">
+							<a href="/secure/positions_sector">Sector Positions</a>
+						</li>
+					</c:if>
 					<li class="<c:if test="${page == 'faq'}">active</c:if>">
 						<a href="/secure/faq">FAQ</a>
 					</li>
