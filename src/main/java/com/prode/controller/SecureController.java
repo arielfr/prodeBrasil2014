@@ -13,6 +13,7 @@ import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimePrinter;
 import org.springframework.format.datetime.joda.DateTimeFormatterFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -88,6 +89,25 @@ public class SecureController extends CommonModel{
 		scoreService.getScoresProde();
 		
 		return "/secure/scoring";
+	}
+	
+	@RequestMapping(value = "/secure/weeks/{startDate}/{endDate}", method = RequestMethod.GET)
+	public String weeks(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model,
+						@PathVariable("startDate") String startDate,
+						@PathVariable("endDate") String endDate) {
+		putCommon(request, response, model);
+		
+		String email = (String) model.get("email");
+		
+		if( !(email.equals("ariel.rey@openenglish.com") || email.equals("maximiliano.micciullo@openenglish.com")) ){
+			model.clear();
+			
+			return "redirect:/secure/index";
+		}
+		
+		putOnModel(model, "positions", scoreService.getScoresProdeWeek(startDate, endDate));
+		
+		return "/secure/weeks";
 	}
 	
 	@RequestMapping(value = "/secure/registration", method = RequestMethod.GET)

@@ -15,4 +15,6 @@ public interface PositionService {
 	public List<PersonPositionDTO> getGlobalPositions();
 	
 	public HashMap<Long, List<PersonPositionDTO>> getCountryPositions();
+	
+	public List<PersonPositionDTO> returnMePositions(List<Person> persons);
 }

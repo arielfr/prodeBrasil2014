@@ -41,6 +41,10 @@ public class DBPositionService implements PositionService {
 		return generatePositions(positions);
 	}
 	
+	public List<PersonPositionDTO> returnMePositions(List<Person> persons) {
+		return generatePositions(persons);
+	}
+	
 	public HashMap<Long, List<PersonPositionDTO>> getCountryPositions(){
 		//Get all the persons with their score
 		List<Person> positions = personRepository.findAll(sortByScore());

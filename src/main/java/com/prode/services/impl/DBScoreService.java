@@ -1,5 +1,8 @@
 package com.prode.services.impl;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,6 +10,7 @@ import javax.annotation.Resource;
 import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
+import com.prode.dto.PersonPositionDTO;
 import com.prode.model.entities.LogScoring;
 import com.prode.model.entities.Match;
 import com.prode.model.entities.Person;
@@ -38,6 +42,9 @@ public class DBScoreService implements ScoreService {
 	
 	@Resource
 	LogScoringRepository logScoringRepo;
+	
+	@Resource
+	DBPositionService positionService;
 	
 	public void getScoresProde() {
 		//Get all users
@@ -72,6 +79,51 @@ public class DBScoreService implements ScoreService {
 		LogScoring logScoring = new LogScoring();
 		logScoring.setDateLog(LocalDateTime.now());
 		logScoringRepo.save(logScoring);
+	}
+	
+	public List<PersonPositionDTO> getScoresProdeWeek(String startDateParam, String endDateParam){
+		//Get all users
+		List<Person> users = personRepo.findAll();
+		
+		LocalDateTime startDate = LocalDateTime.parse(startDateParam + "T00:00:00");
+		LocalDateTime endDate = LocalDateTime.parse(endDateParam + "T23:59:59");
+		
+		//Get all matches
+		List<Match> matches = matchRepo.findByDateAndDate(startDate, endDate);
+		
+		for (Person user : users) {
+			int score = 0;
+			
+			//Iterate all matches
+			for (Match match : matches) {
+				List<Result> matchResult = resultRepo.findByMatch(match.getId());
+				
+				//Apply calculation in the only matches that where play
+				if( !matchResult.isEmpty() ){
+					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
+					
+					if( !userProde.isEmpty() ){
+						score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+					}else{
+						score += 0;
+					}
+				}else{
+					score += 0;
+				}
+			}
+			
+			// save the score for the user.
+			user.setScore(new Long(score));
+		}
+		
+		Collections.sort(users, new Comparator<Person>() {
+	        @Override
+	        public int compare(Person o1, Person o2) {
+	            return (int) (o1.getScore() - o2.getScore());
+	        }
+	    });
+		
+		return positionService.returnMePositions(users);
 	}
 
 	/*
