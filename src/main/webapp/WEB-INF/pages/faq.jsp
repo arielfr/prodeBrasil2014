@@ -28,7 +28,7 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Rule</th>
+											<th>Regulation</th>
 											<th>Example</th>
 											<th>Score</th>
 										</tr>
@@ -37,31 +37,30 @@
 									<tbody>
 										<tr>
 											<td> 1 </td>
-											<td> Hit HDV and total of goals </td>
+											<td> Hit both the outlook and the results of the game </td>
 											<td> Prognostic of the match: 2-1 and Real Result: 2-1 </td>
 											<td> 5 points </td>
 										</tr>
 										<tr>
 											<td> 2 </td>
-											<td> Hit HDV and total goals of only one team </td>
+											<td> Hit the forecast of the game, but only the total goals of one team </td>
 											<td> Prognostic of the match: 5-1 and Real Result: 5-4 </td>
 											<td> 3 points </td>
 										</tr>
 										<tr>
 											<td> 3 </td>
-											<td> Hit HDV and any goals of the match </td>
+											<td> Hit the forecast but not the total goals </td>
 											<td> Prognostic of the match: 4-3 and Real Result: 1-0 </td>
 											<td> 2 points </td>
 										</tr>
 										<tr>
 											<td> 4 </td>
-											<td> Hit only total of goals one team </td>
+											<td> Hit only one team´s total goals. </td>
 											<td> Prognostic of the match: 1-0 and Real Result: 0-0 </td>
 											<td> 1 point </td>
 										</tr>
 									</tbody>
 								</table>
-								<p> * HDV: H -> Home Team, D -> Deuce, V -> Visitor Team.  </p>
 							</div>
 						</div>
 					</div>
