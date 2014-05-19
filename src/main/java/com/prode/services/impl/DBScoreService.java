@@ -63,7 +63,11 @@ public class DBScoreService implements ScoreService {
 				if( !matchResult.isEmpty() ){
 					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
 					
-					score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+					if( !userProde.isEmpty() ){
+						score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+					}else{
+						score += 0;
+					}
 				}else{
 					score += 0;
 				}
