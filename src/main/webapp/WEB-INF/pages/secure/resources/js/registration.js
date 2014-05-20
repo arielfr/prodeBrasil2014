@@ -64,11 +64,13 @@ populateSectors = function(){
 			}
 		}
 		
-		$('#prode-container .reg-personal select.sector').append($('<option>', {
-		    value: sectors[i].id,
-		    text: sectors[i].name,
-		    selected: selected
-		}));
+		if( countrySelected == sectors[i].country ){
+			$('#prode-container .reg-personal select.sector').append($('<option>', {
+			    value: sectors[i].id,
+			    text: sectors[i].name,
+			    selected: selected
+			}));
+		}
 	}
 	
 	if( !(typeof selectedSector === 'undefined') ){

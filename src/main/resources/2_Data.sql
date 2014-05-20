@@ -62,7 +62,7 @@ INSERT INTO countries VALUES (2, 'Venezuela', 'America/Caracas');
 -- Name: country_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('country_id_seq', 1, false);
+SELECT pg_catalog.setval('country_id_seq', 2, false);
 
 
 --
@@ -71,11 +71,11 @@ SELECT pg_catalog.setval('country_id_seq', 1, false);
 -- Data for Name: groups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO groups VALUES (9, 'OCTAVOS');
-INSERT INTO groups VALUES (10, 'CUARTOS');
-INSERT INTO groups VALUES (11, 'SEMI');
-INSERT INTO groups VALUES (12, 'TERCERO');
-INSERT INTO groups VALUES (13, 'FINAL');
+INSERT INTO groups VALUES (9, 'Round Of 16');
+INSERT INTO groups VALUES (10, 'Quarter-Finals');
+INSERT INTO groups VALUES (11, 'Semi-Finals');
+INSERT INTO groups VALUES (12, 'Third Place');
+INSERT INTO groups VALUES (13, 'Final');
 INSERT INTO groups VALUES (1, 'Group A');
 INSERT INTO groups VALUES (2, 'Group B');
 INSERT INTO groups VALUES (3, 'Group C');
@@ -92,7 +92,7 @@ INSERT INTO groups VALUES (8, 'Group H');
 -- Name: groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('groups_id_seq', 13, true);
+SELECT pg_catalog.setval('groups_id_seq',13, true);
 
 
 --
@@ -273,16 +273,16 @@ INSERT INTO sectors VALUES (10, 2, 'Any');
 -- Name: sector_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('sector_id_seq', 1, false);
+SELECT pg_catalog.setval('sector_id_seq', 10, false);
 
 
 --
--- TOC entry 2068 (class 0 OID 0)
+-- TOC entry 2068 (class 0 OID 0)	
 -- Dependencies: 180
 -- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('team_id_seq', 29, true);
+SELECT pg_catalog.setval('team_id_seq', 32, true);
 
 
 -- Completed on 2014-04-11 11:34:44
