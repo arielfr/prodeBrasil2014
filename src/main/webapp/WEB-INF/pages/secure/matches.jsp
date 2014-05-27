@@ -57,6 +57,8 @@
 															<c:if test="${result.team.id == match.teamA.id}">
 																<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_a_result">
 															</c:if>
+														</c:forEach>
+														<c:forEach items="${match.result}" var="result">
 															<c:if test="${result.team.id == match.teamB.id}">
 																<div class="dash">-</div>
 																<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_b_result">

@@ -69,6 +69,8 @@
 																	</c:forEach>
 																</c:if>
 															</c:if>
+														</c:forEach>	
+														<c:forEach items="${match.prode}" var="prode">
 															<c:if test="${prode.team.id == match.teamB.id}">
 																<div class="dash">-</div>
 																<c:if test="${empty match.result}">
