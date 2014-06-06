@@ -514,3 +514,8 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
+-- Configurations Table
+CREATE TABLE configurations (
+    key character varying(255) NOT NULL,
+    value boolean DEFAULT false NOT NULL
+);

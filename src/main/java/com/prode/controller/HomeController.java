@@ -33,4 +33,9 @@ public class HomeController extends CommonModel{
 	public String logout(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		return "logout";
 	}
+	
+	@RequestMapping(value = "/block", method = RequestMethod.GET)
+	public String block(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+		return "block";
+	}
 }

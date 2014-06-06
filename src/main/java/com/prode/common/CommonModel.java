@@ -40,7 +40,7 @@ public class CommonModel {
 				register = true;
 			}
 			
-			if( person !=null ){
+			if( person != null ){
 				putOnModel(model, "personSector", person.getSector());
 				putOnModel(model, "personCountry", person.getCountry());
 				

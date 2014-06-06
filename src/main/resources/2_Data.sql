@@ -291,3 +291,5 @@ SELECT pg_catalog.setval('team_id_seq', 32, true);
 -- PostgreSQL database dump complete
 --
 
+-- Configurations
+INSERT INTO configurations VALUES ('allow_registration', 'true');

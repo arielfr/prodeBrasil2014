@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimePrinter;
-import org.springframework.format.datetime.joda.DateTimeFormatterFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.prode.common.CommonModel;
+import com.prode.model.entities.Configurations;
 import com.prode.model.entities.Country;
 import com.prode.model.entities.LogScoring;
+import com.prode.repo.ConfigurationsRepository;
 import com.prode.repo.LogScoringRepository;
 import com.prode.services.impl.DBCountryService;
 import com.prode.services.impl.DBMatchService;
@@ -49,6 +49,9 @@ public class SecureController extends CommonModel{
 	
 	@Resource
 	LogScoringRepository logScoringRepo;
+	
+	@Resource
+	ConfigurationsRepository confRepo;
 	
 	final static DateTimeFormatter fourDigitYear = DateTimeFormat.forPattern("MM/dd/yyyy");
 	
@@ -124,6 +127,14 @@ public class SecureController extends CommonModel{
 			model.clear();
 			
 			return "redirect:/secure/index";
+		}
+		
+		Configurations conf = confRepo.findByKey("allow_registration");
+		
+		if( !register && !conf.isValue() ){
+			model.clear();
+			
+			return "redirect:/block";
 		}
 		
 		LocalDateTime today = new LocalDateTime();
