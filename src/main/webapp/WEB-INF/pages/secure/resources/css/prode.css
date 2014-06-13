@@ -434,4 +434,6 @@ html {
 
 #prode-container .row.fpositions div span.thumbnail img{
 	margin-bottom: 5px;
+	width: 120px;
+	height: 120px;
 }

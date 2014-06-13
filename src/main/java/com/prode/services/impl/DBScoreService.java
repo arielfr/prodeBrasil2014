@@ -1,8 +1,8 @@
 package com.prode.services.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -64,7 +64,19 @@ public class DBScoreService implements ScoreService {
 					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
 					
 					if( !userProde.isEmpty() ){
-						score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+						List<Integer> resultsGoals = new ArrayList<Integer>();
+						List<Integer> prodeGoals = new ArrayList<Integer>();
+						
+						for(Result playMatch : matchResult){
+							for(Prode prode : userProde){
+								if(playMatch.getTeam().getId() == prode.getTeam().getId()){
+									resultsGoals.add(playMatch.getGol());
+									prodeGoals.add(prode.getGol());
+								}
+							}
+						}
+						
+						score += this.calculateScoreByMatch(resultsGoals.get(0), resultsGoals.get(1), prodeGoals.get(0), prodeGoals.get(1));
 					}else{
 						score += 0;
 					}
@@ -148,10 +160,19 @@ public class DBScoreService implements ScoreService {
 	
 	private Boolean calculatePronostic(Integer golResultA, Integer golResultB, Integer golProdeA, Integer golProdeB) {
 		Boolean pronostic = Boolean.FALSE;
+
+		//Gana Equipo A
+		if( (golResultA > golResultB) && (golProdeA > golProdeB) ){
+			pronostic = Boolean.TRUE;
+		}
 		
-		if (golProdeA.compareTo(golProdeB) > 0 && golResultA.compareTo(golResultB) > 0
-				|| golProdeA.compareTo(golProdeB) < 0 && golResultA.compareTo(golResultB) < 0
-					|| golProdeA.compareTo(golProdeB) == 0 && golResultA.compareTo(golResultB) == 0) {
+		//Gana Equipo B
+		if( (golResultB > golResultA) && (golProdeB > golProdeA) ){
+			pronostic = Boolean.TRUE;
+		}
+		
+		//Empate
+		if( (golResultA == golResultB) && (golProdeA == golProdeB) ){
 			pronostic = Boolean.TRUE;
 		}
 		

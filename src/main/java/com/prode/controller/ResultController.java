@@ -22,6 +22,7 @@ import com.prode.repo.MatchRepository;
 import com.prode.repo.PersonRepository;
 import com.prode.repo.ResultRepository;
 import com.prode.repo.TeamRepository;
+import com.prode.services.impl.DBScoreService;
 
 @Controller
 @RequestMapping(value = "/result", produces = "application/json")
@@ -38,6 +39,9 @@ public class ResultController extends AbstractController {
 	
 	@Resource
 	MatchRepository matchRepo;
+	
+	@Resource
+	DBScoreService scoreService;
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
@@ -80,5 +84,7 @@ public class ResultController extends AbstractController {
 	    		resultRepo.save(resultB);
     		}
     	}
+    	
+    	scoreService.getScoresProde();
     }
 }
