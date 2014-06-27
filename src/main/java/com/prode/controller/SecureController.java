@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +45,7 @@ public class SecureController extends CommonModel{
 		if( PermissionsUtil.blockPage(model) ){
 			return RedirectUtil.redirectBlock(model);
 		}
-		putOnModel(model, "fixture", matchService.getFixture(true));
+		putOnModel(model, "fixture", matchService.getFixture(true, null));
 		putOnModel(model, "podium", positionService.getPodium());
 		putOnModel(model, "page", "index");
 		
@@ -84,7 +85,9 @@ public class SecureController extends CommonModel{
 			return "redirect:/secure/index";
 		}
 		
-		putOnModel(model, "fixture", matchService.getFixture(false));
+		LocalDateTime today = new LocalDateTime();
+		
+		putOnModel(model, "fixture", matchService.getFixture(false, today));
 		putOnModel(model, "countries", countryService.getCountries());
 		putOnModel(model, "sectors", sectorService.getSectors());
 		putOnModel(model, "page", "registration");

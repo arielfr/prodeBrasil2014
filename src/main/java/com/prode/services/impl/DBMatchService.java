@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.joda.time.LocalDateTime;
 import org.scribe.up.profile.google2.Google2Profile;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class DBMatchService implements MatchService {
 	@Resource
 	PersonRepository personRepo;
 	
-	public HashMap<Long, List<Match>> getFixture(boolean withResults){
+	public HashMap<Long, List<Match>> getFixture(boolean withResults, LocalDateTime date){
     	Google2Profile google = ActiveUserUtil.getActiveGoogleUser();
     	Person person = personRepo.findByEmail(google.getEmail());
     	
@@ -49,7 +50,14 @@ public class DBMatchService implements MatchService {
 		List<Group> allGroups = groupRepo.findAll(sortById());
 		
 		for(Group group : allGroups){
-			List<Match> groupMatches = matchRepo.findByGroup(group.getId());
+			List<Match> groupMatches;
+			
+			if(date != null){
+				groupMatches = matchRepo.findByGroupAndDate(group.getId(), date);
+			}else{
+				groupMatches = matchRepo.findByGroup(group.getId());
+			}
+			
 			
 			if( !groupMatches.isEmpty() ){
 				for(Match match : groupMatches){
