@@ -119,14 +119,13 @@ public class DBPositionService implements PositionService {
 			
 			globalPositions.add(personPos);
 			
-			if( person.getScore() == lastScore ){
-				position = position - 1;
+			if( !(person.getScore() == lastScore) ){
+				position = globalPositions.size();
 			}
 			
 			personPos.setPosition(position);
 			
 			lastScore = person.getScore().intValue();
-			position = position + 1;
 		}
 		
 		return globalPositions;

@@ -119,7 +119,19 @@ public class DBScoreService implements ScoreService {
 					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
 					
 					if( !userProde.isEmpty() ){
-						score += this.calculateScoreByMatch(matchResult.get(0).getGol(), matchResult.get(1).getGol(), userProde.get(0).getGol(), userProde.get(1).getGol());
+						List<Integer> resultsGoals = new ArrayList<Integer>();
+						List<Integer> prodeGoals = new ArrayList<Integer>();
+						
+						for(Result playMatch : matchResult){
+							for(Prode prode : userProde){
+								if(playMatch.getTeam().getId() == prode.getTeam().getId()){
+									resultsGoals.add(playMatch.getGol());
+									prodeGoals.add(prode.getGol());
+								}
+							}
+						}
+						
+						score += this.calculateScoreByMatch(resultsGoals.get(0), resultsGoals.get(1), prodeGoals.get(0), prodeGoals.get(1));
 					}else{
 						score += 0;
 					}
@@ -135,7 +147,7 @@ public class DBScoreService implements ScoreService {
 		Collections.sort(users, new Comparator<Person>() {
 	        @Override
 	        public int compare(Person o1, Person o2) {
-	            return (int) (o1.getScore() - o2.getScore());
+	            return (int) (o2.getScore() - o1.getScore());
 	        }
 	    });
 		
