@@ -30,7 +30,7 @@
 										<th>#</th>
 										<th>Name</th>
 										<th>Country</th>
-										<th>Sector</th>
+										<th>Office</th>
 										<th>Score</th>
 									</tr>
 								</thead>

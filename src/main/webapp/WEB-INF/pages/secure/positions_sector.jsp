@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Sector Positions</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Office Positions</span>
 			</div>
 
 			<c:forEach items="${positionsBySector}" var="sector">

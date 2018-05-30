@@ -90,7 +90,7 @@
 
 							</select>
 							</br>
-							<div class="subTitle">Sector:</div>
+							<div class="subTitle">Office:</div>
 							<select class="sector form-control">
 							</select>
 						</div>

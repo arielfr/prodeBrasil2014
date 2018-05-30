@@ -52,9 +52,12 @@ SELECT pg_catalog.setval('city_id_seq', 12, true);
 
 INSERT INTO countries VALUES (1, 'Argentina', 'America/Argentina/Buenos_Aires');
 INSERT INTO countries VALUES (2, 'Venezuela', 'America/Caracas');
---INSERT INTO countries VALUES (3, 'Brasil', 'America/Sao_Paulo');
---INSERT INTO countries VALUES (4, 'Usa', 'America/St_Vincent');
-
+INSERT INTO countries VALUES (3, 'Mexico', 'America/Mexico_City');
+INSERT INTO countries VALUES (4, 'Uruguay', 'America/Montevideo');
+INSERT INTO countries VALUES (5, 'Brasil', 'America/Sao_Paulo');
+INSERT INTO countries VALUES (6, 'Colombia', 'America/Bogota');
+INSERT INTO countries VALUES (7, 'Chile', 'America/Santiago');
+INSERT INTO countries VALUES (8, 'Peru', 'America/Lima');
 
 --
 -- TOC entry 2060 (class 0 OID 0)
@@ -255,16 +258,25 @@ SELECT pg_catalog.setval('matches_id_seq', 54, true);
 -- Data for Name: sectors; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO sectors VALUES (1, 1, 'Learning Platform');
-INSERT INTO sectors VALUES (2, 1, 'Business Intelligence');
-INSERT INTO sectors VALUES (3, 1, 'Automation');
-INSERT INTO sectors VALUES (4, 1, 'Website');
-INSERT INTO sectors VALUES (5, 1, 'Finance');
-INSERT INTO sectors VALUES (6, 1, 'Salesforce');
-INSERT INTO sectors VALUES (7, 1, 'DBA');
-INSERT INTO sectors VALUES (8, 1, 'ITS');
-INSERT INTO sectors VALUES (9, 1, 'Infrastructure');
-INSERT INTO sectors VALUES (10, 2, 'Any');
+INSERT INTO sectors VALUES (1, 1, 'Arias');
+INSERT INTO sectors VALUES (2, 1, 'Alem');
+INSERT INTO sectors VALUES (3, 2, 'Venezuela');
+INSERT INTO sectors VALUES (4, 3, 'Mexico');
+INSERT INTO sectors VALUES (5, 4, 'Uruguay WTC');
+INSERT INTO sectors VALUES (6, 4, 'Uruguay AP');
+INSERT INTO sectors VALUES (7, 5, 'Brasil');
+INSERT INTO sectors VALUES (8, 6, 'Colombia');
+INSERT INTO sectors VALUES (9, 1, 'San Luis');
+INSERT INTO sectors VALUES (10, 1, 'Cordoba');
+INSERT INTO sectors VALUES (11, 1, 'Vicente Lopez');
+INSERT INTO sectors VALUES (12, 7, 'Chile');
+INSERT INTO sectors VALUES (13, 1, 'Guemes');
+INSERT INTO sectors VALUES (14, 1, 'Parque Patricios');
+INSERT INTO sectors VALUES (15, 8, 'Peru');
+INSERT INTO sectors VALUES (16, 1, 'Vedia');
+INSERT INTO sectors VALUES (17, 1, 'HIT');
+INSERT INTO sectors VALUES (18, 1, 'Mendoza');
+INSERT INTO sectors VALUES (19, 1, 'WeWork');
 
 
 --
@@ -277,7 +289,7 @@ SELECT pg_catalog.setval('sector_id_seq', 10, false);
 
 
 --
--- TOC entry 2068 (class 0 OID 0)	
+-- TOC entry 2068 (class 0 OID 0)
 -- Dependencies: 180
 -- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --

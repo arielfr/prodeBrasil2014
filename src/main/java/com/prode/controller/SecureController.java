@@ -200,12 +200,6 @@ public class SecureController extends CommonModel{
 
 		Country country = (Country) model.get("personCountry");
 
-		if( country.getName().equals("Venezuela") ){
-			model.clear();
-
-			return "redirect:/secure/index";
-		}
-
 		if( PermissionsUtil.blockPage(model) ){
 			return RedirectUtil.redirectBlock(model);
 		}
