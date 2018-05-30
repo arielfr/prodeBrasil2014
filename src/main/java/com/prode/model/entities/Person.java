@@ -2,39 +2,35 @@ package com.prode.model.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="person")
 public class Person implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String name;
-	
+
 	private String email;
-	
+
 	private String photo;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_sector", referencedColumnName = "id")
 	private Sector sector;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_country", referencedColumnName = "id")
 	private Country country;
-	
+
 	boolean register;
-	
+
 	boolean saved;
-	
+
 	private Long score;
 
 	public Long getId() {

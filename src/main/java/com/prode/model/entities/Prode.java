@@ -2,14 +2,10 @@ package com.prode.model.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="prode")
 public class Prode implements Serializable {
 
 	private static final long serialVersionUID = -3755202187524433878L;
@@ -17,19 +13,19 @@ public class Prode implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_person", referencedColumnName = "id")
 	private Person user;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_match", referencedColumnName = "id")
 	private Match match;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_team", referencedColumnName = "id")
 	private Team team;
-	
+
 	private int gol;
 
 	public Long getId() {
@@ -71,5 +67,5 @@ public class Prode implements Serializable {
 	public void setTeam(Team team) {
 		this.team = team;
 	}
-	
+
 }
