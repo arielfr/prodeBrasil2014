@@ -12,17 +12,17 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Country Positions</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Country Positions</span>
 			</div>
 
 			<c:forEach items="${positionsByCountry}" var="country">
 				<c:set var="forPodium" value="${country}" scope="request"></c:set>
-				
+
 				<div class="panel panel-default panel-oe">
 					<div class="panel-heading">${country.value[0].person.country.name}</div>
 					<div class="panel-body">
 						<jsp:include page="includes/custom_podium.jsp" />
-						
+
 						<c:if test="${not empty positionsByCountry}">
 							<table class="table table-striped">
 								<thead>
@@ -51,7 +51,7 @@
 				</div>
 			</c:forEach>
 		</div>
-		
+
 		<jsp:include page="includes/footer.jsp" />
 	</body>
 </html>

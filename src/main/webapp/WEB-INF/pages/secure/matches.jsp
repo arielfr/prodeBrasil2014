@@ -11,11 +11,11 @@
 		<div id="central-container">
 			<div id="messages">
 			</div>
-			
+
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Results</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Results</span>
 			</div>
-			
+
 			<c:forEach items="${fixture}" var="fixture">
 				<div class="panel panel-default pr-registration">
 					<div class="panel-heading" group="${fixture.key}">${fixture.value[0].group.name}</div>

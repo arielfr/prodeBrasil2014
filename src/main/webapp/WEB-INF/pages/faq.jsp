@@ -5,11 +5,11 @@
 	<body id="prode-container">
 		<jsp:include page="secure/includes/menu-bar.jsp" />
 		<div id="central-container">
-		
+
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">FAQ</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">FAQ</span>
 			</div>
-			
+
 			<div class="panel panel-default">
 				<div class="panel-body">
 
@@ -33,7 +33,7 @@
 											<th>Score</th>
 										</tr>
 									</thead>
-								
+
 									<tbody>
 										<tr>
 											<td> 1 </td>
@@ -55,7 +55,7 @@
 										</tr>
 										<tr>
 											<td> 4 </td>
-											<td> Hit only one team´s total goals. </td>
+											<td> Hit only one teamï¿½s total goals. </td>
 											<td> Prognostic of the match: 1-0 and Real Result: 0-0 </td>
 											<td> 1 point </td>
 										</tr>

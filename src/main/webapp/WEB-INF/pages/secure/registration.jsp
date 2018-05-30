@@ -7,64 +7,64 @@
 		<script type="text/javascript" src="/js/registration.js"></script>
 	</head>
 	<body id="prode-container" class="register">
-	
-		
+
+
 		<script type="text/javascript">
 			<c:if test="${not empty personSector}">
 				var selectedSector = ${personSector.id};
 			</c:if>
-			
+
 			<c:if test="${not empty personCountry}">
 				var selectedCountry = ${personCountry.id};
 			</c:if>
-			
+
 			var countries = '[';
-			
+
 			<c:if test="${not empty countries}">
 				<c:set var="i" scope="session" value="${0}"/>
-				
+
 				<c:forEach items="${countries}" var="country">
 					<c:if test="${i != 0}">
 						countries = countries.concat(', ');
 					</c:if>
-					
+
 					countries = countries.concat('{"id" : "${country.id}", "name" :  "${country.name}"}');
-					
+
 					<c:set var="i" value="${country.id}"/>
 				</c:forEach>
 			</c:if>
-			
+
 			countries = countries.concat(']');
-			
+
 			var sectors = '[';
-			
+
 			<c:if test="${not empty sectors}">
 				<c:set var="j" scope="session" value="${0}"/>
-				
+
 				<c:forEach items="${sectors}" var="sector">
 					<c:if test="${j != 0}">
 						sectors = sectors.concat(', ');
 					</c:if>
-					
+
 					sectors = sectors.concat('{"id" : "${sector.id}", "name" :  "${sector.name}", "country" : "${sector.country.id}"}');
-					
+
 					<c:set var="j" value="${sector.id}"/>
 				</c:forEach>
 			</c:if>
-			
+
 			sectors = sectors.concat(']');
-			
+
 			countries = jQuery.parseJSON( countries );
 			sectors = jQuery.parseJSON( sectors );
 		</script>
-		
+
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div id="messages">
 			</div>
-			
+
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Registration</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Registration</span>
 			</div>
 
 			<div class="panel panel-default pr-information">
@@ -87,7 +87,7 @@
 							</br>
 							<div class="subTitle">Country:</div>
 							<select class="country form-control">
-								
+
 							</select>
 							</br>
 							<div class="subTitle">Sector:</div>
@@ -97,8 +97,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 			<c:forEach items="${fixture}" var="fixture">
 				<div class="panel panel-default pr-registration">
 					<div class="panel-heading" group="${fixture.key}">${fixture.value[0].group.name}</div>

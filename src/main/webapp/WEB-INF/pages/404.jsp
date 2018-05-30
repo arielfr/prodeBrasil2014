@@ -5,11 +5,11 @@
 	<body id="prode-container">
 		<jsp:include page="secure/includes/menu-bar.jsp" />
 		<div id="central-container">
-		
+
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">404</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">404</span>
 			</div>
-			
+
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="alert alert-danger"><span class="glyphicon glyphicon-asterisk"></span> The page that you're trying to access doesn't exist</div>

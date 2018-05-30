@@ -13,9 +13,9 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2014 FIFA World Cup Brazil</span> <span class="green subtitle">Calculate Scoring</span>
+				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Calculate Scoring</span>
 			</div>
-			
+
 			<div class="panel panel-default">
 				<div class="panel-body">
 					The scores have been updated

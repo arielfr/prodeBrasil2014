@@ -9,8 +9,7 @@
 				<span class="icon-bar"></span>
             </button>
 			<a class="navbar-brand" href="/secure/index">
-				<img class="oe-logo" src="/assets/oe_logo_alternative.png">
-				<img class="wc-logo" src="/assets/wc_logo.png">
+				<img class="company-logo" src="/assets/ml_logo.png">
 			</a>
 		</div>
 	    <div class="collapse navbar-collapse">
