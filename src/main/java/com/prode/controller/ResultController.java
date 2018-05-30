@@ -27,19 +27,19 @@ import com.prode.services.impl.DBScoreService;
 @Controller
 @RequestMapping(value = "/result", produces = "application/json")
 public class ResultController extends AbstractController {
-	
+
 	@Resource
 	PersonRepository personRepo;
-	
+
 	@Resource
 	ResultRepository resultRepo;
-	
+
 	@Resource
 	TeamRepository teamRepo;
-	
+
 	@Resource
 	MatchRepository matchRepo;
-	
+
 	@Resource
 	DBScoreService scoreService;
 
@@ -47,44 +47,44 @@ public class ResultController extends AbstractController {
 	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
 		return null;
 	}
-    
+
     @RequestMapping(value = "/submit", method = RequestMethod.POST, produces="application/json")
     @ResponseBody
     public void submitResults(@RequestBody List<UISaveFixtureDTO> fixtureDTO) {
     	persistResults(fixtureDTO);
     }
-    
+
     public void persistResults(List<UISaveFixtureDTO> fixtureDTO){
     	for(UISaveFixtureDTO groups : fixtureDTO){
-    		Result resultA = (Result) resultRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamAId());
-    		Result resultB = (Result) resultRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamBId());
-    		
+    		Result resultA = resultRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamAId());
+    		Result resultB = resultRepo.findByMatchAndTeam(groups.getMatchId(), groups.getTeamBId());
+
     		//Save only if you complete the value in the UI
     		if( !(groups.getTeamA_Result() == -1 || groups.getTeamB_Result() == -1) ){
 	    		if( resultA == null || resultB == null ){
 	    			resultA = new Result();
 	    			resultB = new Result();
-	    			
+
 	    			Team teamA = teamRepo.findOne(groups.getTeamAId());
 	    			Team teamB = teamRepo.findOne(groups.getTeamBId());
-	    			
+
 	    			Match match = matchRepo.findOne(groups.getMatchId());
-	    			
+
 	    			resultA.setTeam(teamA);
 	    			resultB.setTeam(teamB);
-	    			
+
 	    			resultA.setMatch(match);
 	    			resultB.setMatch(match);
 	    		}
-	    		
+
 	    		resultA.setGol(groups.getTeamA_Result());
 	    		resultB.setGol(groups.getTeamB_Result());
-	    		
+
 	    		resultRepo.save(resultA);
 	    		resultRepo.save(resultB);
     		}
     	}
-    	
+
     	scoreService.getScoresProde();
     }
 }
