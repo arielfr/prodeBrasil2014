@@ -6,9 +6,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Prode Mundial 2014</name>
 	<url>http://maven.apache.org</url>
-  
+
 	<properties>
-		<spring.version>3.2.0.RELEASE</spring.version>
+		<spring.version>4.0.0.RELEASE</spring.version>
 		<spring.security>3.1.0.RELEASE</spring.security>
 		<spring.data.version>1.2.0.RELEASE</spring.data.version>
 		<spring.data.core.version>1.4.0.RELEASE</spring.data.core.version>
@@ -26,8 +26,9 @@
 		<quartz.version>2.2.1</quartz.version>
 		<jodatime.version>2.3</jodatime.version>
 		<jodatime.jsp.version>1.1.1</jodatime.jsp.version>
+		<slf4j.version>1.7.5</slf4j.version>
 	</properties>
-  
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -177,8 +178,18 @@
 		   <artifactId>usertype.core</artifactId>
 		   <version>3.1.0.CR1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 	</dependencies>
-  
+
 	<build>
 		<finalName>ProdeMundial</finalName>
 	</build>

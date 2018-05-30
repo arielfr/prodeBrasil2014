@@ -9,14 +9,14 @@
 	<security:authentication-manager alias="authenticationManager">
 		<security:authentication-provider ref="oAuthProvider" />
 	</security:authentication-manager>
-	 
+
 	<security:http entry-point-ref="google2EntryPoint">
 	    <security:custom-filter after="CAS_FILTER" ref="oAuthFilter" />
 		<security:intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_FULLY" />
 		<security:intercept-url pattern="/prode/**" access="IS_AUTHENTICATED_FULLY" />
 		<security:logout logout-success-url="/logout" />
 	</security:http>
-    
+
 	<!-- OAuth Authentication Providers definition -->
 	<!-- Authorize Redirect URI: http://localhost:8080/j_spring_oauth_security_check?oauth_provider_type=Google2Provider -->
     <bean id="google2Provider" class="org.scribe.up.provider.impl.Google2Provider">
@@ -24,7 +24,7 @@
         <property name="secret" value="${google.secret}"/>
         <property name="scope" value="EMAIL_AND_PROFILE"/>
     </bean>
- 
+
     <bean id="providersDefinition" class="org.scribe.up.provider.ProvidersDefinition">
         <property name="baseUrl" value="${provide.url}" />
         <property name="providers">
@@ -33,15 +33,15 @@
             </list>
         </property>
     </bean>
- 
+
     <bean id="oAuthProvider" class="com.github.leleuj.ss.oauth.client.authentication.OAuthAuthenticationProvider">
         <property name="providersDefinition" ref="providersDefinition" />
     </bean>
- 
+
     <bean id="google2EntryPoint" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationEntryPoint">
         <property name="provider" ref="google2Provider" />
     </bean>
- 
+
     <!-- OAUth Authentication filter  -->
     <bean id="oAuthFilter" class="com.github.leleuj.ss.oauth.client.web.OAuthAuthenticationFilter">
         <property name="providersDefinition" ref="providersDefinition" />
