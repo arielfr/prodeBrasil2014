@@ -30,146 +30,126 @@ public class DBScoreService implements ScoreService {
 
 	@Resource
 	PersonRepository personRepo;
-	
+
 	@Resource
 	ResultRepository resultRepo;
-	
+
 	@Resource
 	MatchRepository matchRepo;
-	
+
 	@Resource
 	ProdeRepository prodeRepo;
-	
+
 	@Resource
 	LogScoringRepository logScoringRepo;
-	
+
 	@Resource
 	DBPositionService positionService;
-	
+
 	public void getScoresProde() {
 		//Get all users
 		List<Person> users = personRepo.findAll();
 		//Get all matches
 		List<Match> matches = matchRepo.findAll();
-		
+
 		for (Person user : users) {
-			int score = 0;
-			
-			//Iterate all matches
-			for (Match match : matches) {
-				List<Result> matchResult = resultRepo.findByMatch(match.getId());
-				
-				//Apply calculation in the only matches that where play
-				if( !matchResult.isEmpty() ){
-					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
-					
-					if( !userProde.isEmpty() ){
-						List<Integer> resultsGoals = new ArrayList<Integer>();
-						List<Integer> prodeGoals = new ArrayList<Integer>();
-						
-						for(Result playMatch : matchResult){
-							for(Prode prode : userProde){
-								if(playMatch.getTeam().getId() == prode.getTeam().getId()){
-									resultsGoals.add(playMatch.getGol());
-									prodeGoals.add(prode.getGol());
-								}
-							}
-						}
-						
-						score += this.calculateScoreByMatch(resultsGoals.get(0), resultsGoals.get(1), prodeGoals.get(0), prodeGoals.get(1));
-					}else{
-						score += 0;
-					}
-				}else{
-					score += 0;
-				}
-			}
-			
+			int score = getScoreFromMatches(matches, user);
+
 			// save the score for the user.
 			user.setScore(new Long(score));
-			
+
 			personRepo.save(user);
 		}
-		
+
 		// Log last socring calculated
 		LogScoring logScoring = new LogScoring();
 		logScoring.setDateLog(LocalDateTime.now());
 		logScoringRepo.save(logScoring);
 	}
-	
+
 	public List<PersonPositionDTO> getScoresProdeWeek(String startDateParam, String endDateParam){
 		//Get all users
 		List<Person> users = personRepo.findAll();
-		
+
 		LocalDateTime startDate = LocalDateTime.parse(startDateParam + "T00:00:00");
 		LocalDateTime endDate = LocalDateTime.parse(endDateParam + "T23:59:59");
-		
+
 		//Get all matches
 		List<Match> matches = matchRepo.findByDateAndDate(startDate, endDate);
-		
+
 		for (Person user : users) {
-			int score = 0;
-			
-			//Iterate all matches
-			for (Match match : matches) {
-				List<Result> matchResult = resultRepo.findByMatch(match.getId());
-				
-				//Apply calculation in the only matches that where play
-				if( !matchResult.isEmpty() ){
-					List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
-					
-					if( !userProde.isEmpty() ){
-						List<Integer> resultsGoals = new ArrayList<Integer>();
-						List<Integer> prodeGoals = new ArrayList<Integer>();
-						
-						for(Result playMatch : matchResult){
-							for(Prode prode : userProde){
-								if(playMatch.getTeam().getId() == prode.getTeam().getId()){
-									resultsGoals.add(playMatch.getGol());
-									prodeGoals.add(prode.getGol());
-								}
-							}
-						}
-						
-						score += this.calculateScoreByMatch(resultsGoals.get(0), resultsGoals.get(1), prodeGoals.get(0), prodeGoals.get(1));
-					}else{
-						score += 0;
-					}
-				}else{
-					score += 0;
-				}
-			}
-			
+			int score = getScoreFromMatches(matches, user);
+
 			// save the score for the user.
 			user.setScore(new Long(score));
 		}
-		
+
 		Collections.sort(users, new Comparator<Person>() {
-	        @Override
 	        public int compare(Person o1, Person o2) {
 	            return (int) (o2.getScore() - o1.getScore());
 	        }
 	    });
-		
+
 		return positionService.returnMePositions(users);
 	}
 
+	/**
+	 * Get score from matches
+	 * @param matches
+	 * @param user
+	 * @return
+	 */
+	private Integer getScoreFromMatches(List<Match> matches, Person user) {
+		int score = 0;
+
+		for (Match match : matches) {
+			List<Result> matchResult = resultRepo.findByMatch(match.getId());
+
+			//Apply calculation in the only matches that where play
+			if( !matchResult.isEmpty() ){
+				List<Prode> userProde = prodeRepo.findByMatchAndUser(user.getId(), match.getId());
+
+				if( !userProde.isEmpty() ){
+					List<Integer> resultsGoals = new ArrayList<Integer>();
+					List<Integer> prodeGoals = new ArrayList<Integer>();
+
+					for(Result playMatch : matchResult){
+						for(Prode prode : userProde){
+							if(playMatch.getTeam().getId() == prode.getTeam().getId()){
+								resultsGoals.add(playMatch.getGol());
+								prodeGoals.add(prode.getGol());
+							}
+						}
+					}
+
+					score += this.calculateScoreByMatch(resultsGoals.get(0), resultsGoals.get(1), prodeGoals.get(0), prodeGoals.get(1));
+				}else{
+					score += 0;
+				}
+			}else{
+				score += 0;
+			}
+		}
+
+		return score;
+	}
+
 	/*
-	 * Los puntos serán calculados en base al siguiente
-	   criterio: 
-	   1. Si acertás ELV y los goles convertidos: 5 puntos
-	   Ejemplo: Pronostico del partido 2-1 Resultado Real: 2-1 
-	   2. Si acertás ELV y la cantidad de goles de sólo 1 selección: 3 puntos 
+	 * Los puntos serï¿½n calculados en base al siguiente
+	   criterio:
+	   1. Si acertï¿½s ELV y los goles convertidos: 5 puntos
+	   Ejemplo: Pronostico del partido 2-1 Resultado Real: 2-1
+	   2. Si acertï¿½s ELV y la cantidad de goles de sï¿½lo 1 selecciï¿½n: 3 puntos
 	   Ejemplo: Pronostico del partido 5-1 Resultado Real 5-4
-	   3. Si acertás ELV y ninguno de los goles de cada selección: 2
-	   puntos 
+	   3. Si acertï¿½s ELV y ninguno de los goles de cada selecciï¿½n: 2
+	   puntos
 	   Ejemplo: Pronostico del partido 4-3 Resultado Real: 1-0
-	   4. Si acertás cantidad de goles de 1 equipo nada más: 1 punto
+	   4. Si acertï¿½s cantidad de goles de 1 equipo nada mï¿½s: 1 punto
 	   Ejemplo: Pronostico del partido 1-0 Resultado Real: 0-0 5.
-	   5. Si no acertás nada: 0 puntos 
+	   5. Si no acertï¿½s nada: 0 puntos
 	   Ejemplo: Pronostico del partido 0-1 Resultado Real: 2-2
 	 */
-	
+
 	private Boolean calculatePronostic(Integer golResultA, Integer golResultB, Integer golProdeA, Integer golProdeB) {
 		Boolean pronostic = Boolean.FALSE;
 
@@ -177,27 +157,27 @@ public class DBScoreService implements ScoreService {
 		if( (golResultA > golResultB) && (golProdeA > golProdeB) ){
 			pronostic = Boolean.TRUE;
 		}
-		
+
 		//Gana Equipo B
 		if( (golResultB > golResultA) && (golProdeB > golProdeA) ){
 			pronostic = Boolean.TRUE;
 		}
-		
+
 		//Empate
 		if( (golResultA == golResultB) && (golProdeA == golProdeB) ){
 			pronostic = Boolean.TRUE;
 		}
-		
+
 		return pronostic;
 	}
-	
+
 	private int calculateScoreByMatch(Integer golResultA, Integer golResultB, Integer golProdeA, Integer golProdeB) {
-		
-		Boolean pronostic = this.calculatePronostic(golResultA, golResultB, golProdeA, golProdeB); 
-		
+
+		Boolean pronostic = this.calculatePronostic(golResultA, golResultB, golProdeA, golProdeB);
+
 		if (pronostic == Boolean.TRUE && golResultA.compareTo(golProdeA)==0 && golResultB.compareTo(golProdeB)==0) {
 			return 5;
-		} else if (pronostic == Boolean.TRUE  && (golResultA.compareTo(golProdeA)==0 && golResultB.compareTo(golProdeB)!=0 
+		} else if (pronostic == Boolean.TRUE  && (golResultA.compareTo(golProdeA)==0 && golResultB.compareTo(golProdeB)!=0
 				|| golResultA.compareTo(golProdeA)!=0 && golResultB.compareTo(golProdeB)==0)) {
 			return 3;
 		} else if (pronostic == Boolean.TRUE  && golResultA.compareTo(golProdeA)!=0 && golResultB.compareTo(golProdeB)!=0)
