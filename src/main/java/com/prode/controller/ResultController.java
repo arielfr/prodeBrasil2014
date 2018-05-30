@@ -84,7 +84,5 @@ public class ResultController extends AbstractController {
 	    		resultRepo.save(resultB);
     		}
     	}
-
-    	scoreService.getScoresProde();
     }
 }

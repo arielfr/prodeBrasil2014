@@ -16,7 +16,7 @@
 	    	<c:if test="${register}">
 				<ul class="nav navbar-nav central">
 					<li class="<c:if test="${page == 'index'}">active</c:if>">
-						<a href="/secure/index">Scores</a>
+						<a href="/secure/index">Fixture</a>
 					</li>
 					<li class="<c:if test="${page == 'positions'}">active</c:if>">
 						<a href="/secure/positions">Global Positions</a>

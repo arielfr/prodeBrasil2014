@@ -64,7 +64,7 @@
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Registration</span>
+				<h1>Registration</h1>
 			</div>
 
 			<div class="panel panel-default pr-information">

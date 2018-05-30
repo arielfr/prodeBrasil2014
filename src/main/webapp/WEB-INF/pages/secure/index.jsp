@@ -6,19 +6,19 @@
 		<jsp:include page="includes/header.jsp" />
 		<script type="text/javascript" src="/js/index.js"></script>
 	</head>
-	<body id="prode-container" class="register">
+	<body id="prode-container" class="fixture">
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div id="messages">
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Scores</span>
-				<span class="red littleSubtitle">
+				<h1>Fixture</h1>
+				<h4 class="updated">
 				<c:if test="${not empty logdate}">
-					<span style="font-family: fantasy;">Last update: <joda:format value="${logdate}" style="SS" dateTimeZone="${personTimezone}"/></span>
+					Last update: <joda:format value="${logdate}" style="SS" dateTimeZone="${personTimezone}"/>
 				</c:if>
-				</span>
+				</h4>
 			</div>
 
 			<jsp:include page="includes/podium.jsp" />

@@ -7,7 +7,7 @@
 		<div id="central-container">
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">FAQ</span>
+				<h1>FAQ</h1>
 			</div>
 
 			<div class="panel panel-default">
@@ -55,7 +55,7 @@
 										</tr>
 										<tr>
 											<td> 4 </td>
-											<td> Hit only one team�s total goals. </td>
+											<td> Hit only one team's total goals. </td>
 											<td> Prognostic of the match: 1-0 and Real Result: 0-0 </td>
 											<td> 1 point </td>
 										</tr>
@@ -72,7 +72,7 @@
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse">
-							<div class="panel-body">The results will be updated daily. A task will run automatically on midnights. This can be done manually by OE Argentina Team too.</div>
+							<div class="panel-body">The results will be updated daily. A task will run automatically on midnights. This can be done manually by the owner of the Application too.</div>
 						</div>
 					</div>
 				</div>

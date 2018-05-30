@@ -6,14 +6,14 @@
 		<jsp:include page="includes/header.jsp" />
 		<script type="text/javascript" src="/js/matches.js"></script>
 	</head>
-	<body id="prode-container" class="register">
+	<body id="prode-container" class="matches">
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div id="messages">
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Results</span>
+				<h1>Results</h1>
 			</div>
 
 			<c:forEach items="${fixture}" var="fixture">

@@ -135,18 +135,18 @@ public class DBScoreService implements ScoreService {
 	}
 
 	/*
-	 * Los puntos ser�n calculados en base al siguiente
+	 * Los puntos seran calculados en base al siguiente
 	   criterio:
-	   1. Si acert�s ELV y los goles convertidos: 5 puntos
+	   1. Si acertas ELV y los goles convertidos: 5 puntos
 	   Ejemplo: Pronostico del partido 2-1 Resultado Real: 2-1
-	   2. Si acert�s ELV y la cantidad de goles de s�lo 1 selecci�n: 3 puntos
+	   2. Si acertas ELV y la cantidad de goles de solo 1 seleccion: 3 puntos
 	   Ejemplo: Pronostico del partido 5-1 Resultado Real 5-4
-	   3. Si acert�s ELV y ninguno de los goles de cada selecci�n: 2
+	   3. Si acertas ELV y ninguno de los goles de cada seleccion: 2
 	   puntos
 	   Ejemplo: Pronostico del partido 4-3 Resultado Real: 1-0
-	   4. Si acert�s cantidad de goles de 1 equipo nada m�s: 1 punto
+	   4. Si acertas cantidad de goles de 1 equipo nada mas: 1 punto
 	   Ejemplo: Pronostico del partido 1-0 Resultado Real: 0-0 5.
-	   5. Si no acert�s nada: 0 puntos
+	   5. Si no acertas nada: 0 puntos
 	   Ejemplo: Pronostico del partido 0-1 Resultado Real: 2-2
 	 */
 

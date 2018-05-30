@@ -5,14 +5,14 @@
 		<jsp:include page="includes/header.jsp" />
 		<script type="text/javascript" src="/js/index.js"></script>
 	</head>
-	<body id="prode-container" class="register">
+	<body id="prode-container" class="positions_country">
 		<jsp:include page="includes/menu-bar.jsp" />
 		<div id="central-container">
 			<div id="messages">
 			</div>
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Country Positions</span>
+				<h1>Country Positions</h1>
 			</div>
 
 			<c:forEach items="${positionsByCountry}" var="country">

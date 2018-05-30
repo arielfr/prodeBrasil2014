@@ -7,7 +7,7 @@
 		<div id="central-container">
 
 			<div class="oe-header">
-				<span class="blue">2018 Fifa World Cup Russia</span> <span class="green subtitle">Registration Close</span>
+				<h1>Registration Close</h1>
 			</div>
 
 			<div class="panel panel-default">

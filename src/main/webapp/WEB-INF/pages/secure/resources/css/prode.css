@@ -1,35 +1,32 @@
-html {
-    overflow-y: scroll;
-}
-
-@font-face {
+html{
 	font-family: 'Roboto', sans-serif;
 }
 
 #prode-container{
-	/* background: #F5F5F5; */
-	background: #cdeafa; /* Old browsers */
-	background: -moz-linear-gradient(top, #cdeafa 0%, #edf7fa 73%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeafa), color-stop(73%,#edf7fa)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #cdeafa 0%,#edf7fa 73%); /* IE10+ */
-	background: linear-gradient(to bottom, #cdeafa 0%,#edf7fa 73%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeafa', endColorstr='#edf7fa',GradientType=0 ); /* IE6-9 */
+	background: #ebebeb;
 }
 
 #prode-container .navbar{
+	background: #fff159;
 	border-radius: 0px;
 	padding: 0px 50px 0px 50px;
 }
 
 #prode-container .navbar .navbar-header,
 #prode-container .navbar ul.navbar-nav.central li{
-	border-right: 1px solid rgb(233, 233, 233);
+	/* border-right: 1px solid rgb(233, 233, 233); */
+}
+
+#prode-container .navbar-default .navbar-text,
+#prode-container .navbar-default .navbar-nav a {
+	color: #333;
+}
+
+#prode-container .navbar-default .navbar-nav>.active>a {
+	background: #fff9bb;
 }
 
 #prode-container .navbar.oe-bar{
-	/* background-image: linear-gradient(to bottom, #E2E4FC 0, #FFFFFF 100%) !important; */
 }
 
 #prode-container .navbar-brand{
@@ -55,7 +52,6 @@ html {
 }
 
 #prode-container .oe-header{
-	font-family: fifa;
 	font-size: 52px;
 }
 
@@ -76,8 +72,8 @@ html {
 	font-size: 30px;
 }
 
-#prode-container .oe-header span.littleSubtitle{
-	font-size: 24px;
+#prode-container .oe-header .updated{
+	color: grey;
 }
 
 
@@ -115,7 +111,7 @@ html {
 }
 
 #prode-container .panel .panel-body{
-	padding: 10px 25px 10px 25px;
+	padding: 10px;
 }
 
 #prode-container .panel .panel-heading div.points{
