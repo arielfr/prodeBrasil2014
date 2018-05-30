@@ -1,7 +1,11 @@
-.settings
-/target
-.classpath
-.project
-/bin
-/src/main/resources/configurations.properties
+/classes
 .DS_Store
+.settings
+/*.log
+/out/
+.gradle
+/build/
+build/
+.idea/*
+target/
+*.iml
