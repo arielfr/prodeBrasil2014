@@ -201,11 +201,12 @@ html{
 }
 
 #prode-container .panel .row .prode-block table div.flag{
-	width: 20px;
-	height: 15px;
+	width: 39px;
+	height: 23px;
 	overflow: hidden;
-	background-position: 0 -6px;
+	background-position: 0px 0px;
 	position: relative;
+	border: 1px solid #e4e4e4;
 }
 
 #prode-container .panel .row .prode-block table div.flag.fteam_a{
@@ -218,136 +219,168 @@ html{
 
 #prode-container .panel .row .prode-block table div.flag img{
 	position: absolute;
-	left: 0px;
-	top: -6px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.arg{
-	top: -34px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.bra{
-	top: -136px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.cro{
-	top: -898px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.mex{
-	top: -550px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.cam{
-	top: -620px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.esp{
-	top: -206px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.hol{
-	top: -966px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.chi{
-	top: -655px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.aus{
-	top: -309px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.col{
-	top: -172px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.gre{
-	top: -931px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.mar{
-	top: -690px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.jap{
-	top: -516px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.uru{
-	top: -240px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.cos{
-	top: -377px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.ing{
-	top: -1000px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.ita{
-	top: -1034px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.sui{
-	top: -275px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.ecu{
-	top: -725px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.fra{
-	top: -759px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.hon{
-	top: -448px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.bos{
-	top: -862px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.ira{
-	top: -483px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.nig{
-	top: -828px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.ale{
-	top: -69px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.por{
-	top: -1069px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.gha{
-	top: -794px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.usa{
-	top: -412px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.bel{
-	top: -102px;
-}
-
-#prode-container .panel .row .prode-block table div.flag img.arl{
-	top: -585px;
+	left: -10px;
+	top: -9px;
 }
 
 #prode-container .panel .row .prode-block table div.flag img.rus{
-	top: -1103px;
+	left: -10px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.sau{
+	left: -58px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.egy{
+	left: -298px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.uru{
+	left: -106px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.por{
+	left: -298px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.esp{
+	left: -58px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.mor{
+	left: -106px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ira{
+	left: -250px;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.fra{
+	left: -202px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.aus{
+	left: -58px;
+	top: -105px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.per{
+	left: -154px;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.den{
+	left: -346px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.arg{
+	left: -250px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ice{
+	left: -154px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cro{
+	left: -10px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.nig{
+	left: -250px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.bra{
+	left: -346px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.swi{
+	left: -202px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.cos{
+	left: -250px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ser{
+	left: -58px;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ale{
+	left: -298px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.mex{
+	left: -10px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.sew{
+	left: -202px;
+	top: -76px;
 }
 
 #prode-container .panel .row .prode-block table div.flag img.cor{
-	top: -343px;
+	left: -298;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.bel{
+	left: -346px;
+	top: -42px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.pan{
+	left: -10px;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.tun{
+	left: -154px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.ing{
+	left: -106px;
+	top: -106px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.pol{
+	left: -106px;
+	top: -73px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.sen{
+	left: -346px;
+	top: -74px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.col{
+	left: -154px;
+	top: -10px;
+}
+
+#prode-container .panel .row .prode-block table div.flag img.jap{
+	left: -203px;
+	top: -106px;
 }
 
 #prode-container.register .panel div.reg-personal{

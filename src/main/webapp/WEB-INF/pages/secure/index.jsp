@@ -49,7 +49,7 @@
 													<td>
 														<div class="teams">
 															<div class="flag fteam_a" team_a="${match.teamA.id}">
-																<img class="${match.teamA.flag}" src="/assets/Flags.gif">
+																<img class="${match.teamA.flag}" src="/assets/banderas.png">
 															</div>
 															${match.teamA.name}
 														</div>
@@ -120,7 +120,7 @@
 														<div class="teams">
 															${match.teamB.name}
 															<div class="flag fteam_b"  team_b="${match.teamB.id}">
-																<img class="${match.teamB.flag}" src="/assets/Flags.gif">
+																<img class="${match.teamB.flag}" src="/assets/banderas.png">
 															</div>
 														</div>
 													</td>
