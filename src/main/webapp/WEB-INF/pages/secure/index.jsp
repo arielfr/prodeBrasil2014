@@ -54,12 +54,51 @@
 															${match.teamA.name}
 														</div>
 													</td>
+
+
+
 													<td class="results">
-														<c:forEach items="${match.prode}" var="prode">
-															<c:if test="${prode.team.id == match.teamA.id}">
-																<input style="width: 30px; height: 30px;" value="${prode.gol}" maxlength="1" class="team_a_result" disabled>
+														<c:choose>
+															<c:when test="${not empty match.prode}">
+																<c:forEach items="${match.prode}" var="prode">
+																	<c:if test="${not empty prode}">
+																		<c:if test="${prode.team.id == match.teamA.id}">
+																			<input style="width: 30px; height: 30px;" value="${prode.gol}" maxlength="1" class="team_a_result" disabled>
+																			<c:if test="${empty match.result}">
+																				<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_a_result_fifa" disabled>
+																			</c:if>
+																			<c:if test="${not empty match.result}">
+																				<c:forEach items="${match.result}" var="result">
+																					<c:if test="${result.team.id == match.teamA.id}">
+																						<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_a_result_fifa" disabled>
+																					</c:if>
+																				</c:forEach>
+																			</c:if>
+																		</c:if>
+																	</c:if>
+																</c:forEach>
+																<c:forEach items="${match.prode}" var="prode">
+																	<c:if test="${prode.team.id == match.teamB.id}">
+																		<div class="dash">-</div>
+																		<c:if test="${empty match.result}">
+																			<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_b_result_fifa" disabled>
+																		</c:if>
+																		<c:if test="${not empty match.result}">
+																			<c:forEach items="${match.result}" var="result">
+																				<c:if test="${result.team.id == match.teamB.id}">
+																					<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_b_result_fifa" disabled>
+																				</c:if>
+																			</c:forEach>
+																		</c:if>
+																		<input style="width: 30px; height: 30px;" value="${prode.gol}" maxlength="1" class="team_b_result" disabled>
+																	</c:if>
+																</c:forEach>
+															</c:when>
+															<c:otherwise>
 																<c:if test="${empty match.result}">
 																	<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_a_result_fifa" disabled>
+																	<div class="dash">-</div>
+																	<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_b_result_fifa" disabled>
 																</c:if>
 																<c:if test="${not empty match.result}">
 																	<c:forEach items="${match.result}" var="result">
@@ -67,25 +106,15 @@
 																			<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_a_result_fifa" disabled>
 																		</c:if>
 																	</c:forEach>
-																</c:if>
-															</c:if>
-														</c:forEach>
-														<c:forEach items="${match.prode}" var="prode">
-															<c:if test="${prode.team.id == match.teamB.id}">
-																<div class="dash">-</div>
-																<c:if test="${empty match.result}">
-																	<input style="width: 30px; height: 30px;" value="" maxlength="1" class="team_b_result_fifa" disabled>
-																</c:if>
-																<c:if test="${not empty match.result}">
+																	<div class="dash">-</div>
 																	<c:forEach items="${match.result}" var="result">
 																		<c:if test="${result.team.id == match.teamB.id}">
 																			<input style="width: 30px; height: 30px;" value="${result.gol}" maxlength="1" class="team_b_result_fifa" disabled>
 																		</c:if>
 																	</c:forEach>
 																</c:if>
-																<input style="width: 30px; height: 30px;" value="${prode.gol}" maxlength="1" class="team_b_result" disabled>
-															</c:if>
-														</c:forEach>
+															</c:otherwise>
+														</c:choose>
 													</td>
 													<td>
 														<div class="teams">
